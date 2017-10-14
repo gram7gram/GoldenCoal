@@ -1,0 +1,471 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+body {
+    background: url('/img/background.jpg') no-repeat top center fixed !important;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+
+.map-container {
+    background: url('/img/gmap@128.png') no-repeat center center !important;
+    background-color: #eeeeee;
+    max-height: 400px;
+    min-height: 400px;
+    height: 400px;
+}
+
+.page-container {
+    background: white;
+    border: 0 none;
+    border-radius: 0px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    padding: 20px 30px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+textarea {
+    resize: vertical;
+}
+
+
+.about-promo .about-promo-prize {
+    position: relative;
+    bottom: 95px;
+    height: 200px;
+    z-index: -1;
+}
+
+.about-promo .about-promo-title {
+    position: relative;
+    top: 100px;
+    height: 130px
+}
+
+.about-promo .about-promo-title .about-promo-title-text {
+    font-family: montserrat, arial, verdana;
+    font-size: 23pt;
+    line-height: 40px;
+}
+
+.about-promo .about-promo-title .about-promo-title-text span{
+   background-color: rgba(255, 255, 255, 0.5);
+}
+
+.about-promo .about-promo-title .about-promo-title-actions {
+
+}
+
+.about-promo .about-promo-prize img {
+    margin: 0 auto;
+    max-height: 300px;
+}
+
+.offer-container {
+    padding: 10px;
+    background: white;
+    border: 0 none;
+    border-radius: 0;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    width: 100%;
+
+}
+
+.offer {
+    margin-bottom: 30px
+}
+
+.offer .offer-title {
+    font-family: montserrat, arial, verdana;
+    font-size: 23pt;
+}
+
+.offer .offer-reward {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.offer .offer-image img {
+    margin: 0 auto
+}
+
+.offer .offer-reward .offer-reward-title {
+    font-family: montserrat, arial, verdana;
+    font-size: 25pt;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 75px;
+    height: 75px;
+    margin: 0 auto;
+    background: #2B2A28;
+    color: white;
+    padding-top: 14px;
+}
+
+.offer .offer-reward .offer-reward-footer {
+    font-family: montserrat, arial, verdana;
+    font-size: 15pt;
+}
+
+.promo {
+    max-width: 800px;
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto
+}
+
+.btn-primary {
+    color: #2B2A28;
+    background-color: #FFED00;
+    border-color: #2B2A28;
+    background-image: none !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+    color: #2B2A28;
+    background-color: #F8C600;
+    border-color: #2B2A28;
+}
+
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+    background-image: none;
+}
+
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+    background-color: #FFED00;
+    border-color: #2B2A28;
+}
+
+.btn-primary .badge {
+    color: #FFED00;
+    background-color: #2B2A28;
+}
+
+
+
+.lds-css {
+}
+
+@-webkit-keyframes lds-ellipsis3 {
+    0%, 25% {
+        left: 32px;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    50% {
+        left: 32px;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    75% {
+        left: 100px;
+    }
+    100% {
+        left: 168px;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes lds-ellipsis3 {
+    0%, 25% {
+        left: 32px;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    50% {
+        left: 32px;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    75% {
+        left: 100px;
+    }
+    100% {
+        left: 168px;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes lds-ellipsis2 {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    25%, 100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+}
+
+@keyframes lds-ellipsis2 {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    25%, 100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+}
+
+@-webkit-keyframes lds-ellipsis {
+    0% {
+        left: 32px;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    25% {
+        left: 32px;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        left: 100px;
+    }
+    75% {
+        left: 168px;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    100% {
+        left: 168px;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+}
+
+@keyframes lds-ellipsis {
+    0% {
+        left: 32px;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    25% {
+        left: 32px;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        left: 100px;
+    }
+    75% {
+        left: 168px;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    100% {
+        left: 168px;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+}
+
+.lds-ellipsis {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.lds-ellipsis > div {
+    position: absolute;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 32px;
+    height: 32px;
+}
+
+.lds-ellipsis div > div {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #f00;
+    position: absolute;
+    top: 100px;
+    left: 32px;
+    -webkit-animation: lds-ellipsis 1.6s cubic-bezier(0, 0.5, 0.5, 1) infinite forwards;
+    animation: lds-ellipsis 1.6s cubic-bezier(0, 0.5, 0.5, 1) infinite forwards;
+}
+
+.lds-ellipsis div:nth-child(1) div {
+    -webkit-animation: lds-ellipsis2 1.6s cubic-bezier(0, 0.5, 0.5, 1) infinite forwards;
+    animation: lds-ellipsis2 1.6s cubic-bezier(0, 0.5, 0.5, 1) infinite forwards;
+    background: #ffffff;
+}
+
+.lds-ellipsis div:nth-child(2) div {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+    background: #ffffff;
+}
+
+.lds-ellipsis div:nth-child(3) div {
+    -webkit-animation-delay: -0.4s;
+    animation-delay: -0.4s;
+    background: #ffffff;
+}
+
+.lds-ellipsis div:nth-child(4) div {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    background: #ffffff;
+}
+
+.lds-ellipsis div:nth-child(5) div {
+    -webkit-animation: lds-ellipsis3 1.6s cubic-bezier(0, 0.5, 0.5, 1) infinite forwards;
+    animation: lds-ellipsis3 1.6s cubic-bezier(0, 0.5, 0.5, 1) infinite forwards;
+    background: #ffffff;
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+/*form styles*/
+.step-navigation {
+    text-align: center;
+    position: relative;
+    margin-top: 30px;
+}
+
+/*Hide all except first fieldset*/
+.step-navigation .step:not(.active) {
+    display: none;
+}
+
+/*inputs*/
+input, textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 13px;
+}
+
+input:focus, textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #ee0979;
+    outline-width: 0;
+    transition: All 0.5s ease-in;
+    -webkit-transition: All 0.5s ease-in;
+    -moz-transition: All 0.5s ease-in;
+    -o-transition: All 0.5s ease-in;
+}
+
+/*progressbar*/
+.step-navigation .steps {
+    margin: 30px auto;
+    padding: 0;
+    overflow: hidden;
+    /*CSS counters to number the steps*/
+    counter-reset: step;
+}
+
+.step-navigation .steps li {
+    list-style-type: none;
+    color: black;
+    text-transform: uppercase;
+    font-size: 9px;
+    width: 33.33%;
+    float: left;
+    position: relative;
+    letter-spacing: 1px;
+}
+
+.step-navigation .steps li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    /*width: 24px;*/
+    /*height: 24px;*/
+    /*line-height: 26px;*/
+    display: block;
+    font-size: 12px;
+    color: #333;
+    background: white;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+}
+
+/*progressbar connectors*/
+.step-navigation .steps li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    left: -50%;
+    top: 15px;
+    z-index: -1; /*put it behind the numbers*/
+}
+
+.step-navigation .steps li:first-child:after {
+    /*connector not needed before the first step*/
+    content: none;
+}
+
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+.step-navigation .steps li.active:before, .steps li.active:after {
+    background: #000000;
+    color: white;
+}
+
+
+
+/*headings*/
+.contact-title {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #2C3E50;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.contact-subtitle {
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-container {
+    margin: 15px auto;
+    max-width: 700px;
+}

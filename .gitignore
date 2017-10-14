@@ -7,7 +7,6 @@
 /coverage
 
 # production
-/public/dist
 /server/config/parameters.js
 /src/constants/token.js
 
