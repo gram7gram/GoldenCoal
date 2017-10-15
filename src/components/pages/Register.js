@@ -115,7 +115,6 @@ class Register extends React.Component {
                             placeholder={trans('field_email')}
                             value={model.email || ''}
                             onChange={this.change("email")}/>
-                        <HelpBlock>{trans('field_email_notice')}</HelpBlock>
                     </FormGroup>
                 </div>
             case 2:

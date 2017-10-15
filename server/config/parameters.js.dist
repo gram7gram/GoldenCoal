@@ -5,11 +5,18 @@ const config = {
         port: 27017,
         username: '',
         password: '',
-        name: 'golden-coal'
+        name: ''
     },
     server: {
         host: 'localhost',
         port: 3001
+    },
+    mailer: {
+        managers: [''],
+        host: 'localhost',
+        port: 465,
+        username: '',
+        password: '',
     },
     tokens: {
         apiExportParticipants: null

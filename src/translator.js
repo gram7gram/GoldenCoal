@@ -2,6 +2,9 @@ export const LOCALE = 'ua'
 
 const translator = {
     ua: {
+        contact_field_name: 'Ваше імʼя...',
+        contact_field_email: 'Ваш email...',
+        contact_field_content: 'Ваше питання...',
         register_step_1: 'Особисті дані',
         register_step_2: 'Місце роботи',
         register_step_3: 'Розташування',

@@ -1,30 +1,25 @@
 const path = require('path')
 const Api = require('../../src/api')
 
-const controller = (server) => {
+const controller = (env) => {
 
-    server.get(Api.GET.index, (req, res) => {
-        console.log('[+] index');
+    env.server.get(Api.GET.index, (req, res) => {
         res.sendFile(path.resolve('./public/index.html'))
     })
 
-    server.get(Api.GET.about, (req, res) => {
-        console.log('[+] about');
+    env.server.get(Api.GET.about, (req, res) => {
         res.sendFile(path.resolve('./public/about.html'))
     })
 
-    server.get(Api.GET.register, (req, res) => {
-        console.log('[+] register');
+    env.server.get(Api.GET.register, (req, res) => {
         res.sendFile(path.resolve('./public/register.html'))
     })
 
-    server.get(Api.GET.contact, (req, res) => {
-        console.log('[+] contact');
+    env.server.get(Api.GET.contact, (req, res) => {
         res.sendFile(path.resolve('./public/contact.html'))
     })
 
-    server.get(Api.GET.winner, (req, res) => {
-        console.log('[+] winner');
+    env. server.get(Api.GET.winner, (req, res) => {
         res.sendFile(path.resolve('./public/winner.html'))
     })
 }

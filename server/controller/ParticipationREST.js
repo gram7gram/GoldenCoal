@@ -1,10 +1,14 @@
+const path = require('path')
+const fs = require('fs')
+const _ = require('underscore')
 const Api = require('../../src/api')
 const Participant = require('../database/orm/Participant')
-const tokens = require('../config/parameters').tokens
+const parameters = require('../config/parameters')
+const tokens = parameters.tokens
 
-const controller = (server) => {
+const controller = (env) => {
 
-    server.get(Api.GET.export, (req, res) => {
+    env.server.get(Api.GET.export, (req, res) => {
         const token = req.query.access_token
 
         if (token === undefined) {
@@ -27,10 +31,10 @@ const controller = (server) => {
             .csv(res);
     })
 
-    server.post(Api.POST.participants, (req, res) => {
+    env.server.post(Api.POST.participants, (req, res) => {
         const request = req.body
 
-        const email = req.body.email.trim().toLowerCase()
+        const email = request.email.trim().toLowerCase()
         try {
             Participant.findOne({
                 email
@@ -61,7 +65,34 @@ const controller = (server) => {
                         })
                         return
                     }
-                    res.status(201).json(model);
+
+                    try {
+
+                        const templateName = path.resolve(__dirname, '../mailer/templates/register.html')
+
+                        const data = fs.readFileSync(templateName, 'utf8');
+
+                        const html = _.template(data)({
+
+                        })
+
+                        env.mailer.getConnection().sendMail({
+                            from: parameters.mailer.username,
+                            to: participant.email,
+                            subject: 'Участь в акції "Золотий смартфон від Білого Вугілля"',
+                            html,
+                        }, (error) => {
+                            if (error) throw error
+
+                            res.status(201).json(model);
+                        })
+
+                    } catch (error) {
+                        console.error(error)
+                        res.status(500).json({
+                            error
+                        })
+                    }
                 })
 
 

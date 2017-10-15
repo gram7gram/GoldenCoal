@@ -11,8 +11,6 @@ prodConfig.module.loaders.push({
     loader: WebpackStripLoader.loader('console.log')
 });
 
-prodConfig.output.filename = "[name].min.js";
-
 prodConfig.plugins.push(new webpack.DefinePlugin({
     'process.env': {
         'NODE_ENV': '"production"'

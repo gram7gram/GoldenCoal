@@ -1,7 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {FormGroup, Row, Col} from 'react-bootstrap';
+import {FormGroup, FormControl,Row, Col} from 'react-bootstrap';
 import trans from '../../translator'
+import changeAction from '../../actions/Contact/Change'
+import SendAction from '../../actions/Contact/Send'
+import validator from 'email-validator'
 
 class About extends React.Component {
 
@@ -12,6 +15,7 @@ class About extends React.Component {
     }
 
     submit() {
+        this.props.dispatch(SendAction(this.props.Contact.model))
     }
 
     change(field) {
@@ -23,7 +27,11 @@ class About extends React.Component {
     }
 
     render() {
-        const {model} = this.props.Participant
+        const {model} = this.props.Contact
+
+        const canSend = model.name && model.name.length > 3
+            && model.email && validator.validate(model.email)
+            && model.content && model.content.length > 3
 
         return <div className="page-container contact-container">
             <h2 className="contact-title">Зворотній зв'язок</h2>
@@ -33,30 +41,30 @@ class About extends React.Component {
             <Row>
                 <Col xs={12}>
                     <FormGroup>
-                        <input
-                            type="text"
+                        <FormControl
                             placeholder={trans('contact_field_name')}
                             value={model.name || ''}
                             onChange={this.change('name')}/>
                     </FormGroup>
 
                     <FormGroup>
-                        <input
-                            type="text"
+                        <FormControl
                             placeholder={trans('contact_field_email')}
                             value={model.email || ''}
                             onChange={this.change('email')}/>
                     </FormGroup>
 
                     <FormGroup>
-                <textarea
-                    placeholder={trans('contact_field_content')}
-                    value={model.content || ''}
-                    onChange={this.change('content')}/>
+                        <textarea
+                            className="form-control"
+                            placeholder={trans('contact_field_content')}
+                            value={model.content || ''}
+                            onChange={this.change('content')}/>
                     </FormGroup>
 
                     <FormGroup className="text-center">
                         <a className="btn btn-primary"
+                           disabled={!canSend}
                            onClick={this.submit}>Відправити</a>
                     </FormGroup>
                 </Col>
