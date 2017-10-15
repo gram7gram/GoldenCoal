@@ -8,6 +8,13 @@ import failure from './Failure'
 let xhr
 export default (model) => dispatch => {
 
+    const data = {...model}
+
+    delete data.address.region.cid
+    delete data.address.region.type
+    delete data.pharmacy.type.cid
+    delete data.position.cid
+
     xhr && xhr.abort();
     xhr = $.ajax({
         method: 'POST',

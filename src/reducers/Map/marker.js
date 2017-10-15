@@ -12,9 +12,14 @@ const lng = (previousState = initialLng, action = {}) => {
         case Actions.GEOCODER_ADDRESS_SELECTED:
             return action.payload.geometry.location.lng
         case Actions.GEOCODER_FETCH_SUCCESS:
-            if (action.payload.length !== 1) return previousState
-            const match = action.payload[0]
-            return match.geometry.location.lng
+            try {
+                if (action.payload.length !== 1) return previousState
+                const match = action.payload[0]
+                return match.geometry.location.lng
+            } catch (e) {
+                console.error(e)
+                return previousState
+            }
         default:
             return previousState;
     }
@@ -27,9 +32,14 @@ const lat = (previousState = initialLat, action = {}) => {
         case Actions.GEOCODER_ADDRESS_SELECTED:
             return action.payload.geometry.location.lat
         case Actions.GEOCODER_FETCH_SUCCESS:
-            if (action.payload.length !== 1) return previousState
-            const match = action.payload[0]
-            return match.geometry.location.lat
+            try {
+                if (action.payload.length !== 1) return previousState
+                const match = action.payload[0]
+                return match.geometry.location.lat
+            } catch (e) {
+                console.error(e)
+                return previousState
+            }
         default:
             return previousState;
     }

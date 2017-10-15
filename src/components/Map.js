@@ -39,10 +39,7 @@ const Container = withScriptjs(withGoogleMap(props => {
                 <div>
                     <ol className="geo-search-results">
                         {props.Map.matches.map((match, i) =>
-                            <li key={i}
-                                onClick={props.onAddressMatchClick.bind(this, match.place_id)}>
-                                {match.formatted_address}
-                            </li>
+                            <li key={i}>{match.formatted_address}</li>
                         )}
                     </ol>
                 </div>
@@ -52,7 +49,8 @@ const Container = withScriptjs(withGoogleMap(props => {
     return <GoogleMap
         options={MAP_OPTIONS}
         ref={props.onMapLoad}
-        defaultZoom={(props.readonly ? 4 : 0) + props.Map.zoom}
+        defaultZoom={props.Map.zoom}
+        zoom={props.Map.zoom}
         defaultCenter={props.Map.marker}
         center={props.Map.marker}
         onClick={props.onMapClick}>
@@ -66,32 +64,32 @@ const Container = withScriptjs(withGoogleMap(props => {
 
 class MapContainer extends React.Component {
 
-    constructor() {
-        super()
-        this.changeMarkerPosition = this.changeMarkerPosition.bind(this)
-        this.onAddressMatchClick = this.onAddressMatchClick.bind(this)
-    }
+    // constructor() {
+    //     super()
+    //     this.changeMarkerPosition = this.changeMarkerPosition.bind(this)
+    //     this.onAddressMatchClick = this.onAddressMatchClick.bind(this)
+    // }
 
-    onAddressMatchClick(googleId) {
-        const match = this.props.Map.matches.find(item => item.place_id === googleId)
-        if (match) {
-            this.props.dispatch(addressSelected(match))
-        }
-    }
-
-    changeMarkerPosition(e) {
-        this.props.dispatch(markerChanged({
-            lng: e.latLng.lng(),
-            lat: e.latLng.lat(),
-        }))
-    }
+    // onAddressMatchClick(googleId) {
+    //     const match = this.props.Map.matches.find(item => item.place_id === googleId)
+    //     if (match) {
+    //         this.props.dispatch(addressSelected(match))
+    //     }
+    // }
+    //
+    // changeMarkerPosition(e) {
+    //     this.props.dispatch(markerChanged({
+    //         lng: e.latLng.lng(),
+    //         lat: e.latLng.lat(),
+    //     }))
+    // }
 
     render() {
         return <Container
             onMapLoad={noop}
             onMarkerRightClick={noop}
-            onMapClick={this.props.readOnly ? noop : this.changeMarkerPosition}
-            onAddressMatchClick={this.props.readOnly ? noop : this.onAddressMatchClick}
+            onMapClick={noop}
+            onAddressMatchClick={noop}
             {...this.props}
         />
     }

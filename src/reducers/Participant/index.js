@@ -4,11 +4,42 @@ import validator from './validator'
 import * as Actions from '../../actions'
 
 const changes = (prev = {}, action) => {
+    let changes
     switch (action.type) {
+        case Actions.REGION_CHANGED:
+            changes = {
+                ...prev,
+            }
+            if (!action.payload) {
+                delete changes.region
+            } else {
+                changes.region = true
+            }
+            return changes
+        case Actions.PHARMACY_CHANGED:
+            changes = {
+                ...prev,
+            }
+            if (!action.payload) {
+                delete changes.pharmacyType
+            } else {
+                changes.pharmacyType = true
+            }
+            return changes
+        case Actions.POSITION_CHANGED:
+            changes = {
+                ...prev,
+            }
+            if (!action.payload) {
+                delete changes.position
+            } else {
+                changes.position = true
+            }
+            return changes
         case Actions.PARTICIPANT_CHANGED:
 
             const keys = Object.keys(action.payload)
-            const changes = {
+            changes = {
                 ...prev,
             }
 

@@ -1,15 +1,18 @@
 import trans from '../../translator'
+import emailValidator from 'email-validator'
 
 export default (model, changes, ignoreChanges = false) => {
 
     const validator = {
         total: 0,
+        field: {},
         messages: []
     }
 
     if (ignoreChanges || changes.firstName) {
         if (!model.firstName) {
             ++validator.total
+            validator.field.firstName = true
             validator.messages.push(
                 trans('validation_field_is_required')
                     .replace('__NAME__', trans('field_firstName'))
@@ -20,6 +23,7 @@ export default (model, changes, ignoreChanges = false) => {
     if (ignoreChanges || changes.lastName) {
         if (!model.lastName) {
             ++validator.total
+            validator.field.lastName = true
             validator.messages.push(
                 trans('validation_field_is_required')
                     .replace('__NAME__', trans('field_lastName'))
@@ -27,32 +31,19 @@ export default (model, changes, ignoreChanges = false) => {
         }
     }
 
-    if (ignoreChanges || changes.middleName) {
-        if (!model.middleName) {
-            ++validator.total
-            validator.messages.push(
-                trans('validation_field_is_required')
-                    .replace('__NAME__', trans('field_middleName'))
-            )
-        }
-    }
-
-    if (ignoreChanges || changes.phone) {
-        if (!model.phone) {
-            ++validator.total
-            validator.messages.push(
-                trans('validation_field_is_required')
-                    .replace('__NAME__', trans('field_phone'))
-            )
-        }
-    }
-
     if (ignoreChanges || changes.email) {
         if (!model.email) {
             ++validator.total
+            validator.field.email = true
             validator.messages.push(
                 trans('validation_field_is_required')
                     .replace('__NAME__', trans('field_email'))
+            )
+        } else if (!emailValidator.validate(model.email)) {
+            ++validator.total
+            validator.field.email = true
+            validator.messages.push(
+                trans('validation_invalid_email')
             )
         }
     }
@@ -60,6 +51,7 @@ export default (model, changes, ignoreChanges = false) => {
     if (ignoreChanges || changes.legalName) {
         if (!model.legalName) {
             ++validator.total
+            validator.field.legalName = true
             validator.messages.push(
                 trans('validation_field_is_required')
                     .replace('__NAME__', trans('field_legalName'))
@@ -67,19 +59,10 @@ export default (model, changes, ignoreChanges = false) => {
         }
     }
 
-    if (ignoreChanges || changes.company) {
-        if (!model.company) {
-            ++validator.total
-            validator.messages.push(
-                trans('validation_field_is_required')
-                    .replace('__NAME__', trans('field_company'))
-            )
-        }
-    }
-
     if (ignoreChanges || changes.pharmacyType) {
-        if (!model.pharmacyType) {
+        if (!model.pharmacy.type || !model.pharmacy.type.cid) {
             ++validator.total
+            validator.field.pharmacyType = true
             validator.messages.push(
                 trans('validation_field_is_required')
                     .replace('__NAME__', trans('field_pharmacyType'))
@@ -88,8 +71,9 @@ export default (model, changes, ignoreChanges = false) => {
     }
 
     if (ignoreChanges || changes.pharmacyName) {
-        if (!model.pharmacyName) {
+        if (!model.pharmacy.name) {
             ++validator.total
+            validator.field.pharmacyName = true
             validator.messages.push(
                 trans('validation_field_is_required')
                     .replace('__NAME__', trans('field_pharmacyName'))
@@ -98,8 +82,9 @@ export default (model, changes, ignoreChanges = false) => {
     }
 
     if (ignoreChanges || changes.pharmacyNumber) {
-        if (!model.pharmacyNumber) {
+        if (!model.pharmacy.number) {
             ++validator.total
+            validator.field.pharmacyNumber = true
             validator.messages.push(
                 trans('validation_field_is_required')
                     .replace('__NAME__', trans('field_pharmacyNumber'))
@@ -108,8 +93,9 @@ export default (model, changes, ignoreChanges = false) => {
     }
 
     if (ignoreChanges || changes.position) {
-        if (!model.position) {
+        if (!model.position || !model.position.cid) {
             ++validator.total
+            validator.field.position = true
             validator.messages.push(
                 trans('validation_field_is_required')
                     .replace('__NAME__', trans('field_position'))
@@ -118,8 +104,9 @@ export default (model, changes, ignoreChanges = false) => {
     }
 
     if (ignoreChanges || changes.region) {
-        if (!model.region) {
+        if (!model.address.region) {
             ++validator.total
+            validator.field.region = true
             validator.messages.push(
                 trans('validation_field_is_required')
                     .replace('__NAME__', trans('field_region'))
@@ -128,18 +115,34 @@ export default (model, changes, ignoreChanges = false) => {
     }
 
     if (ignoreChanges || changes.city) {
-        if (!model.city) {
-            ++validator.total
-            validator.messages.push(
-                trans('validation_field_is_required')
-                    .replace('__NAME__', trans('field_city'))
-            )
+        if (model.address.region) {
+            if (model.address.region.type !== 'city') {
+                if (!model.address.city) {
+                    ++validator.total
+                    validator.field.city = true
+                    validator.messages.push(
+                        trans('validation_field_is_required')
+                            .replace('__NAME__', trans('field_city'))
+                    )
+                }
+            }
+        } else {
+            if (!model.address.city) {
+                ++validator.total
+                validator.field.city = true
+                validator.messages.push(
+                    trans('validation_field_is_required')
+                        .replace('__NAME__', trans('field_city'))
+                )
+            }
         }
+
     }
 
-    if (ignoreChanges || changes.address) {
-        if (!model.address) {
+    if (ignoreChanges || changes.street) {
+        if (!model.address.street) {
             ++validator.total
+            validator.field.street = true
             validator.messages.push(
                 trans('validation_field_is_required')
                     .replace('__NAME__', trans('field_address'))

@@ -1,10 +1,11 @@
 "use strict";
 import $ from "jquery";
+import Api from "../../../api";
+import token from "../../../constants/token";
 
 import success from "./Success";
 import fetchFailure from "./Failure";
 import fetching from "./Before";
-import unauthorized from "../../Unauthorized/Action";
 
 let xhr
 export default query => dispatch => {
@@ -16,10 +17,10 @@ export default query => dispatch => {
 
     xhr = $.ajax({
         method,
-        url: CalculationRouter[method].geocoder,
+        url: Api[method].geocoder,
         data: {
             address: query.trim().replaceAll(' ', '+'),
-            key: CalculationResources.variables.googleMapsApiKey,
+            key: token.googleMapsApiKey,
             language: 'uk',
             region: 'ua',
             result_type: 'street_address'

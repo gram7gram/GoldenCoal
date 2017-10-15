@@ -23,12 +23,17 @@ const canParticipate = (prev = false, action) => {
     }
 }
 
-const errors = (prev = [], action) => {
+const initial = {
+    total: 0,
+    field: {},
+    messages: []
+}
+const errors = (prev = initial, action) => {
     switch (action.type) {
         case Actions.VALIDATION_SUCCESS:
-            return []
+            return initial
         case Actions.VALIDATION_FAILURE:
-            return action.payload.messages
+            return action.payload
         default:
             return prev
     }

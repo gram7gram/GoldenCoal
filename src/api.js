@@ -10,6 +10,7 @@ const Router = {
         contact: '/contact',
         winner: '/winner',
 
+        geocoder: 'https://maps.googleapis.com/maps/api/geocode/json',
         export: '/api/v1/export/participants'
     }
 }

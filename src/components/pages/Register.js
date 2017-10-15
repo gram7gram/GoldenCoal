@@ -1,12 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {FormGroup, Row, Col, Alert, Button, HelpBlock} from 'react-bootstrap';
+import {FormGroup, FormControl, Row, Col, Alert, Button, HelpBlock} from 'react-bootstrap';
 import Map from '../Map'
 
 import changeAction from '../../actions/Change'
 import participateAction from '../../actions/Participate'
 import IncrementStep from '../../actions/IncrementStep'
 import DecrementStep from '../../actions/DecrementStep'
+import positionChanged from '../../actions/PositionChanged'
+import pharmacyChanged from '../../actions/PharmacyChanged'
+import regionChanged from '../../actions/RegionChanged'
 
 import trans from '../../translator'
 
@@ -17,6 +20,40 @@ class Register extends React.Component {
         this.submit = this.submit.bind(this)
         this.nextStep = this.nextStep.bind(this)
         this.prevStep = this.prevStep.bind(this)
+        this.setPharmacyType = this.setPharmacyType.bind(this)
+        this.setPosition = this.setPosition.bind(this)
+        this.setRegion = this.setRegion.bind(this)
+        this.getValidationState = this.getValidationState.bind(this)
+    }
+
+    setRegion(e) {
+        const option = e.target.value
+        let item = null
+        if (option) {
+            item = this.props.Region.collection
+                .find(item => item.cid === option)
+        }
+        this.props.dispatch(regionChanged(item))
+    }
+
+    setPosition(e) {
+        const option = e.target.value
+        let item = null
+        if (option) {
+            item = this.props.Position.collection
+                .find(item => item.cid === option)
+        }
+        this.props.dispatch(positionChanged(item))
+    }
+
+    setPharmacyType(e) {
+        const option = e.target.value
+        let item = null
+        if (option) {
+            item = this.props.Pharmacy.collection
+                .find(item => item.cid === option)
+        }
+        this.props.dispatch(pharmacyChanged(item))
     }
 
     submit() {
@@ -40,12 +77,24 @@ class Register extends React.Component {
         this.props.dispatch(DecrementStep())
     }
 
+    getValidationState(name) {
+        const {changes, validator} = this.props.Participant
+        let state = null
+        if (changes[name] === true) {
+            if (validator.errors.field[name] === true) {
+                state = 'error'
+            } else {
+                state = 'success'
+            }
+        }
+        return state;
+    }
+
     renderSimpleText(name) {
         const {model} = this.props.Participant
-        return <FormGroup>
-            <input
-                type="text"
-                name={name}
+
+        return <FormGroup validationState={this.getValidationState(name)}>
+            <FormControl
                 placeholder={trans('field_' + name)}
                 value={model[name] || ''}
                 onChange={this.change(name)}/>
@@ -58,39 +107,85 @@ class Register extends React.Component {
         switch (step) {
             case 1:
                 return <div className="step active">
+                    {this.renderErrors()}
                     {this.renderSimpleText('firstName')}
                     {this.renderSimpleText('lastName')}
-                    {this.renderSimpleText('middleName')}
-                    <FormGroup>
-                        <input type="text"
-                               name="phone"
-                               placeholder={trans('field_phone')}
-                               value={model.phone || ''}
-                               onChange={this.change("phone")}/>
-                    </FormGroup>
-                    <FormGroup>
-                        <input type="text"
-                               name="email"
-                               placeholder={trans('field_email')}
-                               value={model.email || ''}
-                               onChange={this.change("email")}/>
+                    <FormGroup validationState={this.getValidationState("email")}>
+                        <FormControl
+                            placeholder={trans('field_email')}
+                            value={model.email || ''}
+                            onChange={this.change("email")}/>
                         <HelpBlock>{trans('field_email_notice')}</HelpBlock>
                     </FormGroup>
                 </div>
             case 2:
                 return <div className="step active">
+                    {this.renderErrors()}
                     {this.renderSimpleText('legalName')}
-                    {this.renderSimpleText('company')}
-                    {this.renderSimpleText('pharmacyType')}
-                    {this.renderSimpleText('pharmacyName')}
-                    {this.renderSimpleText('pharmacyNumber')}
-                    {this.renderSimpleText('position')}
+                    <FormGroup validationState={this.getValidationState("pharmacyType")}>
+                        <select
+                            className={"form-control"}
+                            value={model.pharmacy.type ? model.pharmacy.type.cid : ''}
+                            onChange={this.setPharmacyType}>
+                            <option value={''}>{trans('field_pharmacyType')}</option>
+                            {this.props.Pharmacy.collection.map((item, key) =>
+                                <option key={key} value={item.cid}>{item.name}</option>
+                            )}
+                        </select>
+                    </FormGroup>
+                    <FormGroup validationState={this.getValidationState("pharmacyName")}>
+                        <FormControl
+                            placeholder={trans('field_pharmacyName')}
+                            value={model.pharmacy.name || ''}
+                            onChange={this.change("pharmacyName")}/>
+                    </FormGroup>
+                    <FormGroup validationState={this.getValidationState("pharmacyNumber")}>
+                        <FormControl
+                            placeholder={trans('field_pharmacyNumber')}
+                            value={model.pharmacy.number || ''}
+                            onChange={this.change("pharmacyNumber")}/>
+                    </FormGroup>
+                    <FormGroup validationState={this.getValidationState("position")}>
+                        <select
+                            className={"form-control"}
+                            value={model.position ? model.position.cid : ''}
+                            onChange={this.setPosition}>
+                            <option value={''}>{trans('field_position')}</option>
+                            {this.props.Position.collection.map((item, key) =>
+                                <option key={key} value={item.cid}>{item.name}</option>
+                            )}
+                        </select>
+                    </FormGroup>
                 </div>
             case 3:
                 return <div className="step active">
-                    {this.renderSimpleText('region')}
-                    {this.renderSimpleText('city')}
-                    {this.renderSimpleText('address')}
+                    {this.renderErrors()}
+
+                    <FormGroup validationState={this.getValidationState("region")}>
+                        <select
+                            className={"form-control"}
+                            value={model.address.region ? model.address.region.cid : ''}
+                            onChange={this.setRegion}>
+                            <option value={''}>{trans('field_region')}</option>
+                            {this.props.Region.collection.map((item, key) =>
+                                <option key={key} value={item.cid}>{item.name}</option>
+                            )}
+                        </select>
+                    </FormGroup>
+
+                    <FormGroup validationState={this.getValidationState("city")}>
+                        <FormControl
+                            placeholder={trans('field_city')}
+                            value={model.address.city || ''}
+                            onChange={this.change("city")}/>
+                    </FormGroup>
+
+                    <FormGroup validationState={this.getValidationState("street")}>
+                        <FormControl
+                            placeholder={trans('field_street')}
+                            value={model.address.street || ''}
+                            onChange={this.change("street")}/>
+                    </FormGroup>
                     <FormGroup>
                         <Map/>
                     </FormGroup>
@@ -101,6 +196,21 @@ class Register extends React.Component {
         }
     }
 
+    renderErrors() {
+        const {validator} = this.props.Participant
+
+        if (validator.isValid) return null
+
+        return <Row>
+            <Col xs={12}>
+                <Alert bsStyle="danger">
+                    <p>{trans('validation_generic_title')}</p>
+                    <ul>{validator.errors.messages.map((e, key) => <li key={key}>{e}</li>)}</ul>
+                </Alert>
+            </Col>
+        </Row>
+    }
+
     render() {
         const {validator, step} = this.props.Participant
         const canGoToNext = step < 3
@@ -109,20 +219,10 @@ class Register extends React.Component {
 
         return <Row>
 
-            {
-                !validator.isValid ?
-                    <Col xs={12}>
-                        <Alert bsStyle="danger">
-                            <p>{trans('validation_generic_title')}</p>
-                            <ul>{validator.errors.map((e, key) => <li key={key}>{e}</li>)}</ul>
-                        </Alert>
-                    </Col> : null
-            }
-
             <Col xs={12}>
 
                 <div className="step-navigation">
-                    <ul className="steps">
+                    <ul className="steps text-center">
                         <li className={step === 1 ? "active" : null}>{trans('register_step_1')}</li>
                         <li className={step === 2 ? "active" : null}>{trans('register_step_2')}</li>
                         <li className={step === 3 ? "active" : null}>{trans('register_step_3')}</li>
@@ -132,19 +232,21 @@ class Register extends React.Component {
 
                         {this.renderSteps()}
 
-                        <FormGroup>
+                        <FormGroup className="action-container">
                             {canShowSubmit ?
                                 <Button bsStyle="primary"
                                         onClick={this.submit}
-                                        disabled={!validator.canParticipate}>Submit</Button>
+                                        disabled={!validator.canParticipate}>Відправити анкету</Button>
                                 : null}
                             {canGoToPrev ?
                                 <Button bsStyle="primary"
-                                        onClick={this.prevStep}>{'< Prev'}</Button>
+                                        className="pull-left"
+                                        onClick={this.prevStep}>{'< Назад'}</Button>
                                 : null}
                             {canGoToNext ?
                                 <Button bsStyle="primary"
-                                        onClick={this.nextStep}>{'Next >'}</Button>
+                                        className="pull-right"
+                                        onClick={this.nextStep}>{'Далі >'}</Button>
                                 : null}
                         </FormGroup>
                     </div>

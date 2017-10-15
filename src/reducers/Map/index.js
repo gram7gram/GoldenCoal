@@ -17,6 +17,10 @@ const isLoading = (previousState = false, action = {}) => {
 
 const zoom = (previousState = 6, action = {}) => {
     switch (action.type) {
+        case Actions.GEOCODER_FETCH_SUCCESS:
+            return 15
+        case Actions.GEOCODER_FETCHING:
+            return 6
         default:
             return previousState;
     }

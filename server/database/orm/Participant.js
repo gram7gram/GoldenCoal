@@ -17,30 +17,22 @@ const schema = new mongoose.Schema({
         type: String,
         trim: true
     },
-    middleName: {
-        type: String,
-        trim: true
-    },
-    phone: {
-        type: String,
-        trim: true
-    },
     position: {
-        type: String,
-        trim: true
+        name : {
+            type: String,
+            trim: true
+        }
     },
     legalName: {
         type: String,
         trim: true
     },
-    company: {
-        type: String,
-        trim: true
-    },
     pharmacy: {
         type: {
-            type: String,
-            trim: true
+            name: {
+                type: String,
+                trim: true
+            }
         },
         name: {
             type: String,
@@ -53,8 +45,10 @@ const schema = new mongoose.Schema({
     },
     address: {
         region: {
-            type: String,
-            trim: true
+            name: {
+                type: String,
+                trim: true
+            }
         },
         city: {
             type: String,
@@ -65,6 +59,10 @@ const schema = new mongoose.Schema({
             trim: true
         },
         googleId: {
+            type: String,
+            trim: true
+        },
+        googleName: {
             type: String,
             trim: true
         }

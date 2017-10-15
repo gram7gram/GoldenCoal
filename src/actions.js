@@ -24,3 +24,7 @@ export const GMAP_MARKER_CHANGED = prefix + 'GMAP_MARKER_CHANGED';
 
 export const INCREMENT_STEP = prefix + 'INCREMENT_STEP';
 export const DECREMENT_STEP = prefix + 'DECREMENT_STEP';
+
+export const PHARMACY_CHANGED = prefix + 'PHARMACY_CHANGED';
+export const POSITION_CHANGED = prefix + 'POSITION_CHANGEDA';
+export const REGION_CHANGED = prefix + 'REGION_CHANGED';

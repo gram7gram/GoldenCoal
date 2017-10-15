@@ -356,7 +356,6 @@ fieldset[disabled] .btn-primary.active {
 
 /*form styles*/
 .step-navigation {
-    text-align: center;
     position: relative;
     margin-top: 30px;
 }
@@ -367,28 +366,23 @@ fieldset[disabled] .btn-primary.active {
 }
 
 /*inputs*/
-input, textarea {
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 0px;
-    margin-bottom: 10px;
+input, textarea, select {
+    border-radius: 0 !important;
     width: 100%;
-    box-sizing: border-box;
-    font-family: montserrat;
-    color: #2C3E50;
-    font-size: 13px;
+    font-family: montserrat, sans-serif;
 }
 
-input:focus, textarea:focus {
-    -moz-box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-    border: 1px solid black;
-    outline-width: 0;
-    transition: All 0.5s ease-in;
-    -webkit-transition: All 0.5s ease-in;
-    -moz-transition: All 0.5s ease-in;
-    -o-transition: All 0.5s ease-in;
+input, textarea {
+    height: 50px !important;
+}
+
+select {
+    height: 50px !important;
+}
+
+.step-navigation .action-container {
+    text-align: center;
+    height:35px
 }
 
 /*progressbar*/
