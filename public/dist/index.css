@@ -1,11 +1,29 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
 body {
-    background: url('/img/background.jpg') no-repeat top center fixed !important;
+    background: url('/img/background.jpg') #ffed00 no-repeat center center fixed !important;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+.scrollToTop {
+    margin: 0 30px 20px 0;
+    text-align: center;
+    text-decoration: none;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: none;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.bold {
+    font-weight:bold;
 }
 
 
@@ -46,21 +64,8 @@ textarea {
     height: 130px
 }
 
-.about-promo .about-promo-title .about-promo-title-text {
-    font-family: montserrat, arial, verdana;
-    font-size: 23pt;
-    line-height: 40px;
-}
 
-.about-promo .about-promo-title .about-promo-title-text span{
-   background-color: rgba(255, 255, 255, 0.5);
-}
-
-.about-promo .about-promo-title .about-promo-title-actions {
-
-}
-
-.about-promo .about-promo-prize img {
+.about-promo img {
     margin: 0 auto;
     max-height: 300px;
 }
@@ -81,8 +86,13 @@ textarea {
 }
 
 .offer .offer-title {
-    font-family: montserrat, arial, verdana;
-    font-size: 23pt;
+    font-family: montserrat, arial, verdana, sans-serif;
+    text-align: center;
+}
+
+.offer .offer-title a{
+    text-decoration: none;
+    color: black
 }
 
 .offer .offer-reward {
@@ -91,7 +101,8 @@ textarea {
 }
 
 .offer .offer-image img {
-    margin: 0 auto
+    margin: 0 auto;
+    max-height:300px;
 }
 
 .offer .offer-reward .offer-reward-title {
@@ -343,9 +354,6 @@ fieldset[disabled] .btn-primary.active {
     background: #ffffff;
 }
 
-
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
-
 /*form styles*/
 .step-navigation {
     text-align: center;
@@ -375,7 +383,7 @@ input:focus, textarea:focus {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    border: 1px solid #ee0979;
+    border: 1px solid black;
     outline-width: 0;
     transition: All 0.5s ease-in;
     -webkit-transition: All 0.5s ease-in;
