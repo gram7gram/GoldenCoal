@@ -46,30 +46,6 @@ body {
     width: 100%;
 }
 
-textarea {
-    resize: vertical;
-}
-
-
-.about-promo .about-promo-prize {
-    position: relative;
-    bottom: 95px;
-    height: 200px;
-    z-index: -1;
-}
-
-.about-promo .about-promo-title {
-    position: relative;
-    top: 100px;
-    height: 130px
-}
-
-
-.about-promo img {
-    margin: 0 auto;
-    max-height: 300px;
-}
-
 .offer-container {
     padding: 10px;
     background: white;
@@ -78,7 +54,23 @@ textarea {
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
     box-sizing: border-box;
     width: 100%;
+}
 
+textarea {
+    resize: vertical;
+}
+
+
+.about-promo {
+    padding-top: 30px;
+}
+
+.about-promo img {
+    margin: 0 auto;
+    max-height: 500px;
+}
+.offer-qa {
+    margin-top: 30px
 }
 
 .offer {
@@ -87,11 +79,11 @@ textarea {
 
 .offer .offer-title {
     font-family: montserrat, arial, verdana, sans-serif;
-    text-align: center;
+    text-align: left;
 }
 
 .offer .offer-title a{
-    text-decoration: none;
+    text-decoration: underline;
     color: black
 }
 
@@ -102,11 +94,11 @@ textarea {
 
 .offer .offer-image img {
     margin: 0 auto;
-    max-height:300px;
+    max-height:250px;
 }
 
 .offer .offer-reward .offer-reward-title {
-    font-family: montserrat, arial, verdana;
+    font-family: montserrat, arial, verdana, sans-serif;
     font-size: 25pt;
     border-radius: 50%;
     overflow: hidden;
@@ -119,15 +111,20 @@ textarea {
 }
 
 .offer .offer-reward .offer-reward-footer {
-    font-family: montserrat, arial, verdana;
+    font-family: montserrat, arial, verdana, sans-serif;
     font-size: 15pt;
 }
 
 .promo {
-    max-width: 800px;
     width: 100%;
     padding: 10px;
-    margin: 0 auto
+    margin-bottom: 50px
+}
+
+.promo img {
+    margin: 0 auto;
+    max-height:500px;
+
 }
 
 .btn-primary {
@@ -470,4 +467,14 @@ select {
 .contact-container {
     margin: 15px auto;
     max-width: 700px;
+}
+
+
+
+@media only screen and (min-width: 768px) {
+
+
+    .offer-container {
+        padding: 10px 20px;
+    }
 }
