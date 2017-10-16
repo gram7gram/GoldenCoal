@@ -19,13 +19,14 @@ const connect = () => {
 
     connection.verify((error, success) => {
         if (error) {
-            console.log('[-] Mailer is offline');
+            isConnected = false;
+            console.error('[-] Mailer is offline', error);
         } else {
+            isConnected = true;
             console.log('[+] Mailer is online');
         }
-
     });
-    isConnected = true;
+
 }
 
 module.exports = {

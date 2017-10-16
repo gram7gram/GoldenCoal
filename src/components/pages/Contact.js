@@ -27,14 +27,23 @@ class About extends React.Component {
     }
 
     render() {
-        const {model} = this.props.Contact
+        const {model, isContacted} = this.props.Contact
+
+        if (isContacted) {
+            return <div className="page-container contact-container">
+                <div className="banner">
+                    <h3>Лист було успішно надіслано</h3>
+                    <h4>Очікуйте на відповідь</h4>
+                </div>
+            </div>
+        }
 
         const canSend = model.name && model.name.length > 3
             && model.email && validator.validate(model.email)
             && model.content && model.content.length > 3
 
         return <div className="page-container contact-container">
-            <h2 className="contact-title">Зворотній зв'язок</h2>
+            <h2 className="contact-title">Задати питання</h2>
             <h3 className="contact-subtitle">Заповніть поля форми на натисніть Відправити</h3>
 
 

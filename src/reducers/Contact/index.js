@@ -21,7 +21,20 @@ const changes = (prev = {}, action) => {
             return prev
     }
 }
+
+const isContacted = (prev = false, action) => {
+    switch (action.type) {
+        case Actions.CONTACT_REQUEST_SUCCESS:
+            return true
+        case Actions.CONTACT_REQUEST_FAILURE:
+            return false
+        default:
+            return prev
+    }
+}
+
 export default combineReducers({
+    isContacted,
     model,
     changes,
 })
