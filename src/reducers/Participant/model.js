@@ -60,7 +60,19 @@ const position = (prev = null, action) => {
     }
 }
 
+const isConfirmed = (prev = false, action) => {
+    switch (action.type) {
+        case Actions.PARTICIPANT_CHANGED:
+            if (action.payload.isConfirmed !== undefined)
+                return action.payload.isConfirmed
+            return prev
+        default:
+            return prev
+    }
+}
+
 export default combineReducers({
+    isConfirmed,
     firstName,
     lastName,
     email,

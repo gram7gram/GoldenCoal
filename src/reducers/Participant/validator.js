@@ -6,6 +6,7 @@ const isValid = (prev = true, action) => {
         case Actions.VALIDATION_SUCCESS:
             return true
         case Actions.VALIDATION_FAILURE:
+        case Actions.PARTICIPATION_FAILURE:
             return false
         default:
             return prev
@@ -17,6 +18,7 @@ const canParticipate = (prev = false, action) => {
         case Actions.ALLOW_PARTICIPATION:
             return true
         case Actions.DISALLOW_PARTICIPATION:
+        case Actions.PARTICIPATION_FAILURE:
             return false
         default:
             return prev
@@ -34,6 +36,12 @@ const errors = (prev = initial, action) => {
             return initial
         case Actions.VALIDATION_FAILURE:
             return action.payload
+        case Actions.PARTICIPATION_FAILURE:
+            return {
+                ...prev,
+                total: 1,
+                messages: []
+            }
         default:
             return prev
     }

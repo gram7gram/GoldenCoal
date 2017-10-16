@@ -26,6 +26,11 @@ body {
     font-weight:bold;
 }
 
+.banner {
+    text-align: center;
+    margin-top:30px;
+}
+
 
 
 .map-container {
@@ -363,13 +368,13 @@ fieldset[disabled] .btn-primary.active {
 }
 
 /*inputs*/
-input, textarea, select {
+input:not([type="checkbox"]), textarea, select {
     border-radius: 0 !important;
     width: 100%;
     font-family: montserrat, sans-serif;
 }
 
-input, textarea {
+input:not([type="checkbox"]), textarea {
     height: 50px !important;
 }
 

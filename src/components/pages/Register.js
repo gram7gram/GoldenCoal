@@ -24,6 +24,7 @@ class Register extends React.Component {
         this.setPosition = this.setPosition.bind(this)
         this.setRegion = this.setRegion.bind(this)
         this.getValidationState = this.getValidationState.bind(this)
+        this.confirm = this.confirm.bind(this)
     }
 
     setRegion(e) {
@@ -59,6 +60,12 @@ class Register extends React.Component {
     submit() {
         const model = this.props.Participant.model
         this.props.dispatch(participateAction(model))
+    }
+
+    confirm(e) {
+        this.props.dispatch(changeAction({
+            isConfirmed: e.target.checked
+        }))
     }
 
     change(field) {
@@ -188,6 +195,17 @@ class Register extends React.Component {
                     <FormGroup>
                         <Map/>
                     </FormGroup>
+                    <FormGroup>
+                        <label>
+                            <input type="checkbox"
+                                   onChange={this.confirm}
+                                   checked={model.isConfirmed}/>&nbsp;Заповнюючи цю анкету, я даю свою згоду на збір,
+                            реєстрацію, зберігання, адаптацію,
+                            зміну, оновлення моїх персональних даних (з використанням інформаційних систем і без
+                            них) без обмежень такої обробки. Дана згода на збір і обробку моїх персональних даних,
+                            поширюється на всі дані, зазначені мною в цій анкеті.
+                        </label>
+                    </FormGroup>
                 </div>
             default:
                 return null
@@ -211,7 +229,7 @@ class Register extends React.Component {
     }
 
     render() {
-        const {validator, step} = this.props.Participant
+        const {validator, step, isRegistered} = this.props.Participant
         const canGoToNext = step < 3
         const canGoToPrev = step > 1
         const canShowSubmit = step === 3
@@ -229,11 +247,17 @@ class Register extends React.Component {
 
                     <div className="step-content page-container">
 
-                        {this.renderSteps()}
+                        {isRegistered
+                            ? <div className="banner">
+                                <h3>Дякуємо за Ваш інтерес до акції</h3>
+                                <h4>ЗОЛОТИЙ СМАРТФОН ВІД БІЛОГО ВУГІЛЛЯ!</h4>
+                            </div>
+                            : this.renderSteps()}
 
-                        <FormGroup className="action-container">
+                        {!isRegistered ? <FormGroup className="action-container">
                             {canShowSubmit ?
                                 <Button bsStyle="primary"
+                                        className="pull-right"
                                         onClick={this.submit}
                                         disabled={!validator.canParticipate}>Відправити анкету</Button>
                                 : null}
@@ -247,7 +271,7 @@ class Register extends React.Component {
                                         className="pull-right"
                                         onClick={this.nextStep}>{'Далі >'}</Button>
                                 : null}
-                        </FormGroup>
+                        </FormGroup> : null}
                     </div>
                 </div>
 

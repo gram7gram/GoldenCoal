@@ -18,9 +18,11 @@ const connect = () => {
     });
 
     connection.verify((error, success) => {
-        if (error) throw error
-
-        console.log('[+] Mailer is online');
+        if (error) {
+            console.log('[-] Mailer is offline');
+        } else {
+            console.log('[+] Mailer is online');
+        }
 
     });
     isConnected = true;

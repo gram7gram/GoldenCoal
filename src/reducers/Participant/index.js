@@ -53,8 +53,12 @@ const changes = (prev = {}, action) => {
     }
 }
 
-const isRegistering = (prev = [], action) => {
+const isRegistered = (prev = false, action) => {
     switch (action.type) {
+        case Actions.PARTICIPATION_SUCCESS:
+            return true
+        case Actions.PARTICIPATION_FAILURE:
+            return false
         default:
             return prev
     }
@@ -76,5 +80,5 @@ export default combineReducers({
     validator,
     changes,
     step,
-    isRegistering
+    isRegistered
 })

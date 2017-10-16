@@ -150,6 +150,12 @@ export default (model, changes, ignoreChanges = false) => {
         }
     }
 
+    if (ignoreChanges) {
+        if (!model.isConfirmed) {
+            ++validator.total
+            validator.field.isConfirmed = true
+        }
+    }
 
     return validator
 }

@@ -14,6 +14,7 @@ export default (model) => dispatch => {
     delete data.address.region.type
     delete data.pharmacy.type.cid
     delete data.position.cid
+    delete data.isConfirmed
 
     xhr && xhr.abort();
     xhr = $.ajax({
