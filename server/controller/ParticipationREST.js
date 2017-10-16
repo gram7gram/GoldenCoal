@@ -68,38 +68,26 @@ const controller = (env) => {
 
                     try {
 
-                        const templateName = path.resolve(__dirname, '../mailer/templates/register.html')
                         const adminTemplateName = path.resolve(__dirname, '../mailer/templates/register-admin.html')
 
-                        let html = fs.readFileSync(templateName, 'utf8');
+                        const data = fs.readFileSync(adminTemplateName, 'utf8');
+
+                        const html = _.template(data, {variable: 'participant'})({
+                            lastName: participant.lastName,
+                            firstName: participant.firstName,
+                            email: participant.email,
+                            city: participant.address.city,
+                        })
 
                         env.mailer.getConnection().sendMail({
                             from: parameters.mailer.username,
-                            to: participant.email,
-                            subject: 'Участь в акції "Золотий смартфон від Білого Вугілля"',
+                            to: parameters.mailer.managers.join(','),
+                            subject: 'Нова заявка на участь в акції',
                             html,
                         }, (error) => {
                             if (error) throw error
 
-                            const data = fs.readFileSync(adminTemplateName, 'utf8');
-
-                            html = _.template(data, {variable: 'participant'})({
-                                lastName: participant.lastName,
-                                firstName: participant.firstName,
-                                email: participant.email,
-                                city: participant.address.city,
-                            })
-
-                            env.mailer.getConnection().sendMail({
-                                from: parameters.mailer.username,
-                                to: parameters.mailer.managers.join(','),
-                                subject: 'Нова заявка на участь в акції',
-                                html,
-                            }, (error) => {
-                                if (error) throw error
-
-                                res.status(201).json(model);
-                            })
+                            res.status(201).json(model);
                         })
 
                     } catch (error) {
@@ -109,8 +97,6 @@ const controller = (env) => {
                         })
                     }
                 })
-
-
             })
         } catch (e) {
             console.error(e)
