@@ -57,15 +57,6 @@ const schema = new mongoose.Schema({
         street: {
             type: String,
             trim: true
-        },
-        googleId: {
-            type: String,
-            csv: false,
-            trim: true
-        },
-        googleName: {
-            type: String,
-            trim: true
         }
     },
     createdAt: {

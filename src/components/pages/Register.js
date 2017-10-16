@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {FormGroup, FormControl, Row, Col, Alert, Button, HelpBlock} from 'react-bootstrap';
-import Map from '../Map'
+import {FormGroup, FormControl, Row, Col, Alert, Button} from 'react-bootstrap';
 
 import changeAction from '../../actions/Change'
 import participateAction from '../../actions/Participate'
@@ -191,9 +190,6 @@ class Register extends React.Component {
                             placeholder={trans('field_street')}
                             value={model.address.street || ''}
                             onChange={this.change("street")}/>
-                    </FormGroup>
-                    <FormGroup>
-                        <Map/>
                     </FormGroup>
                     <FormGroup>
                         <label>
