@@ -10,9 +10,9 @@ const connect = () => {
     if (isConnected) return
 
     mongoose.connect('mongodb://' + databaseUrl, {
-        auth:{authSource: "admin"},
-        user: parameters.database.username,
-        pass: parameters.database.password,
+        // auth:{authSource: "admin"},
+        // user: parameters.database.username,
+        // pass: parameters.database.password,
         useMongoClient: true,
     });
 

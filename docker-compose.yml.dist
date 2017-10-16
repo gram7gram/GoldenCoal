@@ -2,9 +2,10 @@ version: '3'
 
 services:
   db:
-    image: mongo:3.4
+    image: mongo:3.1
     volumes:
-      - ./.persistance/monogdb-3.4:/data/db
+      - ./.persistance/monogdb-3.1:/data/db
     ports:
       - 27017:27017
     restart: always
+    command: mongod --auth

@@ -60,6 +60,7 @@ const schema = new mongoose.Schema({
         },
         googleId: {
             type: String,
+            csv: false,
             trim: true
         },
         googleName: {

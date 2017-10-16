@@ -71,11 +71,7 @@ const controller = (env) => {
                         const templateName = path.resolve(__dirname, '../mailer/templates/register.html')
                         const adminTemplateName = path.resolve(__dirname, '../mailer/templates/register-admin.html')
 
-                        let data = fs.readFileSync(templateName, 'utf8');
-
-                        let html = _.template(data)({
-
-                        })
+                        let html = fs.readFileSync(templateName, 'utf8');
 
                         env.mailer.getConnection().sendMail({
                             from: parameters.mailer.username,
@@ -85,10 +81,13 @@ const controller = (env) => {
                         }, (error) => {
                             if (error) throw error
 
-                            data = fs.readFileSync(adminTemplateName, 'utf8');
+                            const data = fs.readFileSync(adminTemplateName, 'utf8');
 
-                            html = _.template(data)({
-                                ...participant
+                            html = _.template(data, {variable: 'participant'})({
+                                lastName: participant.lastName,
+                                firstName: participant.firstName,
+                                email: participant.email,
+                                city: participant.address.city,
                             })
 
                             env.mailer.getConnection().sendMail({
