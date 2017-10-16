@@ -3,9 +3,6 @@ version: '3'
 services:
   db:
     image: mongo:3.4
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=nimda
     volumes:
       - ./.persistance/monogdb-3.4:/data/db
     ports:
