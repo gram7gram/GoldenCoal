@@ -85,6 +85,16 @@ textarea {
 .offer {
     margin-bottom: 30px
 }
+.panel-warning {
+    border-color: #FFED00;
+}
+
+.panel-warning .panel-heading {
+    color: #2B2A28;
+    background-color: #FFED00;
+    border-color: #2B2A28;
+    background-image: none !important;
+}
 
 .offer .offer-title {
     font-family: montserrat, arial, verdana, sans-serif;
