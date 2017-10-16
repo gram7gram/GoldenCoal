@@ -40,7 +40,9 @@ const errors = (prev = initial, action) => {
             return {
                 ...prev,
                 total: 1,
-                messages: []
+                messages: [
+                    'Email вже зареэстрований у системі'
+                ]
             }
         default:
             return prev

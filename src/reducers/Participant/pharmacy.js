@@ -4,9 +4,7 @@ import * as Actions from '../../actions'
 const type = (prev = null, action) => {
     switch (action.type) {
         case Actions.PHARMACY_CHANGED:
-            if (action.payload !== undefined)
-                return action.payload
-            return prev
+            return action.payload
         default:
             return prev
     }

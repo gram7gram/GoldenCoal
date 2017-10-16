@@ -54,9 +54,7 @@ const legalName = (prev = null, action) => {
 const position = (prev = null, action) => {
     switch (action.type) {
         case Actions.POSITION_CHANGED:
-            if (action.payload !== undefined)
-                return action.payload
-            return prev
+            return action.payload
         default:
             return prev
     }

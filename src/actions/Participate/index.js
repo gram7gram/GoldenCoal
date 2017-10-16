@@ -8,7 +8,7 @@ import failure from './Failure'
 let xhr
 export default (model) => dispatch => {
 
-    const data = {...model}
+    const data = Object.assign({}, model)
 
     delete data.address.region.cid
     delete data.address.region.type

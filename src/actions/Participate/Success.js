@@ -1,6 +1,6 @@
-import {PARTICIPATION_FAILURE} from '../../actions'
+import {PARTICIPATION_SUCCESS} from '../../actions'
 
 export default payload => ({
-    type: PARTICIPATION_FAILURE,
+    type: PARTICIPATION_SUCCESS,
     payload
 })
