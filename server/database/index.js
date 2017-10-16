@@ -1,14 +1,18 @@
 const mongoose = require('mongoose');
 const parameters = require('../config/parameters')
 
-const NAME = parameters.database.name
-const databaseUrl = parameters.database.host + '/' + NAME
+const databaseUrl = parameters.database.host
+    + ':' + parameters.database.port
+    + '/' + parameters.database.name
 
 let isConnected = false
 const connect = () => {
     if (isConnected) return
 
-    mongoose.connect(databaseUrl, {
+    mongoose.connect('mongodb://' + databaseUrl, {
+        auth:{authSource: "admin"},
+        user: parameters.database.username,
+        pass: parameters.database.password,
         useMongoClient: true,
     });
 
