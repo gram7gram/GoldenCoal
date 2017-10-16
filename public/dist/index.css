@@ -8,6 +8,10 @@ body {
     background-size: cover;
 }
 
+.margin-auto {
+    margin: 0 auto
+}
+
 .scrollToTop {
     margin: 0 30px 20px 0;
     text-align: center;
@@ -95,6 +99,10 @@ textarea {
 .offer .offer-reward {
     text-align: center;
     margin-top: 20px;
+}
+
+.offer .offer-reward img {
+    max-height:100px;
 }
 
 .offer .offer-image img {
