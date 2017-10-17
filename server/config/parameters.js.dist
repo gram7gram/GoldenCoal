@@ -19,7 +19,8 @@ const config = {
         password: '',
     },
     tokens: {
-        apiExportParticipants: null
+        apiExportParticipants: null,
+        slackToken: ''
     }
 };
 
