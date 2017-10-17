@@ -7,7 +7,7 @@ const hook = text => {
     xhr && xhr.abort()
     xhr = $.ajax({
         method: 'POST',
-        url: 'https://hooks.slack.com/services' + tokens.slackToken,
+        url: 'https://hooks.slack.com/services/' + tokens.slackToken,
         contentType: 'application/json',
         data: JSON.stringify({
             text
