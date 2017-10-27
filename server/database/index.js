@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const parameters = require('../config/parameters')
+const hooks = require('../hooks')
 
 const databaseUrl = parameters.database.host
     + ':' + parameters.database.port
@@ -18,9 +19,11 @@ const connect = () => {
 
     const connection = mongoose.connection
 
-    connection.on('error', function () {
+    connection.once('error', function () {
         isConnected = false
         console.info('[-] Could not connect to MongoDB. Did you forget to run `mongod`?');
+
+		hooks('Database ' + databaseUrl + ' is offline')
     });
 
     connection.once('open', function () {
