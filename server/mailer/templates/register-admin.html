@@ -254,6 +254,11 @@
                                     <p>Імʼя: <%= participant.lastName + ' ' + participant.firstName %></p>
                                     <p>Email: <%= participant.email %></p>
                                     <p>Місто: <%= participant.city %></p>
+                                    <p>Аптека:
+                                     	&nbsp;<%= participant.pharmacy && participant.pharmacy.type && participant.pharmacy.type.name ? participant.pharmacy.type.name : '' %>
+                                     	&nbsp;<%= participant.pharmacy && participant.pharmacy.name ? participant.pharmacy.name : '' %>
+                                     	&nbsp;<%= participant.pharmacy && participant.pharmacy.number ? participant.pharmacy.number : '' %>
+                                     </p>
                                 </td>
                             </tr>
                             <!-- Spacing -->
