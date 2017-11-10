@@ -76,6 +76,7 @@ const controller = (env) => {
                             lastName: participant.lastName,
                             firstName: participant.firstName,
                             email: participant.email,
+                            pharmacy: participant.pharmacy,
                             city: participant.address.city,
                         })
 

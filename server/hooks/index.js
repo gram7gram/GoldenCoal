@@ -1,8 +1,12 @@
 const $ = require('jquery')
-const tokens = require('../config/parameters').tokens
+const parameters = require('../config/parameters')
+const tokens = parameters.tokens
+const env = parameters.env
 
 let xhr
 const hook = text => {
+
+    if (env !== 'production') return;
 
     xhr && xhr.abort()
     xhr = $.ajax({
