@@ -21,6 +21,20 @@ const controller = (env) => {
             return
         }
 
+        if (!(email && name && content)) {
+            res.status(400).json({
+                message: 'Missing required parameters'
+            })
+            return
+        }
+
+        if (!env.mailer.isConnected()) {
+            res.status(503).json({
+                message: 'Mailer is unavailable'
+            })
+            return
+        }
+
         try {
 
             const templateName = path.resolve(__dirname, '../mailer/templates/contact.html')
@@ -49,7 +63,7 @@ const controller = (env) => {
         } catch (error) {
             console.error(error)
             res.status(500).json({
-                error
+                message: 'Server error'
             })
         }
 

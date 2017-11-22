@@ -33,5 +33,6 @@ const connect = () => {
 }
 
 module.exports = {
-    connect
+    connect,
+    isConnected: () => isConnected,
 };

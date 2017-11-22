@@ -21,6 +21,13 @@ const controller = (env) => {
             return
         }
 
+        if (!env.database.isConnected()) {
+            res.status(503).json({
+                message: 'Database is unavailable'
+            })
+            return
+        }
+
         res.writeHead(200, {
             'Content-Type': 'text/csv',
             'Content-Disposition': 'attachment; filename=GoldenCoal_participants.csv'
@@ -33,6 +40,20 @@ const controller = (env) => {
 
     env.server.post(Api.POST.participants, (req, res) => {
         const request = req.body
+
+        if (!env.mailer.isConnected()) {
+            res.status(503).json({
+                message: 'Mailer is unavailable'
+            })
+            return
+        }
+
+        if (!env.database.isConnected()) {
+            res.status(503).json({
+                message: 'Database is unavailable'
+            })
+            return
+        }
 
         const email = request.email.trim().toLowerCase()
         try {

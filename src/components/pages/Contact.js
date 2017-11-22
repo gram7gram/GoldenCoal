@@ -72,9 +72,9 @@ class About extends React.Component {
                     </FormGroup>
 
                     <FormGroup className="text-center">
-                        <a className="btn btn-primary"
+                        <button className="btn btn-primary"
                            disabled={!canSend}
-                           onClick={this.submit}>Відправити</a>
+                           onClick={this.submit}>Відправити</button>
                     </FormGroup>
                 </Col>
             </Row>
