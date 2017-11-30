@@ -1,22 +1,22 @@
-const $ = require('jquery')
+const request = require('superagent')
 const parameters = require('../config/parameters')
 const tokens = parameters.tokens
 const env = parameters.env
 
-let xhr
 const hook = text => {
 
     if (env !== 'production') return;
 
-    xhr && xhr.abort()
-    xhr = $.ajax({
-        method: 'POST',
-        url: 'https://hooks.slack.com/services/' + tokens.slackToken,
-        contentType: 'application/json',
-        data: JSON.stringify({
+    request.post('https://hooks.slack.com/services/' + tokens.slackToken)
+        .send(JSON.stringify({
             text
+        }))
+        .set('Content Type', 'application/json')
+        .end((err, res) => {
+            if (err) {
+                console.error(err)
+            }
         })
-    })
 }
 
 module.exports = hook
