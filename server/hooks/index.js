@@ -11,7 +11,6 @@ const hook = text => {
         .send(JSON.stringify({
             text
         }))
-        .set('Content Type', 'application/json')
         .end((err, res) => {
             if (err) {
                 console.error(err)
