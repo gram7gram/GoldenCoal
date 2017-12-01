@@ -23,7 +23,7 @@ const connect = () => {
         isConnected = false
         console.info('[-] Could not connect to MongoDB. Did you forget to run `mongod`?');
 
-		hooks('Database ' + databaseUrl + ' is offline')
+		// hooks('Database ' + databaseUrl + ' is offline')
     });
 
     connection.once('open', function () {
