@@ -12,15 +12,17 @@ const controller = (env) => {
     })
 
     env.server.get(Api.GET.register, (req, res) => {
-        res.sendFile(path.resolve('./public/register.html'))
+        res.redirect(Api.GET.index)
+        // res.sendFile(path.resolve('./public/register.html'))
     })
 
     env.server.get(Api.GET.contact, (req, res) => {
         res.sendFile(path.resolve('./public/contact.html'))
     })
 
-    env. server.get(Api.GET.winner, (req, res) => {
-        res.sendFile(path.resolve('./public/winner.html'))
+    env.server.get(Api.GET.winner, (req, res) => {
+        res.redirect(Api.GET.index)
+        // res.sendFile(path.resolve('./public/winner.html'))
     })
 }
 
