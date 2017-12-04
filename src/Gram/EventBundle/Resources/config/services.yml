@@ -1,0 +1,9 @@
+services:
+
+  event.participant_service:
+      class: Gram\EventBundle\Service\ParticipantService
+      arguments: ['@service_container']
+
+  event.winner_service:
+      class: Gram\EventBundle\Service\WinnerService
+      arguments: ['@service_container']

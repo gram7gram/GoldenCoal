@@ -1,0 +1,32 @@
+api_v1_participant:
+    resource: routing/participant.yml
+    prefix: /api/v1
+
+api_v1_winner:
+    resource: routing/winner.yml
+    prefix: /api/v1
+
+index:
+    path: /
+    defaults:
+        _controller: GramEventBundle:Sitemap:index
+
+about_index:
+    path: /about
+    defaults:
+        _controller: GramEventBundle:Sitemap:about
+
+contact_index:
+    path: /contact
+    defaults:
+        _controller: GramEventBundle:Sitemap:contact
+
+participant_index:
+    path: /participants
+    defaults:
+        _controller: GramEventBundle:Sitemap:participants
+
+winner_index:
+    path: /winners
+    defaults:
+        _controller: GramEventBundle:Sitemap:winner

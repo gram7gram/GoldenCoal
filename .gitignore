@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/spa/node_modules
 
 # testing
 /coverage
@@ -26,3 +27,25 @@ yarn-error.log*
 .persistance
 
 /server/access.log
+
+/.web-server-pid
+/app/config/parameters.yml
+/build/
+/phpunit.xml
+/var/*
+!/var/cache
+/var/cache/*
+!var/cache/.gitkeep
+!/var/logs
+/var/logs/*
+!var/logs/.gitkeep
+!/var/sessions
+/var/sessions/*
+!var/sessions/.gitkeep
+!var/SymfonyRequirements.php
+/vendor/
+/web/bundles/*
+/web/uploads/*
+/web/themes/*
+
+composer.lock

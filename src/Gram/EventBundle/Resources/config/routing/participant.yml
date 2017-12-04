@@ -1,0 +1,7 @@
+api_v1_participant_gets:
+    path: /events/{id}/participants
+    methods: [GET]
+    defaults:
+        _controller: GramEventBundle:ParticipantREST:gets
+    requirements:
+        id: \d+

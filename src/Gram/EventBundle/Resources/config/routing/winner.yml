@@ -1,0 +1,7 @@
+api_v1_winner_gets:
+    path: /events/{id}/winners
+    methods: GET
+    defaults:
+        _controller: GramEventBundle:WinnertREST:gets
+    requirements:
+        id: \d+

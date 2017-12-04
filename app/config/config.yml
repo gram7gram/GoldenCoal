@@ -1,0 +1,108 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+
+parameters:
+    locale: en
+    jms_serializer.camel_case_naming_strategy.class: Gram\UserBundle\Classes\AsIsNamingStrategy
+    web_dir: '%kernel.project_dir%/web'
+    avatar_upload_dir: '%web_dir%/uploads'
+
+framework:
+    secret: '%secret%'
+    router:
+        resource: '%kernel.project_dir%/app/config/routing.yml'
+        strict_requirements: ~
+    form: ~
+    csrf_protection: ~
+    validation:
+        enable_annotations: true
+    templating:
+        engines: ['twig']
+    translator:
+        fallback: '%locale%'
+    default_locale: '%locale%'
+    trusted_hosts: ~
+    session:
+        handler_id: session.handler.native_file
+        save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
+    fragments: ~
+    http_method_override: true
+    assets: ~
+    php_errors:
+        log: true
+
+fos_user:
+    db_driver: orm
+    firewall_name: spa_v1
+    use_username_form_type: false
+    user_class: Gram\UserBundle\Entity\User
+    registration:
+        confirmation:
+            enabled: false
+    from_email:
+        address: 'no-reply'
+        sender_name: 'no-reply'
+    resetting:
+        token_ttl: 86400
+        email:
+            from_email:
+                address: 'no-reply'
+                sender_name: 'no-reply'
+
+twig:
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+    globals:
+        spa_version: '%spa_version%'
+
+doctrine:
+    dbal:
+        driver: '%database_driver%'
+        host: '%database_host%'
+        port: '%database_port%'
+        dbname: '%database_name%'
+        user: '%database_user%'
+        password: '%database_password%'
+        charset: UTF8
+    orm:
+        auto_generate_proxy_classes: '%kernel.debug%'
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+
+doctrine_cache: ~
+
+doctrine_migrations:
+    dir_name: '%kernel.root_dir%/migrations'
+    namespace: Application\Migrations
+    table_name: migrations
+
+stof_doctrine_extensions:
+     orm:
+        default:
+            tree: true
+
+swiftmailer:
+    transport: '%mailer_transport%'
+    host: '%mailer_host%'
+    username: '%mailer_user%'
+    password: '%mailer_password%'
+    spool:
+        type: memory
+
+jms_serializer:
+    metadata:
+        debug: "%kernel.debug%"
+        auto_detection: true
+        cache: file
+        file_cache:
+            dir: "%kernel.cache_dir%/serializer"
+    property_naming:
+        enable_cache: true
+    handlers:
+        datetime:
+            default_format: "Y-m-d H:i:s"
+            default_timezone: "UTC"
+
+nelmio_api_doc: ~

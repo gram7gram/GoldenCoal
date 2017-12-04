@@ -1,0 +1,23 @@
+services:
+
+    gram.login_service:
+        class:  Gram\UserBundle\Service\LoginService
+        arguments: ['@service_container']
+        public: false
+
+    gram.security_password_encoder:
+        class: Gram\UserBundle\Security\PasswordEncoder
+
+    gedmo.listener.softdeleteable:
+        class: Gedmo\SoftDeleteable\SoftDeleteableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ '@annotation_reader' ] ]
+
+    gedmo.listener.tree:
+        class: Gedmo\Tree\TreeListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ '@annotation_reader' ] ]

@@ -1,0 +1,13 @@
+parameters:
+    database_host: psql-master
+    database_port: 5432
+    database_name: golden-coal
+    database_user: postgres
+    database_password: 12345
+    database_driver: pdo_pgsql
+    mailer_transport: smtp
+    mailer_host: null
+    mailer_user: null
+    mailer_password: null
+    secret: 12345
+    spa_version: 1.0.0
