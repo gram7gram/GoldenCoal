@@ -1,6 +1,11 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}Переможці{% endblock %}
+{% block title %}Реєстрація{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('themes/white-coal/index.css') }}?v=1.0.14">
+{% endblock %}
 
 {% block body %}
     <noscript>
@@ -11,6 +16,7 @@
             <div class="col-xs-12">
                 <div class="offer-container">
 
+                    <div id="register-white-coal-app"></div>
 
                     <br/>
                     <br/>
@@ -18,7 +24,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="form-group text-center">
-                                <a href="/contact"
+                                <a href="{{ path('contact_index') }}"
                                    class="btn btn-lg btn-primary uppercase">Задати питання</a>
                             </div>
                         </div>
@@ -31,6 +37,14 @@
 {% endblock %}
 
 {% block javascripts %}
-    {#<script src="{{ asset('dist/Contact.js') }}?v=1.0.0"></script>#}
+    <script>
+        var RegisterRouter = {
+            GET: {
+
+            }
+        }
+
+    </script>
+    <script src="{{ asset('dist/Participant.js') }}?v=1.0.0"></script>
 {% endblock %}
 

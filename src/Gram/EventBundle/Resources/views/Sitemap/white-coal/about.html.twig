@@ -2,39 +2,57 @@
 
 {% block title %}Умови акції{% endblock %}
 
+{% set params = app.request.attributes.get('_route_params') %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('themes/golden-coal/index.css') }}?v=1.0.14">
+{% endblock %}
+
 {% block body %}
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                <div class="about-promo">
-                    <img src="/img/about-promo-phone@400.png" alt="Prize" class="img-responsive"/>
-                </div>
-            </div>
+            {#<div class="col-xs-12">#}
+            {#<div class="about-promo">#}
+            {#<img src="{{ asset('img/about-promo-phone@400.png') }}" alt="Prize" class="img-responsive"/>#}
+            {#</div>#}
+            {#</div>#}
 
             <div class="col-xs-12">
                 <div class="offer-container">
                     <div class="row">
                         <div class="col-xs-12">
                             <h4 class="bold offer-qa">- Що аптека має для цього зробити?</h4>
-                            <p>- Все просто: погодитись на умови Акції та активно продавати супервідомі сорбенти <strong>БІЛЕ
-                                    ВУГІЛЛЯ</strong>, збільшуючи виручку аптеки. При цьому кожна продана споживачам упаковка
-                                дозволяє збирати Акційні бали, які накопичуються в автоматичному режимі на основі
-                                електронних відомостей про роздрібний продаж в групі аптек-учасників.</p>
+                            <p>- Все просто: погодитись на умови Акції, пройти реєстрацію та активно продавати
+                                супервідомі
+                                сорбенти БІЛЕ ВУГІЛЛЯ, збільшуючи виручку аптеки. При цьому кожна продана упаковка
+                                дозволяє збирати Акційні бали, які накопичуються в
+                                автоматичному режимі на основі електронних відомостей про роздрібний продаж в групі
+                                аптек-
+                                учасників.</p>
+
+                            <p class="bold">Увага! Пройти реєстрацію слід у період до 18 січня 2018 р.</p>
+                            <p class="bold">З 16 січня 2018 р. реєстрація в Акції буде припинена.</p>
+
+                            <div class="form-group">
+                                <a href="{{ path('register_index', {'code': params.code}) }}"
+                                   class="btn btn-primary btn-lg uppercase">ПРОЙТИ РЕЄСТРАЦІЮ</a>
+                            </div>
 
                             <h4 class="bold offer-qa">- Як довго триватиме ця Акція?</h4>
-                            <p>- З 17.10.2017 до 30.11.2017 р.</p>
+                            <p>- З 6.12.2017 до 31.01.2018 р.</p>
 
                             <h4 class="bold offer-qa">- Яка саме продукція є Акційною?</h4>
-                            <p>- Сорбенти <strong>БІЛЕ ВУГІЛЛЯ</strong>, які вже є в асортименті аптеки або ті форми, які
-                                також можливо
-                                продавати, щоб задовольнити вибагливого покупця (наприклад, шипучі таблетки проти
-                                похмілля або розчинні саше). Ніякого спеціального маркування у цієї продукції немає.
-                                Це те саме <strong>БІЛЕ ВУГІЛЛЯ</strong>, яке добре знають споживачі і працівники аптек.</p>
+                            <p>- Будь-які сорбенти БІЛЕ ВУГІЛЛЯ, виробником яких є українська компанія ОМНІФАРМА КИЇВ.
+                                Ніякого спеціального маркування у цієї продукції немає. Це те саме БІЛЕ ВУГІЛЛЯ, яке
+                                добре
+                                знають споживачі і працівники аптек.</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <img src="/img/about-promo-2@470.jpg" alt="" class="img-responsive margin-auto">
+                            <img src="{{ asset('img/about-promo-2@470.jpg') }}" alt=""
+                                 class="img-responsive margin-auto">
                         </div>
                     </div>
                     <div class="row">
@@ -50,7 +68,7 @@
                                     </div>
                                     <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
                                         <div class="offer-reward">
-                                            <img src="/img/20б.png" alt="" class="img-responsive">
+                                            <img src="{{ asset('img/20б.png') }}" alt="" class="img-responsive">
                                         </div>
                                     </div>
                                 </div>
@@ -68,7 +86,27 @@
                                     </div>
                                     <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
                                         <div class="offer-reward">
-                                            <img src="/img/40б.png" alt="" class="img-responsive">
+                                            <img src="{{ asset('img/40б.png') }}" alt="" class="img-responsive">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="offer">
+                                <div class="row">
+                                    <div class="col-xs-9 col-sm-9 col-md-10 col-lg-10">
+                                        <h3 class="offer-title">
+                                            <a href="http://omnifarma.kiev.ua/uk/products/bile-vugillya/"
+                                               target="_blank">БІЛЕ ВУГІЛЛЯ таб. 210 мг №100
+                                            </a>
+                                        </h3>
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
+                                        <div class="offer-reward">
+                                            <img src="{{ asset('img/200б.png') }}" alt="" class="img-responsive">
                                         </div>
                                     </div>
                                 </div>
@@ -88,7 +126,7 @@
                                     </div>
                                     <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
                                         <div class="offer-reward">
-                                            <img src="/img/35б.png" alt="" class="img-responsive">
+                                            <img src="{{ asset('img/35б.png') }}" alt="" class="img-responsive">
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +144,7 @@
                                     </div>
                                     <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
                                         <div class="offer-reward">
-                                            <img src="/img/80б.png" alt="" class="img-responsive">
+                                            <img src="{{ asset('img/80б.png') }}" alt="" class="img-responsive">
                                         </div>
                                     </div>
                                 </div>
@@ -126,74 +164,83 @@
                                     </div>
                                     <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
                                         <div class="offer-reward">
-                                            <img src="/img/60б.png" alt="" class="img-responsive">
+                                            <img src="{{ asset('img/60б.png') }}" alt="" class="img-responsive">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-xs-12">
-                            <h4 class="bold offer-qa">- Що робити із зібраними балами? І скільки балів потрібно зібрати, щоб
-                                отримати
-                                Золотий
-                                Смартфон?</h4>
-                            <p>- Кожні <strong>500 Акційних балів</strong> дають право на отримання <strong>ОДНОГО
-                                    унікального Акційного коду</strong>,
-                                який вноситься в базу розіграшу Призового фонду після завершення періоду Акції.
-                                Власник Золотого Смартфону визначається шляхом жеребкування.</p>
-                            <p><strong>Зверніть увагу: якщо Ви читаєте ці правила 17 або 18 жовтня, на рахунку Вашої аптеки
-                                    вже
-                                    лежать не менше 200 Акційних балів, які аптека вже заробила! Тому що для учасників у
-                                    якості БОНУСУ будуть додані бали, зібрані з 1 до 16 жовтня!</strong></p>
+                            <div class="form-group">
+                                <a href="{{ path('register_index', {'code': params.code}) }}"
+                                   class="btn btn-primary btn-lg uppercase">ПРОЙТИ РЕЄСТРАЦІЮ</a>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4 class="bold offer-qa">- Що робити із зібраними балами? І скільки балів потрібно зібрати,
+                                щоб отримати Суперприз – Білий АйПад?</h4>
+                            <p>- Кожні 1000 Акційних балів дають право на отримання ОДНОГО унікального Акційного коду.
+                                Акційні коди вносяться до Реєстру учасників жеребкування Призового фонду після
+                                завершення періоду Акції.
+                            </p>
+
+                            <p>Власник Стильного Білого АйПаду та інших Призів визначаються шляхом жеребкування.</p>
 
                             <h4 class="bold offer-qa">- Як аптека може перевірити свої бали?</h4>
                             <p>- В період Акції – самостійно, виходячи з роздрібної реалізації Акційної продукції та
-                                перемноживши кількість проданих упаковок на відповідні бали з таблички.</p>
+                                перемноживши кількість проданих упаковок на відповідні Акційні бали з таблички.</p>
 
-                            <h4 class="bold offer-qa">- Якщо аптека накопичила 900 балів, що з цим робити?</h4>
-                            <p>- Якщо дозволяє час, можливо продавати, щоб накопичити ще 100 балів та отримати вже ДВА
-                                унікальних Акційних коди.
-                                Взагалі кількість унікальних Акційних кодів, які може отримати учасник Акції, не
-                                обмежена!</p>
+                            <h4 class="bold offer-qa">- Якщо аптека накопичила 1800 балів, тоді 1 Акційний код гарантовано. А що робити із залишком у 800 балів?</h4>
+                            <p>- Якщо дозволяє час, можливо продавати, щоб накопичити ще 200 балів та отримати вже ДВА унікальних Акційних коди.</p>
 
-                            <p>Більше продаєте – більше кодів отримуєте – ще більше шансів отримати <strong>Супермодний
-                                    Золотий Смартфон*</strong>!</p>
+                            <p>Більше продаєте – більше кодів отримуєте – ще більше шансів отримати Стильний Білий АйПад*!</p>
 
-                            <h4 class="bold offer-qa">- Серед призів – тільки смартфон? А скільки таких смартфонів?</h4>
-                            <p>- Смартфон – один… Але який! Це:</p>
+                            <p>Взагалі кількість унікальних Акційних кодів, які може отримати учасник Акції, не обмежена!</p>
+
+                            <h4 class="bold offer-qa">- Серед призів – тільки АйПад? А скільки таких планшетів? Які ще призи будуть в Акції та скільки?</h4>
+                            <p>- Стильний планшет АйПад Міні – один… Але яке «яблуко» класне!</p>
 
                             <div class="offer">
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <h3 class="offer-title">Супермодний безрамочний смартфон САМСУНГ G935 Galaxy S7 Edge
+                                        <h3 class="offer-title">Супермодний безрамочний смартфон САМСУНГ G935 Galaxy S7
+                                            Edge
                                             Duos 32Gb в корпусі
                                             золотого кольору!</h3>
                                     </div>
                                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                                         <div class="offer-image">
-                                            <img src="/img/about-promo-prize-phone@400.png"
-                                                 alt="САМСУНГ G935 Galaxy S7 Edge Duos 32Gb"
+                                            <img src="{{ asset('img/about-promo-prize-ipad@400.png') }}"
+                                                 alt="Apple iPad mini 4 / 16GB"
                                                  class="img-responsive"
                                                  style="margin: 10px auto; max-height: 300px;">
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
-                                        <iframe width="100%" height="320px" src="https://www.youtube.com/embed/T3mlX-9j-Vs"
+                                        <iframe width="100%" height="320px"
+                                                src="https://www.youtube.com/watch?v=jZ33ljQ2XOQ"
                                                 frameborder="0" allowfullscreen></iframe>
                                     </div>
                                     <div class="col-xs-12">
-                                        <p>SIM-карт: 2</p>
-                                        <p>Дисплей (діагональ): 5.5 дюймів</p>
-                                        <p>Дисплей: QHD (2560x1440), яскравий Super AMOLED</p>
-                                        <p>Основна камера: 12 Мпікс</p>
-                                        <p>Фронтальна (селфі) камера: 5 Мпікс</p>
-                                        <p>Версія ОС: Android 6.0</p>
-                                        <p>Оперативна пам’ять: 4 ГБ</p>
-                                        <p>Вбудована пам’ять: 32 ГБ</p>
-                                        <p>Аккумулятор: 3600 мАг</p>
+                                        <p>Apple iPad mini 4 / 16GB</p>
+                                        <p>Білий колір передньої грані, сріблястий – для задньої кришки</p>
+                                        <p>Встановлена ОС: iOS 9</p>
+                                        <p>Екран: 7,9 дюймів, 2048x1536, Retina display</p>
+                                        <p>Оперативна пам’ять, ГБ: 1</p>
+                                        <p>Вбудована пам’ять, ГБ: 16</p>
+                                        <p>Фронтальна камера, Мп: 1,2 МП</p>
+                                        <p>Основна камера, Мп: 8 МП, автофокус</p>
+                                        <p>Wi-Fi: так</p>
+                                        <p>Bluetooth: так</p>
+                                        <p>Модуль 3G/4G та GPS: відсутні</p>
+                                        <p>Зовнішні порти: USB (Lightning), 3,5 мм аудіо</p>
+                                        <p>Більше на: <a href="https://apple.com/ipad-mini" target="_blank">apple.com/ipad-mini</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -201,14 +248,10 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-
-                            <h4 class="bold offer-qa">- І це все?</h4>
-                            <p>- Зовсім ні.</p>
-
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="offer">
-                                        <h3 class="offer-title">Учасників чекають ще 90 призів.</h3>
+                                        <h3 class="offer-title">На учасників чекають ще 100 призів.</h3>
                                     </div>
                                 </div>
 
@@ -220,7 +263,7 @@
                                             </div>
                                             <div class="col-xs-8">
                                                 <div class="offer-image">
-                                                    <img src="/img/prize-powerbank@400.jpg"
+                                                    <img src="{{ asset('img/prize-powerbank@400.jpg') }}"
                                                          alt="Зовнішня батарея (power-bank) для смартфона"
                                                          class="img-responsive">
                                                 </div>
@@ -242,8 +285,8 @@
                                             </div>
                                             <div class="col-xs-8">
                                                 <div class="offer-image">
-                                                    <img src="/img/prize-card@400.png"
-                                                         alt="Сертифікат подарунковий БОДО-кард (100)"
+                                                    <img src="{{ asset('img/prize-card@400.png"
+                                                         alt="Сертифікат подарунковий БОДО-кард (100)') }}"
                                                          class="img-responsive">
                                                 </div>
                                             </div>
@@ -266,7 +309,7 @@
                                             </div>
                                             <div class="col-xs-8">
                                                 <div class="offer-image">
-                                                    <img src="/img/prize-fluffy-1@250.jpg"
+                                                    <img src="{{ asset('img/prize-fluffy-1@250.jpg') }}"
                                                          alt="Навушники жіночі хутрові (білі)"
                                                          class="img-responsive">
                                                 </div>
@@ -288,7 +331,7 @@
                                             </div>
                                             <div class="col-xs-8">
                                                 <div class="offer-image">
-                                                    <img src="/img/prize-fluffy-2@250.jpg"
+                                                    <img src="{{ asset('img/prize-fluffy-2@250.jpg') }}"
                                                          alt="Навушники жіночі хутрові (чорні)"
                                                          class="img-responsive">
                                                 </div>
@@ -312,7 +355,7 @@
                                             </div>
                                             <div class="col-xs-8">
                                                 <div class="offer-image">
-                                                    <img src="/img/prize-cup@400.jpg"
+                                                    <img src="{{ asset('img/prize-cup@400.jpg') }}"
                                                          alt="Термочашка"
                                                          class="img-responsive">
                                                 </div>
@@ -334,7 +377,7 @@
                                             </div>
                                             <div class="col-xs-8">
                                                 <div class="offer-image">
-                                                    <img src="/img/prize-headphones@400.jpg"
+                                                    <img src="{{ asset('img/prize-headphones@400.jpg') }}"
                                                          alt="Аудіонавушники для смартфона"
                                                          class="img-responsive">
                                                 </div>
@@ -356,39 +399,47 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <h4 class="bold">- Як організатор Акції отримує звіт про продаж, за яким буде складений список
+                            <h4 class="bold">- Як організатор Акції отримує звіт про продаж, за яким буде складений
+                                список
                                 учасників
                                 жеребкування Призів?</h4>
-                            <p>- Організатор Акції отримує продажі в автоматичному режимі. Надсилати звіти організатору не
+                            <p>- Організатор Акції отримує продажі в автоматичному режимі. Надсилати звіти організатору
+                                не
                                 потрібно.</p>
 
                             <br/>
 
                             <h4 class="bold">- Як будуть визначатись власники Призів?</h4>
 
-                            <p>- З <strong>01 до 12 грудня 2017 р.</strong> будуть підведені підсумки Акції та сформований
+                            <p>- З <strong>01 до 12 грудня 2017 р.</strong> будуть підведені підсумки Акції та
+                                сформований
                                 фінальний Реєстр
                                 учасників розіграшу Призів. Для цього кожна аптека-учасник, що накопичила не менше 500
-                                балів, в залежності від результату автоматично отримує свою кількість унікальних акційних
+                                балів, в залежності від результату автоматично отримує свою кількість унікальних
+                                акційних
                                 кодів. Кожний з цих кодів є рівноправним учасником жеребкування. Але той, у кого таких
                                 кодів БІЛЬШЕ, має БІЛЬШЕ ШАНСІВ забрати собі Золотий Смартфон.</p>
                             <p><strong>14 грудня 2017 р.</strong> у Києві проводиться електронний розіграш Призів серед
                                 учасників, які
                                 увійшли до Реєстру. Жеребкування проводиться у присутності нотаріуса у формі
-                                комп’ютерного випадкового визначення виграшних Акційних номерів та відповідних Призів.</p>
+                                комп’ютерного випадкового визначення виграшних Акційних номерів та відповідних Призів.
+                            </p>
 
                             <br/>
 
-                            <h4 class="bold">- Як аптека може дізнатись до жеребкування, чи зараховані її бали та скільки
+                            <h4 class="bold">- Як аптека може дізнатись до жеребкування, чи зараховані її бали та
+                                скільки
                                 акційних кодів
                                 внесені в Реєстр?</h4>
-                            <p>- Сформований Реєстр учасників жеребкування, де видно місто, назву аптеки та кількість кодів,
+                            <p>- Сформований Реєстр учасників жеребкування, де видно місто, назву аптеки та кількість
+                                кодів,
                                 буде представлений з 12 грудня 2017 р. на цьому сайті.</p>
 
                             <br/>
 
                             <h4 class="bold">- Коли можна ознайомитись із списком переможців?</h4>
-                            <p>- <strong>15 грудня 2017 р.</strong> на цьому сайті буде представлений список переможців.</p>
+                            <p>- <strong>15 грудня 2017 р.</strong> на цьому сайті буде представлений список переможців.
+                            </p>
 
                             <br/>
 
@@ -406,7 +457,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group text-center">
-                                    <a href="/contact"
+                                    <a href="{{ path('contact_index') }}"
                                        class="btn btn-lg btn-primary uppercase">Задати питання</a>
                                 </div>
                             </div>

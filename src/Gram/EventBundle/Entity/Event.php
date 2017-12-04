@@ -12,6 +12,9 @@ use JMS\Serializer\Annotation as JMS;
 class Event
 {
 
+    const GOLDEN_COAL = 'golden-coal';
+    const WHITE_COAL = 'white-coal';
+
     /**
      * @var int
      *
@@ -38,6 +41,15 @@ class Event
      * @JMS\Groups({"basic"})
      */
     private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=false, length=16, unique=true)
+     *
+     * @JMS\Groups({"basic"})
+     */
+    private $code;
 
 
     public function __construct()
@@ -75,5 +87,21 @@ class Event
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string $code
+     */
+    public function setCode(string $code): void
+    {
+        $this->code = $code;
     }
 }

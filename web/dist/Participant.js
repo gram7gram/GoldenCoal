@@ -7034,7 +7034,19 @@ var translator = {
         field_position: 'Посада',
         field_region: 'Область',
         field_city: 'Назва населеного пункту',
-        field_street: 'Повна робоча адреса (без назви населеного пункту)'
+        field_street: 'Повна робоча адреса (без назви населеного пункту)',
+        participation_search_btn: 'Пошук',
+        participation_search_placeholder: 'ЄДРПОУ аптеки...',
+        participation_edrpou: 'ЄДРПОУ',
+        participation_region: 'Регіон',
+        participation_name: 'Назва',
+        participation_city: 'Населений пункт',
+        participation_address: 'Адреса',
+        participation_count: 'Кількість',
+        participation_loading: 'Завантаження...',
+        participation_no_items_title: 'Учасників не знайдено',
+        participation_no_items_footer: 'Спробуйте змінити пошуковий запит',
+        participation_notice: 'Якщо Ваша аптека відсутня у Реєстрі, це означає, що за підсумками періоду Акції умови Акції не були виконані.'
     }
 };
 
@@ -66054,7 +66066,7 @@ var Participant = function (_React$Component) {
                             },
                             __self: this
                         },
-                        'Loading...'
+                        Object(__WEBPACK_IMPORTED_MODULE_3__translator__["a" /* default */])('participation_loading')
                     )
                 );
             }
@@ -66077,7 +66089,7 @@ var Participant = function (_React$Component) {
                             },
                             __self: this
                         },
-                        'No participants found title'
+                        Object(__WEBPACK_IMPORTED_MODULE_3__translator__["a" /* default */])('participation_no_items_title')
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'h4',
@@ -66088,7 +66100,7 @@ var Participant = function (_React$Component) {
                             },
                             __self: this
                         },
-                        'No participants found footer'
+                        Object(__WEBPACK_IMPORTED_MODULE_3__translator__["a" /* default */])('participation_no_items_footer')
                     )
                 );
             }
@@ -66102,24 +66114,23 @@ var Participant = function (_React$Component) {
                     __self: this
                 },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'table',
-                    { className: 'table table-condensed', __source: {
+                    'div',
+                    { className: 'table-scrollable', __source: {
                             fileName: _jsxFileName,
                             lineNumber: 47
                         },
                         __self: this
                     },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'thead',
-                        {
-                            __source: {
+                        'table',
+                        { className: 'table table-condensed table-hover', __source: {
                                 fileName: _jsxFileName,
                                 lineNumber: 48
                             },
                             __self: this
                         },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'tr',
+                            'thead',
                             {
                                 __source: {
                                     fileName: _jsxFileName,
@@ -66128,7 +66139,7 @@ var Participant = function (_React$Component) {
                                 __self: this
                             },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'td',
+                                'tr',
                                 {
                                     __source: {
                                         fileName: _jsxFileName,
@@ -66136,151 +66147,166 @@ var Participant = function (_React$Component) {
                                     },
                                     __self: this
                                 },
-                                'Edrpou'
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'td',
-                                {
-                                    __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 51
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'td',
+                                    {
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 51
+                                        },
+                                        __self: this
                                     },
-                                    __self: this
-                                },
-                                'Region'
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'td',
-                                {
-                                    __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 52
+                                    Object(__WEBPACK_IMPORTED_MODULE_3__translator__["a" /* default */])('participation_edrpou')
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'td',
+                                    {
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 52
+                                        },
+                                        __self: this
                                     },
-                                    __self: this
-                                },
-                                'Name'
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'td',
-                                {
-                                    __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 53
+                                    Object(__WEBPACK_IMPORTED_MODULE_3__translator__["a" /* default */])('participation_region')
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'td',
+                                    {
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 53
+                                        },
+                                        __self: this
                                     },
-                                    __self: this
-                                },
-                                'City'
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'td',
-                                {
-                                    __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 54
+                                    Object(__WEBPACK_IMPORTED_MODULE_3__translator__["a" /* default */])('participation_name')
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'td',
+                                    {
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 54
+                                        },
+                                        __self: this
                                     },
-                                    __self: this
-                                },
-                                'Address'
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'td',
-                                {
-                                    __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 55
+                                    Object(__WEBPACK_IMPORTED_MODULE_3__translator__["a" /* default */])('participation_city')
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'td',
+                                    {
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 55
+                                        },
+                                        __self: this
                                     },
-                                    __self: this
-                                },
-                                'Count'
+                                    Object(__WEBPACK_IMPORTED_MODULE_3__translator__["a" /* default */])('participation_address')
+                                )
                             )
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'tbody',
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 58
+                                },
+                                __self: this
+                            },
+                            collection.map(function (item) {
+                                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'tr',
+                                    { key: item.id, __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 59
+                                        },
+                                        __self: _this2
+                                    },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'td',
+                                        {
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 60
+                                            },
+                                            __self: _this2
+                                        },
+                                        item.pharmacy.okpo
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'td',
+                                        {
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 61
+                                            },
+                                            __self: _this2
+                                        },
+                                        item.address.region
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'td',
+                                        {
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 62
+                                            },
+                                            __self: _this2
+                                        },
+                                        item.pharmacy.name + (item.pharmacy.number ? " (" + item.pharmacy.number + ")" : "")
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'td',
+                                        {
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 63
+                                            },
+                                            __self: _this2
+                                        },
+                                        item.address.city
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'td',
+                                        {
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 64
+                                            },
+                                            __self: _this2
+                                        },
+                                        item.address.street
+                                    )
+                                );
+                            })
                         )
-                    ),
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'alert alert-warning', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 69
+                        },
+                        __self: this
+                    },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'tbody',
+                        'p',
                         {
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 58
+                                lineNumber: 70
                             },
                             __self: this
                         },
-                        collection.map(function (item) {
-                            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'tr',
-                                { key: item.id, __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 59
-                                    },
-                                    __self: _this2
-                                },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'td',
-                                    {
-                                        __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 60
-                                        },
-                                        __self: _this2
-                                    },
-                                    item.okpo
-                                ),
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'td',
-                                    {
-                                        __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 61
-                                        },
-                                        __self: _this2
-                                    },
-                                    item.address.region
-                                ),
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'td',
-                                    {
-                                        __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 62
-                                        },
-                                        __self: _this2
-                                    },
-                                    item.name + " " + item.number
-                                ),
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'td',
-                                    {
-                                        __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 63
-                                        },
-                                        __self: _this2
-                                    },
-                                    item.address.city
-                                ),
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'td',
-                                    {
-                                        __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 64
-                                        },
-                                        __self: _this2
-                                    },
-                                    item.address.street
-                                ),
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'td',
-                                    {
-                                        __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 65
-                                        },
-                                        __self: _this2
-                                    },
-                                    item.count
-                                )
-                            );
-                        })
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-info-circle', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 70
+                            },
+                            __self: this
+                        }),
+                        '\xA0',
+                        Object(__WEBPACK_IMPORTED_MODULE_3__translator__["a" /* default */])('participation_notice')
                     )
                 )
             );
@@ -66289,7 +66315,7 @@ var Participant = function (_React$Component) {
         key: 'render',
         value: function render() {
             var _props$Participation2 = this.props.Participation,
-                search = _props$Participation2.search,
+                okpo = _props$Participation2.okpo,
                 isLoading = _props$Participation2.isLoading;
 
 
@@ -66298,7 +66324,7 @@ var Participant = function (_React$Component) {
                 {
                     __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 75
+                        lineNumber: 78
                     },
                     __self: this
                 },
@@ -66306,7 +66332,7 @@ var Participant = function (_React$Component) {
                     __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["c" /* Col */],
                     { xs: 12, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 76
+                            lineNumber: 79
                         },
                         __self: this
                     },
@@ -66315,7 +66341,7 @@ var Participant = function (_React$Component) {
                         {
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 77
+                                lineNumber: 80
                             },
                             __self: this
                         },
@@ -66323,7 +66349,7 @@ var Participant = function (_React$Component) {
                             __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["c" /* Col */],
                             { xs: 12, sm: 10, smOffset: 1, md: 6, mdOffset: 3, lg: 6, lgOffset: 3, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 78
+                                    lineNumber: 81
                                 },
                                 __self: this
                             },
@@ -66332,7 +66358,7 @@ var Participant = function (_React$Component) {
                                 {
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 79
+                                        lineNumber: 82
                                     },
                                     __self: this
                                 },
@@ -66341,16 +66367,16 @@ var Participant = function (_React$Component) {
                                     {
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 80
+                                            lineNumber: 83
                                         },
                                         __self: this
                                     },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["d" /* FormControl */], {
-                                        placeholder: Object(__WEBPACK_IMPORTED_MODULE_3__translator__["a" /* default */])('contact_field_name'),
-                                        value: search || '',
+                                        placeholder: Object(__WEBPACK_IMPORTED_MODULE_3__translator__["a" /* default */])('participation_search_placeholder'),
+                                        value: okpo || '',
                                         onChange: this.changeSearch, __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 81
+                                            lineNumber: 84
                                         },
                                         __self: this
                                     }),
@@ -66358,7 +66384,7 @@ var Participant = function (_React$Component) {
                                         'span',
                                         { className: 'input-group-btn', __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 85
+                                                lineNumber: 88
                                             },
                                             __self: this
                                         },
@@ -66366,24 +66392,25 @@ var Participant = function (_React$Component) {
                                             'button',
                                             { className: 'btn btn-primary btn-lg',
                                                 onClick: this.search,
-                                                disabled: isLoading, __source: {
+                                                disabled: isLoading || !okpo, __source: {
                                                     fileName: _jsxFileName,
-                                                    lineNumber: 86
+                                                    lineNumber: 89
                                                 },
                                                 __self: this
                                             },
                                             isLoading ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-spin fa-circle-o-notch', __source: {
                                                     fileName: _jsxFileName,
-                                                    lineNumber: 90
+                                                    lineNumber: 93
                                                 },
                                                 __self: this
                                             }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-search', __source: {
                                                     fileName: _jsxFileName,
-                                                    lineNumber: 91
+                                                    lineNumber: 94
                                                 },
                                                 __self: this
                                             }),
-                                            '\xA0\u041F\u043E\u0448\u0443\u043A'
+                                            '\xA0',
+                                            Object(__WEBPACK_IMPORTED_MODULE_3__translator__["a" /* default */])('participation_search_btn')
                                         )
                                     )
                                 )
@@ -66395,7 +66422,7 @@ var Participant = function (_React$Component) {
                         {
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 98
+                                lineNumber: 101
                             },
                             __self: this
                         },
@@ -66438,7 +66465,7 @@ var collection = function collection() {
     }
 };
 
-var search = function search() {
+var okpo = function okpo() {
     var prev = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
     var action = arguments[1];
 
@@ -66482,7 +66509,7 @@ var isLoading = function isLoading() {
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_redux__["c" /* combineReducers */])({
     collection: collection,
-    search: search,
+    okpo: okpo,
     isLoading: isLoading,
     isLoaded: isLoaded
 }));
@@ -66543,7 +66570,7 @@ function doAction() {
                 case 2:
                     store = _context2.sent;
                     _context2.next = 5;
-                    return Object(__WEBPACK_IMPORTED_MODULE_2_redux_saga_effects__["c" /* put */])(Object(__WEBPACK_IMPORTED_MODULE_4__actions_FetchWinners__["a" /* default */])(store.Winner.search));
+                    return Object(__WEBPACK_IMPORTED_MODULE_2_redux_saga_effects__["c" /* put */])(Object(__WEBPACK_IMPORTED_MODULE_4__actions_FetchWinners__["a" /* default */])(store.Winner.okpo));
 
                 case 5:
                 case 'end':
@@ -66581,7 +66608,7 @@ function sagas() {
 
 
 var xhr = void 0;
-/* harmony default export */ __webpack_exports__["a"] = (function (search) {
+/* harmony default export */ __webpack_exports__["a"] = (function (okpo) {
     return function (dispatch) {
 
         xhr && xhr.abort();
@@ -66591,7 +66618,7 @@ var xhr = void 0;
             data: {
                 limit: 0,
                 filter: {
-                    search: search
+                    okpo: okpo
                 }
             },
             beforeSend: function beforeSend() {
@@ -66674,7 +66701,7 @@ function doAction() {
                 case 2:
                     store = _context2.sent;
                     _context2.next = 5;
-                    return Object(__WEBPACK_IMPORTED_MODULE_2_redux_saga_effects__["c" /* put */])(Object(__WEBPACK_IMPORTED_MODULE_4__actions_FetchParticipants__["a" /* default */])(store.Participation.search));
+                    return Object(__WEBPACK_IMPORTED_MODULE_2_redux_saga_effects__["c" /* put */])(Object(__WEBPACK_IMPORTED_MODULE_4__actions_FetchParticipants__["a" /* default */])(store.Participation.okpo));
 
                 case 5:
                 case 'end':
@@ -66712,7 +66739,7 @@ function sagas() {
 
 
 var xhr = void 0;
-/* harmony default export */ __webpack_exports__["a"] = (function (search) {
+/* harmony default export */ __webpack_exports__["a"] = (function (okpo) {
     return function (dispatch) {
 
         xhr && xhr.abort();
@@ -66722,7 +66749,7 @@ var xhr = void 0;
             data: {
                 limit: 0,
                 filter: {
-                    search: search
+                    okpo: okpo
                 }
             },
             beforeSend: function beforeSend() {

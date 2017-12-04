@@ -11,22 +11,32 @@ index:
     defaults:
         _controller: GramEventBundle:Sitemap:index
 
-about_index:
-    path: /about
-    defaults:
-        _controller: GramEventBundle:Sitemap:about
-
 contact_index:
     path: /contact
     defaults:
         _controller: GramEventBundle:Sitemap:contact
 
+about_index:
+    path: /events/{code}/about
+    defaults:
+        _controller: GramEventBundle:Sitemap:about
+
+register_index:
+    path: /events/{code}/register
+    defaults:
+        _controller: GramEventBundle:Sitemap:register
+
 participant_index:
-    path: /participants
+    path: /events/{code}/participants
     defaults:
         _controller: GramEventBundle:Sitemap:participants
 
 winner_index:
-    path: /winners
+    path: /events/{code}/winners
     defaults:
         _controller: GramEventBundle:Sitemap:winner
+
+event_index:
+    path: /events/{code}
+    defaults:
+        _controller: GramEventBundle:Sitemap:event

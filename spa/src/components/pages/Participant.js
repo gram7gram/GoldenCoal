@@ -32,45 +32,48 @@ class Participant extends React.Component {
 
         if (isLoading) {
             return <div className="banner">
-                <h4>Loading...</h4>
+                <h4>{trans('participation_loading')}</h4>
             </div>
         }
 
         if (isLoaded && collection.length === 0) {
             return <div className="banner">
-                <h3>No participants found title</h3>
-                <h4>No participants found footer</h4>
+                <h3>{trans('participation_no_items_title')}</h3>
+                <h4>{trans('participation_no_items_footer')}</h4>
             </div>
         }
 
         return <Col xs={12}>
-            <table className="table table-condensed">
+            <div className="table-scrollable">
+            <table className="table table-condensed table-hover">
                 <thead>
                 <tr>
-                    <td>Edrpou</td>
-                    <td>Region</td>
-                    <td>Name</td>
-                    <td>City</td>
-                    <td>Address</td>
-                    <td>Count</td>
+                    <td>{trans('participation_edrpou')}</td>
+                    <td>{trans('participation_region')}</td>
+                    <td>{trans('participation_name')}</td>
+                    <td>{trans('participation_city')}</td>
+                    <td>{trans('participation_address')}</td>
                 </tr>
                 </thead>
                 <tbody>
                 {collection.map(item => <tr key={item.id}>
-                    <td>{item.okpo}</td>
+                    <td>{item.pharmacy.okpo}</td>
                     <td>{item.address.region}</td>
-                    <td>{item.name + " " + item.number}</td>
+                    <td>{item.pharmacy.name + (item.pharmacy.number ? " (" + item.pharmacy.number + ")" : "")}</td>
                     <td>{item.address.city}</td>
                     <td>{item.address.street}</td>
-                    <td>{item.count}</td>
                 </tr>)}
                 </tbody>
             </table>
+            </div>
+            <div className="alert alert-warning">
+                <p><i className="fa fa-info-circle"/>&nbsp;{trans('participation_notice')}</p>
+            </div>
         </Col>
     }
 
     render() {
-        const {search, isLoading} = this.props.Participation
+        const {okpo, isLoading} = this.props.Participation
 
         return <Row>
             <Col xs={12}>
@@ -79,16 +82,16 @@ class Participant extends React.Component {
                         <FormGroup>
                             <InputGroup>
                                 <FormControl
-                                    placeholder={trans('contact_field_name')}
-                                    value={search || ''}
+                                    placeholder={trans('participation_search_placeholder')}
+                                    value={okpo || ''}
                                     onChange={this.changeSearch}/>
                                 <span className="input-group-btn">
                                     <button className="btn btn-primary btn-lg"
                                             onClick={this.search}
-                                            disabled={isLoading}>
+                                            disabled={isLoading || !okpo}>
                                         {isLoading
                                             ? <i className="fa fa-spin fa-circle-o-notch"/>
-                                            : <i className="fa fa-search"/>}&nbsp;Пошук
+                                            : <i className="fa fa-search"/>}&nbsp;{trans('participation_search_btn')}
                                     </button>
                                 </span>
                             </InputGroup>

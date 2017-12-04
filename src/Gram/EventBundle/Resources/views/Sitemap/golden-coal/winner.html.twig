@@ -1,6 +1,11 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}Учасники{% endblock %}
+{% block title %}Переможці{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('themes/golden-coal/index.css') }}?v=1.0.14">
+{% endblock %}
 
 {% block body %}
     <noscript>
@@ -11,7 +16,6 @@
             <div class="col-xs-12">
                 <div class="offer-container">
 
-                    <div id="participant-app"></div>
 
                     <br/>
                     <br/>
@@ -32,14 +36,6 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script>
-        var ParticipationRouter = {
-            GET: {
-                participants: '{{ path('api_v1_participant_gets', {'id': 2}) }}'
-            }
-        }
-
-    </script>
-    <script src="{{ asset('dist/Participant.js') }}?v=1.0.0"></script>
+    {#<script src="{{ asset('dist/Contact.js') }}?v=1.0.0"></script>#}
 {% endblock %}
 

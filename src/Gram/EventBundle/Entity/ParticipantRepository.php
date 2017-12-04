@@ -9,6 +9,23 @@ class ParticipantRepository extends EntityRepository
     private function createFilterQuery($filter)
     {
         $qb = $this->createQueryBuilder('p');
+        $e = $qb->expr();
+
+        $qb
+            ->addSelect('address')
+            ->addSelect('pharmacy')
+            ->addSelect('pharmacyType')
+            ->addSelect('event');
+        $qb
+            ->join('p.address', 'address')
+            ->join('p.pharmacy', 'pharmacy')
+            ->join('p.event', 'event')
+            ->join('pharmacy.type', 'pharmacyType');
+
+        if (isset($filter['okpo'])) {
+            $qb->andWhere($e->eq('pharmacy.okpo', ':okpo'))
+                ->setParameter('okpo', $filter['okpo']);
+        }
 
         return $qb;
     }

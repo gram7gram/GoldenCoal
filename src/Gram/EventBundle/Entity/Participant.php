@@ -7,7 +7,7 @@ use JMS\Serializer\Annotation as JMS;
 
 /**
  * @ORM\Entity(repositoryClass="Gram\EventBundle\Entity\ParticipantRepository")
- * @ORM\Table(name="user_bundle_individual")
+ * @ORM\Table(name="event_bundle_participant")
  */
 class Participant
 {
@@ -79,6 +79,8 @@ class Participant
      * @var Pharmacy
      *
      * @ORM\ManyToOne(targetEntity="Gram\EventBundle\Entity\Pharmacy")
+     *
+     * @JMS\Groups({"basic"})
      */
     private $pharmacy;
 
@@ -86,6 +88,8 @@ class Participant
      * @var Address
      *
      * @ORM\ManyToOne(targetEntity="Gram\EventBundle\Entity\Address")
+     *
+     * @JMS\Groups({"basic"})
      */
     private $address;
 
@@ -93,6 +97,8 @@ class Participant
      * @var Event
      *
      * @ORM\ManyToOne(targetEntity="Gram\EventBundle\Entity\Event")
+     *
+     * @JMS\Groups({"basic"})
      */
     private $event;
 

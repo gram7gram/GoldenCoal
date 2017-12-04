@@ -1,0 +1,37 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Білий iPad* від Білого Вугілля{% endblock %}
+
+{% set params = app.request.attributes.get('_route_params') %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('themes/white-coal/index.css') }}?v=1.0.14">
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="promo">
+                    <img src="{{ asset('img/white-coal/promo-banner.jpg') }}" alt="Prize" class="img-responsive"/>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+                        <div class="form-group">
+                            <a href="{{ path('about_index', {'code': params.code}) }}"
+                               class="btn btn-lg btn-block btn-primary uppercase">Правила акції</a>
+                        </div>
+                        <div class="form-group">
+                            <a href="{{ path('contact_index') }}"
+                               class="btn btn-lg btn-block btn-primary uppercase">Задати питання</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

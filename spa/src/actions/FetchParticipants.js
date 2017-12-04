@@ -2,7 +2,7 @@ import $ from 'jquery'
 import * as Action from '../actions'
 
 let xhr
-export default search => dispatch => {
+export default okpo => dispatch => {
 
     xhr && xhr.abort();
     xhr = $.ajax({
@@ -11,7 +11,7 @@ export default search => dispatch => {
         data: {
             limit: 0,
             filter: {
-                search
+                okpo
             }
         },
         beforeSend: () => {

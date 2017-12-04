@@ -25,6 +25,18 @@ const translator = {
         field_region: 'Область',
         field_city: 'Назва населеного пункту',
         field_street: 'Повна робоча адреса (без назви населеного пункту)',
+        participation_search_btn: 'Пошук',
+        participation_search_placeholder: 'ЄДРПОУ аптеки...',
+        participation_edrpou: 'ЄДРПОУ',
+        participation_region: 'Регіон',
+        participation_name: 'Назва',
+        participation_city: 'Населений пункт',
+        participation_address: 'Адреса',
+        participation_count: 'Кількість',
+        participation_loading: 'Завантаження...',
+        participation_no_items_title: 'Учасників не знайдено',
+        participation_no_items_footer: 'Спробуйте змінити пошуковий запит',
+        participation_notice: 'Якщо Ваша аптека відсутня у Реєстрі, це означає, що за підсумками періоду Акції умови Акції не були виконані.'
     }
 }
 

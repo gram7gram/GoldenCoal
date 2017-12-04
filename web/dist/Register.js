@@ -7034,7 +7034,19 @@ var translator = {
         field_position: 'Посада',
         field_region: 'Область',
         field_city: 'Назва населеного пункту',
-        field_street: 'Повна робоча адреса (без назви населеного пункту)'
+        field_street: 'Повна робоча адреса (без назви населеного пункту)',
+        participation_search_btn: 'Пошук',
+        participation_search_placeholder: 'ЄДРПОУ аптеки...',
+        participation_edrpou: 'ЄДРПОУ',
+        participation_region: 'Регіон',
+        participation_name: 'Назва',
+        participation_city: 'Населений пункт',
+        participation_address: 'Адреса',
+        participation_count: 'Кількість',
+        participation_loading: 'Завантаження...',
+        participation_no_items_title: 'Учасників не знайдено',
+        participation_no_items_footer: 'Спробуйте змінити пошуковий запит',
+        participation_notice: 'Якщо Ваша аптека відсутня у Реєстрі, це означає, що за підсумками періоду Акції умови Акції не були виконані.'
     }
 };
 
@@ -66974,7 +66986,7 @@ var collection = function collection() {
     }
 };
 
-var search = function search() {
+var okpo = function okpo() {
     var prev = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
     var action = arguments[1];
 
@@ -67018,7 +67030,7 @@ var isLoading = function isLoading() {
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_redux__["c" /* combineReducers */])({
     collection: collection,
-    search: search,
+    okpo: okpo,
     isLoading: isLoading,
     isLoaded: isLoaded
 }));
@@ -67079,7 +67091,7 @@ function doAction() {
                 case 2:
                     store = _context2.sent;
                     _context2.next = 5;
-                    return Object(__WEBPACK_IMPORTED_MODULE_2_redux_saga_effects__["c" /* put */])(Object(__WEBPACK_IMPORTED_MODULE_4__actions_FetchWinners__["a" /* default */])(store.Winner.search));
+                    return Object(__WEBPACK_IMPORTED_MODULE_2_redux_saga_effects__["c" /* put */])(Object(__WEBPACK_IMPORTED_MODULE_4__actions_FetchWinners__["a" /* default */])(store.Winner.okpo));
 
                 case 5:
                 case 'end':
@@ -67117,7 +67129,7 @@ function sagas() {
 
 
 var xhr = void 0;
-/* harmony default export */ __webpack_exports__["a"] = (function (search) {
+/* harmony default export */ __webpack_exports__["a"] = (function (okpo) {
     return function (dispatch) {
 
         xhr && xhr.abort();
@@ -67127,7 +67139,7 @@ var xhr = void 0;
             data: {
                 limit: 0,
                 filter: {
-                    search: search
+                    okpo: okpo
                 }
             },
             beforeSend: function beforeSend() {
@@ -67210,7 +67222,7 @@ function doAction() {
                 case 2:
                     store = _context2.sent;
                     _context2.next = 5;
-                    return Object(__WEBPACK_IMPORTED_MODULE_2_redux_saga_effects__["c" /* put */])(Object(__WEBPACK_IMPORTED_MODULE_4__actions_FetchParticipants__["a" /* default */])(store.Participation.search));
+                    return Object(__WEBPACK_IMPORTED_MODULE_2_redux_saga_effects__["c" /* put */])(Object(__WEBPACK_IMPORTED_MODULE_4__actions_FetchParticipants__["a" /* default */])(store.Participation.okpo));
 
                 case 5:
                 case 'end':
@@ -67248,7 +67260,7 @@ function sagas() {
 
 
 var xhr = void 0;
-/* harmony default export */ __webpack_exports__["a"] = (function (search) {
+/* harmony default export */ __webpack_exports__["a"] = (function (okpo) {
     return function (dispatch) {
 
         xhr && xhr.abort();
@@ -67258,7 +67270,7 @@ var xhr = void 0;
             data: {
                 limit: 0,
                 filter: {
-                    search: search
+                    okpo: okpo
                 }
             },
             beforeSend: function beforeSend() {
