@@ -28,20 +28,8 @@ const schema = new mongoose.Schema({
         trim: true
     },
     pharmacy: {
-        type: {
-            name: {
-                type: String,
-                trim: true
-            }
-        },
-        name: {
-            type: String,
-            trim: true
-        },
-        number: {
-            type: String,
-            trim: true
-        }
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Pharmacy'
     },
     address: {
         region: {

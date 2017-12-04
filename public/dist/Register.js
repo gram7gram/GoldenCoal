@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 723);
+/******/ 	return __webpack_require__(__webpack_require__.s = 707);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -65943,172 +65943,21 @@ var Layout = function (_React$Component) {
 /* harmony default export */ __webpack_exports__["a"] = (Layout);
 
 /***/ }),
-/* 701 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions__ = __webpack_require__(20);
-
-
-/* harmony default export */ __webpack_exports__["a"] = (function (payload) {
-    return {
-        type: __WEBPACK_IMPORTED_MODULE_0__actions__["b" /* CONTACT_CHANGED */],
-        payload: payload
-    };
-});
-
-/***/ }),
-/* 702 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(698);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__api__ = __webpack_require__(699);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__api___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__api__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__server_config_parameters__ = __webpack_require__(703);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__server_config_parameters___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__server_config_parameters__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Before__ = __webpack_require__(704);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Success__ = __webpack_require__(705);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Failure__ = __webpack_require__(706);
-
-
-
-
-
-
-
-
-var xhr = void 0;
-/* harmony default export */ __webpack_exports__["a"] = (function (model) {
-    return function (dispatch) {
-
-        var data = Object.assign({}, model, {
-            access_token: __WEBPACK_IMPORTED_MODULE_2__server_config_parameters___default.a.tokens.apiContact
-        });
-        xhr && xhr.abort();
-        xhr = __WEBPACK_IMPORTED_MODULE_0_jquery___default.a.ajax({
-            method: 'POST',
-            url: __WEBPACK_IMPORTED_MODULE_1__api___default.a.POST.contacts,
-            contentType: 'application/json',
-            data: JSON.stringify(data),
-            beforeSend: function beforeSend() {
-                dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__Before__["a" /* default */])());
-            },
-            success: function success(model) {
-                dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__Success__["a" /* default */])(model));
-            },
-            error: function error(xhr) {
-                dispatch(Object(__WEBPACK_IMPORTED_MODULE_5__Failure__["a" /* default */])(xhr.status, xhr.responseJSON));
-            }
-        });
-    };
-});
-
-/***/ }),
-/* 703 */
-/***/ (function(module, exports) {
-
-var config = {
-    env: 'development',
-    database: {
-        host: 'localhost',
-        port: 27017,
-        username: 'human',
-        password: 'nnKOkEZKPSdx$J6Lk3E%IZ2L1j9xDJEMhsOR56G8KQn2A9Vbmof#zv@xoFa9PMLd',
-        name: 'golden-coal'
-    },
-    server: {
-        host: 'localhost',
-        port: 3002
-    },
-    mailer: {
-        managers: ['gram7gram@gmail.com'],
-        host: 'mail.ukraine.com.ua',
-        port: 2525,
-        username: '', //'bestsorbent@xn--90acdg3ada5d5fscf.com', //білевугілля.com
-        password: '' //'carbowhite2017',
-    },
-    tokens: {
-        apiExportParticipants: 'HrhZ9AXud4JXvhWSGi$zpLl1wgj6pl7dfeO@GtfvM52omw5t0Nn3ykX01_EfrpI',
-        apiContact: '2TMOU2eETrEhm$U9IR922hVduC3CUAPom@zccEbtuBXK@#o3i5RyOgVFro*y2Rvw'
-    }
-};
-
-module.exports = config;
-
-/***/ }),
-/* 704 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions__ = __webpack_require__(20);
-
-
-/* harmony default export */ __webpack_exports__["a"] = (function () {
-    return {
-        type: __WEBPACK_IMPORTED_MODULE_0__actions__["c" /* CONTACT_REQUEST_BEFORE */]
-    };
-});
-
-/***/ }),
-/* 705 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions__ = __webpack_require__(20);
-
-
-/* harmony default export */ __webpack_exports__["a"] = (function (payload) {
-    return {
-        type: __WEBPACK_IMPORTED_MODULE_0__actions__["e" /* CONTACT_REQUEST_SUCCESS */],
-        payload: payload
-    };
-});
-
-/***/ }),
-/* 706 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions__ = __webpack_require__(20);
-
-
-/* harmony default export */ __webpack_exports__["a"] = (function (status, response) {
-    return {
-        type: __WEBPACK_IMPORTED_MODULE_0__actions__["d" /* CONTACT_REQUEST_FAILURE */],
-        payload: {
-            status: status, response: response
-        }
-    };
-});
-
-/***/ }),
-/* 707 */,
-/* 708 */,
-/* 709 */,
-/* 710 */,
-/* 711 */,
-/* 712 */,
-/* 713 */,
-/* 714 */,
-/* 715 */,
-/* 716 */,
-/* 717 */,
-/* 718 */,
-/* 719 */,
-/* 720 */,
-/* 721 */,
-/* 722 */,
-/* 723 */
+/* 701 */,
+/* 702 */,
+/* 703 */,
+/* 704 */,
+/* 705 */,
+/* 706 */,
+/* 707 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(289);
-module.exports = __webpack_require__(724);
+module.exports = __webpack_require__(708);
 
 
 /***/ }),
-/* 724 */
+/* 708 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66119,9 +65968,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__(227);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store__ = __webpack_require__(530);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_pages_Contact__ = __webpack_require__(725);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_pages_Register__ = __webpack_require__(709);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Layout__ = __webpack_require__(700);
-var _jsxFileName = '/mnt/shared/Projects/Omnifarma/golden-coal/src/modules/Contact.js';
+var _jsxFileName = '/mnt/shared/Projects/Omnifarma/golden-coal/src/modules/Register.js';
 
 
 
@@ -66130,7 +65979,7 @@ var _jsxFileName = '/mnt/shared/Projects/Omnifarma/golden-coal/src/modules/Conta
 
 
 
-var id = 'contact-app';
+var id = 'register-app';
 var app = document.getElementById(id);
 if (!app) {
     throw 'No DOM element with id: ' + id;
@@ -66153,7 +66002,7 @@ Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MOD
             },
             __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_pages_Contact__["a" /* default */], {
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_pages_Register__["a" /* default */], {
             __source: {
                 fileName: _jsxFileName,
                 lineNumber: 18
@@ -66164,7 +66013,7 @@ Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MOD
 ), app);
 
 /***/ }),
-/* 725 */
+/* 709 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66172,12 +66021,15 @@ Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MOD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__(227);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__ = __webpack_require__(243);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__translator__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__actions_Contact_Change__ = __webpack_require__(701);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__actions_Contact_Send__ = __webpack_require__(702);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_email_validator__ = __webpack_require__(288);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_email_validator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_email_validator__);
-var _jsxFileName = '/mnt/shared/Projects/Omnifarma/golden-coal/src/components/pages/Contact.js';
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions_Change__ = __webpack_require__(710);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__actions_Participate__ = __webpack_require__(711);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__actions_IncrementStep__ = __webpack_require__(715);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__actions_DecrementStep__ = __webpack_require__(716);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__actions_PositionChanged__ = __webpack_require__(717);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__actions_PharmacyChanged__ = __webpack_require__(718);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__actions_RegionChanged__ = __webpack_require__(719);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__translator__ = __webpack_require__(159);
+var _jsxFileName = '/mnt/shared/Projects/Omnifarma/golden-coal/src/components/pages/Register.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -66197,22 +66049,79 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var About = function (_React$Component) {
-    _inherits(About, _React$Component);
 
-    function About() {
-        _classCallCheck(this, About);
 
-        var _this = _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).call(this));
+
+
+
+
+var Register = function (_React$Component) {
+    _inherits(Register, _React$Component);
+
+    function Register() {
+        _classCallCheck(this, Register);
+
+        var _this = _possibleConstructorReturn(this, (Register.__proto__ || Object.getPrototypeOf(Register)).call(this));
 
         _this.submit = _this.submit.bind(_this);
+        _this.nextStep = _this.nextStep.bind(_this);
+        _this.prevStep = _this.prevStep.bind(_this);
+        _this.setPharmacyType = _this.setPharmacyType.bind(_this);
+        _this.setPosition = _this.setPosition.bind(_this);
+        _this.setRegion = _this.setRegion.bind(_this);
+        _this.getValidationState = _this.getValidationState.bind(_this);
+        _this.confirm = _this.confirm.bind(_this);
         return _this;
     }
 
-    _createClass(About, [{
+    _createClass(Register, [{
+        key: 'setRegion',
+        value: function setRegion(e) {
+            var option = e.target.value;
+            var item = null;
+            if (option) {
+                item = this.props.Region.collection.find(function (item) {
+                    return item.cid === option;
+                });
+            }
+            this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_9__actions_RegionChanged__["a" /* default */])(item));
+        }
+    }, {
+        key: 'setPosition',
+        value: function setPosition(e) {
+            var option = e.target.value;
+            var item = null;
+            if (option) {
+                item = this.props.Position.collection.find(function (item) {
+                    return item.cid === option;
+                });
+            }
+            this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_7__actions_PositionChanged__["a" /* default */])(item));
+        }
+    }, {
+        key: 'setPharmacyType',
+        value: function setPharmacyType(e) {
+            var option = e.target.value;
+            var item = null;
+            if (option) {
+                item = this.props.Pharmacy.collection.find(function (item) {
+                    return item.cid === option;
+                });
+            }
+            this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_8__actions_PharmacyChanged__["a" /* default */])(item));
+        }
+    }, {
         key: 'submit',
         value: function submit() {
-            this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_5__actions_Contact_Send__["a" /* default */])(this.props.Contact.model));
+            var model = this.props.Participant.model;
+            this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions_Participate__["a" /* default */])(model));
+        }
+    }, {
+        key: 'confirm',
+        value: function confirm(e) {
+            this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions_Change__["a" /* default */])({
+                isConfirmed: e.target.checked
+            }));
         }
     }, {
         key: 'change',
@@ -66220,185 +66129,594 @@ var About = function (_React$Component) {
             var _this2 = this;
 
             return function (e) {
-                _this2.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions_Contact_Change__["a" /* default */])(_defineProperty({}, field, e.target.value)));
+                _this2.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions_Change__["a" /* default */])(_defineProperty({}, field, e.target.value)));
             };
+        }
+    }, {
+        key: 'nextStep',
+        value: function nextStep() {
+            this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_5__actions_IncrementStep__["a" /* default */])());
+        }
+    }, {
+        key: 'prevStep',
+        value: function prevStep() {
+            this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_6__actions_DecrementStep__["a" /* default */])());
+        }
+    }, {
+        key: 'getValidationState',
+        value: function getValidationState(name) {
+            var _props$Participant = this.props.Participant,
+                changes = _props$Participant.changes,
+                validator = _props$Participant.validator;
+
+            var state = null;
+            if (changes[name] === true) {
+                if (validator.errors.field[name] === true) {
+                    state = 'error';
+                } else {
+                    state = 'success';
+                }
+            }
+            return state;
+        }
+    }, {
+        key: 'renderSimpleText',
+        value: function renderSimpleText(name) {
+            var model = this.props.Participant.model;
+
+
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* FormGroup */],
+                { validationState: this.getValidationState(name), __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 102
+                    },
+                    __self: this
+                },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["d" /* FormControl */], {
+                    placeholder: Object(__WEBPACK_IMPORTED_MODULE_10__translator__["a" /* default */])('field_' + name),
+                    value: model[name] || '',
+                    onChange: this.change(name), __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 103
+                    },
+                    __self: this
+                })
+            );
+        }
+    }, {
+        key: 'renderSteps',
+        value: function renderSteps() {
+            var _this3 = this;
+
+            var _props$Participant2 = this.props.Participant,
+                step = _props$Participant2.step,
+                model = _props$Participant2.model;
+
+
+            switch (step) {
+                case 1:
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'step active', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 115
+                            },
+                            __self: this
+                        },
+                        this.renderErrors(),
+                        this.renderSimpleText('firstName'),
+                        this.renderSimpleText('lastName'),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* FormGroup */],
+                            { validationState: this.getValidationState("email"), __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 119
+                                },
+                                __self: this
+                            },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["d" /* FormControl */], {
+                                placeholder: Object(__WEBPACK_IMPORTED_MODULE_10__translator__["a" /* default */])('field_email'),
+                                value: model.email || '',
+                                onChange: this.change("email"), __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 120
+                                },
+                                __self: this
+                            })
+                        )
+                    );
+                case 2:
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'step active', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 127
+                            },
+                            __self: this
+                        },
+                        this.renderErrors(),
+                        this.renderSimpleText('legalName'),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* FormGroup */],
+                            { validationState: this.getValidationState("pharmacyType"), __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 130
+                                },
+                                __self: this
+                            },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'select',
+                                {
+                                    className: "form-control",
+                                    value: model.pharmacy.type ? model.pharmacy.type.cid : '',
+                                    onChange: this.setPharmacyType, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 131
+                                    },
+                                    __self: this
+                                },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'option',
+                                    { value: '', __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 135
+                                        },
+                                        __self: this
+                                    },
+                                    Object(__WEBPACK_IMPORTED_MODULE_10__translator__["a" /* default */])('field_pharmacyType')
+                                ),
+                                this.props.Pharmacy.collection.map(function (item, key) {
+                                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'option',
+                                        { key: key, value: item.cid, __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 137
+                                            },
+                                            __self: _this3
+                                        },
+                                        item.name
+                                    );
+                                })
+                            )
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* FormGroup */],
+                            { validationState: this.getValidationState("pharmacyName"), __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 141
+                                },
+                                __self: this
+                            },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["d" /* FormControl */], {
+                                placeholder: Object(__WEBPACK_IMPORTED_MODULE_10__translator__["a" /* default */])('field_pharmacyName'),
+                                value: model.pharmacy.name || '',
+                                onChange: this.change("pharmacyName"), __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 142
+                                },
+                                __self: this
+                            })
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* FormGroup */],
+                            { validationState: this.getValidationState("pharmacyNumber"), __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 147
+                                },
+                                __self: this
+                            },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["d" /* FormControl */], {
+                                placeholder: Object(__WEBPACK_IMPORTED_MODULE_10__translator__["a" /* default */])('field_pharmacyNumber'),
+                                value: model.pharmacy.number || '',
+                                onChange: this.change("pharmacyNumber"), __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 148
+                                },
+                                __self: this
+                            })
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* FormGroup */],
+                            { validationState: this.getValidationState("position"), __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 153
+                                },
+                                __self: this
+                            },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'select',
+                                {
+                                    className: "form-control",
+                                    value: model.position ? model.position.cid : '',
+                                    onChange: this.setPosition, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 154
+                                    },
+                                    __self: this
+                                },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'option',
+                                    { value: '', __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 158
+                                        },
+                                        __self: this
+                                    },
+                                    Object(__WEBPACK_IMPORTED_MODULE_10__translator__["a" /* default */])('field_position')
+                                ),
+                                this.props.Position.collection.map(function (item, key) {
+                                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'option',
+                                        { key: key, value: item.cid, __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 160
+                                            },
+                                            __self: _this3
+                                        },
+                                        item.name
+                                    );
+                                })
+                            )
+                        )
+                    );
+                case 3:
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'step active', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 166
+                            },
+                            __self: this
+                        },
+                        this.renderErrors(),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* FormGroup */],
+                            { validationState: this.getValidationState("region"), __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 169
+                                },
+                                __self: this
+                            },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'select',
+                                {
+                                    className: "form-control",
+                                    value: model.address.region ? model.address.region.cid : '',
+                                    onChange: this.setRegion, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 170
+                                    },
+                                    __self: this
+                                },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'option',
+                                    { value: '', __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 174
+                                        },
+                                        __self: this
+                                    },
+                                    Object(__WEBPACK_IMPORTED_MODULE_10__translator__["a" /* default */])('field_region')
+                                ),
+                                this.props.Region.collection.map(function (item, key) {
+                                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'option',
+                                        { key: key, value: item.cid, __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 176
+                                            },
+                                            __self: _this3
+                                        },
+                                        item.name
+                                    );
+                                })
+                            )
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* FormGroup */],
+                            { validationState: this.getValidationState("city"), __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 181
+                                },
+                                __self: this
+                            },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["d" /* FormControl */], {
+                                placeholder: Object(__WEBPACK_IMPORTED_MODULE_10__translator__["a" /* default */])('field_city'),
+                                value: model.address.city || '',
+                                onChange: this.change("city"), __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 182
+                                },
+                                __self: this
+                            })
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* FormGroup */],
+                            { validationState: this.getValidationState("street"), __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 188
+                                },
+                                __self: this
+                            },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["d" /* FormControl */], {
+                                placeholder: Object(__WEBPACK_IMPORTED_MODULE_10__translator__["a" /* default */])('field_street'),
+                                value: model.address.street || '',
+                                onChange: this.change("street"), __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 189
+                                },
+                                __self: this
+                            })
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* FormGroup */],
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 194
+                                },
+                                __self: this
+                            },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'label',
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 195
+                                    },
+                                    __self: this
+                                },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox',
+                                    onChange: this.confirm,
+                                    checked: model.isConfirmed, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 196
+                                    },
+                                    __self: this
+                                }),
+                                '\xA0\u0417\u0430\u043F\u043E\u0432\u043D\u044E\u044E\u0447\u0438 \u0446\u044E \u0430\u043D\u043A\u0435\u0442\u0443, \u044F \u0434\u0430\u044E \u0441\u0432\u043E\u044E \u0437\u0433\u043E\u0434\u0443 \u043D\u0430 \u0437\u0431\u0456\u0440, \u0440\u0435\u0454\u0441\u0442\u0440\u0430\u0446\u0456\u044E, \u0437\u0431\u0435\u0440\u0456\u0433\u0430\u043D\u043D\u044F, \u0430\u0434\u0430\u043F\u0442\u0430\u0446\u0456\u044E, \u0437\u043C\u0456\u043D\u0443, \u043E\u043D\u043E\u0432\u043B\u0435\u043D\u043D\u044F \u043C\u043E\u0457\u0445 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u044C\u043D\u0438\u0445 \u0434\u0430\u043D\u0438\u0445 (\u0437 \u0432\u0438\u043A\u043E\u0440\u0438\u0441\u0442\u0430\u043D\u043D\u044F\u043C \u0456\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0456\u0439\u043D\u0438\u0445 \u0441\u0438\u0441\u0442\u0435\u043C \u0456 \u0431\u0435\u0437 \u043D\u0438\u0445) \u0431\u0435\u0437 \u043E\u0431\u043C\u0435\u0436\u0435\u043D\u044C \u0442\u0430\u043A\u043E\u0457 \u043E\u0431\u0440\u043E\u0431\u043A\u0438. \u0414\u0430\u043D\u0430 \u0437\u0433\u043E\u0434\u0430 \u043D\u0430 \u0437\u0431\u0456\u0440 \u0456 \u043E\u0431\u0440\u043E\u0431\u043A\u0443 \u043C\u043E\u0457\u0445 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u044C\u043D\u0438\u0445 \u0434\u0430\u043D\u0438\u0445, \u043F\u043E\u0448\u0438\u0440\u044E\u0454\u0442\u044C\u0441\u044F \u043D\u0430 \u0432\u0441\u0456 \u0434\u0430\u043D\u0456, \u0437\u0430\u0437\u043D\u0430\u0447\u0435\u043D\u0456 \u043C\u043D\u043E\u044E \u0432 \u0446\u0456\u0439 \u0430\u043D\u043A\u0435\u0442\u0456.'
+                            )
+                        )
+                    );
+                default:
+                    return null;
+
+            }
+        }
+    }, {
+        key: 'renderErrors',
+        value: function renderErrors() {
+            var _this4 = this;
+
+            var validator = this.props.Participant.validator;
+
+
+            if (validator.isValid) return null;
+
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Row */],
+                {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 217
+                    },
+                    __self: this
+                },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["c" /* Col */],
+                    { xs: 12, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 218
+                        },
+                        __self: this
+                    },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["a" /* Alert */],
+                        { bsStyle: 'danger', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 219
+                            },
+                            __self: this
+                        },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'p',
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 220
+                                },
+                                __self: this
+                            },
+                            Object(__WEBPACK_IMPORTED_MODULE_10__translator__["a" /* default */])('validation_generic_title')
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'ul',
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 221
+                                },
+                                __self: this
+                            },
+                            validator.errors.messages.map(function (e, key) {
+                                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'li',
+                                    { key: key, __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 221
+                                        },
+                                        __self: _this4
+                                    },
+                                    e
+                                );
+                            })
+                        )
+                    )
+                )
+            );
         }
     }, {
         key: 'render',
         value: function render() {
-            var _props$Contact = this.props.Contact,
-                model = _props$Contact.model,
-                isContacted = _props$Contact.isContacted;
+            var _props$Participant3 = this.props.Participant,
+                validator = _props$Participant3.validator,
+                step = _props$Participant3.step,
+                isRegistered = _props$Participant3.isRegistered;
 
+            var canGoToNext = step < 3;
+            var canGoToPrev = step > 1;
+            var canShowSubmit = step === 3;
 
-            if (isContacted) {
-                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { className: 'page-container contact-container', __source: {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Row */],
+                {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 233
+                    },
+                    __self: this
+                },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["c" /* Col */],
+                    { xs: 12, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 33
+                            lineNumber: 235
                         },
                         __self: this
                     },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
-                        { className: 'banner', __source: {
+                        { className: 'step-navigation', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 34
+                                lineNumber: 237
                             },
                             __self: this
                         },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'h3',
-                            {
-                                __source: {
+                            'ul',
+                            { className: 'steps text-center', __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 35
-                                },
-                                __self: this
-                            },
-                            '\u041B\u0438\u0441\u0442 \u0431\u0443\u043B\u043E \u0443\u0441\u043F\u0456\u0448\u043D\u043E \u043D\u0430\u0434\u0456\u0441\u043B\u0430\u043D\u043E'
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'h4',
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 36
-                                },
-                                __self: this
-                            },
-                            '\u041E\u0447\u0456\u043A\u0443\u0439\u0442\u0435 \u043D\u0430 \u0432\u0456\u0434\u043F\u043E\u0432\u0456\u0434\u044C'
-                        )
-                    )
-                );
-            }
-
-            var canSend = model.name && model.name.length > 3 && model.email && __WEBPACK_IMPORTED_MODULE_6_email_validator___default.a.validate(model.email) && model.content && model.content.length > 3;
-
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                { className: 'page-container contact-container', __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 45
-                    },
-                    __self: this
-                },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'h2',
-                    { className: 'contact-title', __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 46
-                        },
-                        __self: this
-                    },
-                    '\u0417\u0430\u0434\u0430\u0442\u0438 \u043F\u0438\u0442\u0430\u043D\u043D\u044F'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'h3',
-                    { className: 'contact-subtitle', __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 47
-                        },
-                        __self: this
-                    },
-                    '\u0417\u0430\u043F\u043E\u0432\u043D\u0456\u0442\u044C \u043F\u043E\u043B\u044F \u0444\u043E\u0440\u043C\u0438 \u043D\u0430 \u043D\u0430\u0442\u0438\u0441\u043D\u0456\u0442\u044C \u0412\u0456\u0434\u043F\u0440\u0430\u0432\u0438\u0442\u0438'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Row */],
-                    {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 50
-                        },
-                        __self: this
-                    },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["c" /* Col */],
-                        { xs: 12, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 51
-                            },
-                            __self: this
-                        },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* FormGroup */],
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 52
-                                },
-                                __self: this
-                            },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["d" /* FormControl */], {
-                                placeholder: Object(__WEBPACK_IMPORTED_MODULE_3__translator__["a" /* default */])('contact_field_name'),
-                                value: model.name || '',
-                                onChange: this.change('name'), __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 53
-                                },
-                                __self: this
-                            })
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* FormGroup */],
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 59
-                                },
-                                __self: this
-                            },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["d" /* FormControl */], {
-                                placeholder: Object(__WEBPACK_IMPORTED_MODULE_3__translator__["a" /* default */])('contact_field_email'),
-                                value: model.email || '',
-                                onChange: this.change('email'), __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 60
-                                },
-                                __self: this
-                            })
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* FormGroup */],
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 66
-                                },
-                                __self: this
-                            },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', {
-                                className: 'form-control',
-                                placeholder: Object(__WEBPACK_IMPORTED_MODULE_3__translator__["a" /* default */])('contact_field_content'),
-                                value: model.content || '',
-                                onChange: this.change('content'), __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 67
-                                },
-                                __self: this
-                            })
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* FormGroup */],
-                            { className: 'text-center', __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 74
+                                    lineNumber: 238
                                 },
                                 __self: this
                             },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'button',
-                                { className: 'btn btn-primary',
-                                    disabled: !canSend,
-                                    onClick: this.submit, __source: {
+                                'li',
+                                { className: step === 1 ? "active" : null, __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 75
+                                        lineNumber: 239
                                     },
                                     __self: this
                                 },
-                                '\u0412\u0456\u0434\u043F\u0440\u0430\u0432\u0438\u0442\u0438'
+                                Object(__WEBPACK_IMPORTED_MODULE_10__translator__["a" /* default */])('register_step_1')
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'li',
+                                { className: step === 2 ? "active" : null, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 240
+                                    },
+                                    __self: this
+                                },
+                                Object(__WEBPACK_IMPORTED_MODULE_10__translator__["a" /* default */])('register_step_2')
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'li',
+                                { className: step === 3 ? "active" : null, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 241
+                                    },
+                                    __self: this
+                                },
+                                Object(__WEBPACK_IMPORTED_MODULE_10__translator__["a" /* default */])('register_step_3')
                             )
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { className: 'step-content page-container', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 244
+                                },
+                                __self: this
+                            },
+                            isRegistered ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { className: 'banner', __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 247
+                                    },
+                                    __self: this
+                                },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'h3',
+                                    {
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 248
+                                        },
+                                        __self: this
+                                    },
+                                    '\u0414\u044F\u043A\u0443\u0454\u043C\u043E \u0437\u0430 \u0412\u0430\u0448 \u0456\u043D\u0442\u0435\u0440\u0435\u0441 \u0434\u043E \u0430\u043A\u0446\u0456\u0457'
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'h4',
+                                    {
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 249
+                                        },
+                                        __self: this
+                                    },
+                                    '\u0417\u041E\u041B\u041E\u0422\u0418\u0419 \u0421\u041C\u0410\u0420\u0422\u0424\u041E\u041D \u0412\u0406\u0414 \u0411\u0406\u041B\u041E\u0413\u041E \u0412\u0423\u0413\u0406\u041B\u041B\u042F!'
+                                )
+                            ) : this.renderSteps(),
+                            !isRegistered ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* FormGroup */],
+                                { className: 'action-container', __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 253
+                                    },
+                                    __self: this
+                                },
+                                canShowSubmit ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["b" /* Button */],
+                                    { bsStyle: 'primary',
+                                        className: 'pull-right',
+                                        onClick: this.submit,
+                                        disabled: !validator.canParticipate, __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 255
+                                        },
+                                        __self: this
+                                    },
+                                    '\u0412\u0456\u0434\u043F\u0440\u0430\u0432\u0438\u0442\u0438 \u0430\u043D\u043A\u0435\u0442\u0443'
+                                ) : null,
+                                canGoToPrev ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["b" /* Button */],
+                                    { bsStyle: 'primary',
+                                        className: 'pull-left',
+                                        onClick: this.prevStep, __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 261
+                                        },
+                                        __self: this
+                                    },
+                                    '< Назад'
+                                ) : null,
+                                canGoToNext ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["b" /* Button */],
+                                    { bsStyle: 'primary',
+                                        className: 'pull-right',
+                                        onClick: this.nextStep, __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 266
+                                        },
+                                        __self: this
+                                    },
+                                    'Далі >'
+                                ) : null
+                            ) : null
                         )
                     )
                 )
@@ -66406,13 +66724,197 @@ var About = function (_React$Component) {
         }
     }]);
 
-    return About;
+    return Register;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(function (store) {
     return store;
-})(About));
+})(Register));
+
+/***/ }),
+/* 710 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions__ = __webpack_require__(20);
+
+
+/* harmony default export */ __webpack_exports__["a"] = (function (payload) {
+    return {
+        type: __WEBPACK_IMPORTED_MODULE_0__actions__["i" /* PARTICIPANT_CHANGED */],
+        payload: payload
+    };
+});
+
+/***/ }),
+/* 711 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(698);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__api__ = __webpack_require__(699);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__api___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__api__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Before__ = __webpack_require__(712);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Success__ = __webpack_require__(713);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Failure__ = __webpack_require__(714);
+
+
+
+
+
+
+
+var xhr = void 0;
+/* harmony default export */ __webpack_exports__["a"] = (function (model) {
+    return function (dispatch) {
+
+        var data = Object.assign({}, model);
+
+        delete data.address.region.cid;
+        delete data.address.region.type;
+        delete data.pharmacy.type.cid;
+        delete data.position.cid;
+        delete data.isConfirmed;
+
+        xhr && xhr.abort();
+        xhr = __WEBPACK_IMPORTED_MODULE_0_jquery___default.a.ajax({
+            method: 'POST',
+            url: __WEBPACK_IMPORTED_MODULE_1__api___default.a.POST.participants,
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            beforeSend: function beforeSend() {
+                dispatch(Object(__WEBPACK_IMPORTED_MODULE_2__Before__["a" /* default */])());
+            },
+            success: function success(model) {
+                dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__Success__["a" /* default */])(model));
+            },
+            error: function error(xhr) {
+                dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__Failure__["a" /* default */])(xhr.status, xhr.responseJSON));
+            }
+        });
+    };
+});
+
+/***/ }),
+/* 712 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions__ = __webpack_require__(20);
+
+
+/* harmony default export */ __webpack_exports__["a"] = (function () {
+    return {
+        type: __WEBPACK_IMPORTED_MODULE_0__actions__["j" /* PARTICIPATION_BEFORE */]
+    };
+});
+
+/***/ }),
+/* 713 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions__ = __webpack_require__(20);
+
+
+/* harmony default export */ __webpack_exports__["a"] = (function (payload) {
+    return {
+        type: __WEBPACK_IMPORTED_MODULE_0__actions__["l" /* PARTICIPATION_SUCCESS */],
+        payload: payload
+    };
+});
+
+/***/ }),
+/* 714 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions__ = __webpack_require__(20);
+
+
+/* harmony default export */ __webpack_exports__["a"] = (function (status, response) {
+    return {
+        type: __WEBPACK_IMPORTED_MODULE_0__actions__["k" /* PARTICIPATION_FAILURE */],
+        payload: {
+            status: status, response: response
+        }
+    };
+});
+
+/***/ }),
+/* 715 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions__ = __webpack_require__(20);
+
+
+/* harmony default export */ __webpack_exports__["a"] = (function () {
+    return {
+        type: __WEBPACK_IMPORTED_MODULE_0__actions__["h" /* INCREMENT_STEP */]
+    };
+});
+
+/***/ }),
+/* 716 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions__ = __webpack_require__(20);
+
+
+/* harmony default export */ __webpack_exports__["a"] = (function () {
+    return {
+        type: __WEBPACK_IMPORTED_MODULE_0__actions__["f" /* DECREMENT_STEP */]
+    };
+});
+
+/***/ }),
+/* 717 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions__ = __webpack_require__(20);
+
+
+/* harmony default export */ __webpack_exports__["a"] = (function (payload) {
+    return {
+        type: __WEBPACK_IMPORTED_MODULE_0__actions__["n" /* POSITION_CHANGED */],
+        payload: payload
+    };
+});
+
+/***/ }),
+/* 718 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions__ = __webpack_require__(20);
+
+
+/* harmony default export */ __webpack_exports__["a"] = (function (payload) {
+    return {
+        type: __WEBPACK_IMPORTED_MODULE_0__actions__["m" /* PHARMACY_CHANGED */],
+        payload: payload
+    };
+});
+
+/***/ }),
+/* 719 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions__ = __webpack_require__(20);
+
+
+/* harmony default export */ __webpack_exports__["a"] = (function (payload) {
+    return {
+        type: __WEBPACK_IMPORTED_MODULE_0__actions__["o" /* REGION_CHANGED */],
+        payload: payload
+    };
+});
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=Contact.js.map
+//# sourceMappingURL=Register.js.map

@@ -1,11 +1,9 @@
-var webpack = require('webpack');
-var path = require('path');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var autoprefixer = require("autoprefixer");
 
 module.exports = {
     entry: {
         Register: ['babel-polyfill', './src/modules/Register'],
+        Participant: ['babel-polyfill', './src/modules/Participant'],
         Contact: ['babel-polyfill', './src/modules/Contact'],
     },
     output: {

@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 723);
+/******/ 	return __webpack_require__(__webpack_require__.s = 720);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -66097,18 +66097,15 @@ module.exports = config;
 /* 717 */,
 /* 718 */,
 /* 719 */,
-/* 720 */,
-/* 721 */,
-/* 722 */,
-/* 723 */
+/* 720 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(289);
-module.exports = __webpack_require__(724);
+module.exports = __webpack_require__(721);
 
 
 /***/ }),
-/* 724 */
+/* 721 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66119,9 +66116,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__(227);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store__ = __webpack_require__(530);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_pages_Contact__ = __webpack_require__(725);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_pages_Participant__ = __webpack_require__(722);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Layout__ = __webpack_require__(700);
-var _jsxFileName = '/mnt/shared/Projects/Omnifarma/golden-coal/src/modules/Contact.js';
+var _jsxFileName = '/mnt/shared/Projects/Omnifarma/golden-coal/src/modules/Participant.js';
 
 
 
@@ -66130,7 +66127,7 @@ var _jsxFileName = '/mnt/shared/Projects/Omnifarma/golden-coal/src/modules/Conta
 
 
 
-var id = 'contact-app';
+var id = 'participant-app';
 var app = document.getElementById(id);
 if (!app) {
     throw 'No DOM element with id: ' + id;
@@ -66153,7 +66150,7 @@ Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MOD
             },
             __self: this
         },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_pages_Contact__["a" /* default */], {
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_pages_Participant__["a" /* default */], {
             __source: {
                 fileName: _jsxFileName,
                 lineNumber: 18
@@ -66164,7 +66161,7 @@ Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MOD
 ), app);
 
 /***/ }),
-/* 725 */
+/* 722 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66177,7 +66174,7 @@ Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MOD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__actions_Contact_Send__ = __webpack_require__(702);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_email_validator__ = __webpack_require__(288);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_email_validator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_email_validator__);
-var _jsxFileName = '/mnt/shared/Projects/Omnifarma/golden-coal/src/components/pages/Contact.js';
+var _jsxFileName = '/mnt/shared/Projects/Omnifarma/golden-coal/src/components/pages/Participant.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -66197,19 +66194,19 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var About = function (_React$Component) {
-    _inherits(About, _React$Component);
+var Participant = function (_React$Component) {
+    _inherits(Participant, _React$Component);
 
-    function About() {
-        _classCallCheck(this, About);
+    function Participant() {
+        _classCallCheck(this, Participant);
 
-        var _this = _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).call(this));
+        var _this = _possibleConstructorReturn(this, (Participant.__proto__ || Object.getPrototypeOf(Participant)).call(this));
 
         _this.submit = _this.submit.bind(_this);
         return _this;
     }
 
-    _createClass(About, [{
+    _createClass(Participant, [{
         key: 'submit',
         value: function submit() {
             this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_5__actions_Contact_Send__["a" /* default */])(this.props.Contact.model));
@@ -66231,102 +66228,38 @@ var About = function (_React$Component) {
                 isContacted = _props$Contact.isContacted;
 
 
-            if (isContacted) {
-                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { className: 'page-container contact-container', __source: {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Row */],
+                {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 32
+                    },
+                    __self: this
+                },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["c" /* Col */],
+                    { xs: 12, __source: {
                             fileName: _jsxFileName,
                             lineNumber: 33
                         },
                         __self: this
                     },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'banner', __source: {
+                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* FormGroup */],
+                        {
+                            __source: {
                                 fileName: _jsxFileName,
                                 lineNumber: 34
                             },
                             __self: this
                         },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'h3',
+                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["f" /* InputGroup */],
                             {
                                 __source: {
                                     fileName: _jsxFileName,
                                     lineNumber: 35
-                                },
-                                __self: this
-                            },
-                            '\u041B\u0438\u0441\u0442 \u0431\u0443\u043B\u043E \u0443\u0441\u043F\u0456\u0448\u043D\u043E \u043D\u0430\u0434\u0456\u0441\u043B\u0430\u043D\u043E'
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'h4',
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 36
-                                },
-                                __self: this
-                            },
-                            '\u041E\u0447\u0456\u043A\u0443\u0439\u0442\u0435 \u043D\u0430 \u0432\u0456\u0434\u043F\u043E\u0432\u0456\u0434\u044C'
-                        )
-                    )
-                );
-            }
-
-            var canSend = model.name && model.name.length > 3 && model.email && __WEBPACK_IMPORTED_MODULE_6_email_validator___default.a.validate(model.email) && model.content && model.content.length > 3;
-
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                { className: 'page-container contact-container', __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 45
-                    },
-                    __self: this
-                },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'h2',
-                    { className: 'contact-title', __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 46
-                        },
-                        __self: this
-                    },
-                    '\u0417\u0430\u0434\u0430\u0442\u0438 \u043F\u0438\u0442\u0430\u043D\u043D\u044F'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'h3',
-                    { className: 'contact-subtitle', __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 47
-                        },
-                        __self: this
-                    },
-                    '\u0417\u0430\u043F\u043E\u0432\u043D\u0456\u0442\u044C \u043F\u043E\u043B\u044F \u0444\u043E\u0440\u043C\u0438 \u043D\u0430 \u043D\u0430\u0442\u0438\u0441\u043D\u0456\u0442\u044C \u0412\u0456\u0434\u043F\u0440\u0430\u0432\u0438\u0442\u0438'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Row */],
-                    {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 50
-                        },
-                        __self: this
-                    },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["c" /* Col */],
-                        { xs: 12, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 51
-                            },
-                            __self: this
-                        },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* FormGroup */],
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 52
                                 },
                                 __self: this
                             },
@@ -66335,69 +66268,26 @@ var About = function (_React$Component) {
                                 value: model.name || '',
                                 onChange: this.change('name'), __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 53
+                                    lineNumber: 36
                                 },
                                 __self: this
-                            })
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* FormGroup */],
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 59
-                                },
-                                __self: this
-                            },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["d" /* FormControl */], {
-                                placeholder: Object(__WEBPACK_IMPORTED_MODULE_3__translator__["a" /* default */])('contact_field_email'),
-                                value: model.email || '',
-                                onChange: this.change('email'), __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 60
-                                },
-                                __self: this
-                            })
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* FormGroup */],
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 66
-                                },
-                                __self: this
-                            },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', {
-                                className: 'form-control',
-                                placeholder: Object(__WEBPACK_IMPORTED_MODULE_3__translator__["a" /* default */])('contact_field_content'),
-                                value: model.content || '',
-                                onChange: this.change('content'), __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 67
-                                },
-                                __self: this
-                            })
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* FormGroup */],
-                            { className: 'text-center', __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 74
-                                },
-                                __self: this
-                            },
+                            }),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'button',
-                                { className: 'btn btn-primary',
-                                    disabled: !canSend,
-                                    onClick: this.submit, __source: {
+                                __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["b" /* Button */],
+                                {
+                                    __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 75
+                                        lineNumber: 40
                                     },
                                     __self: this
                                 },
-                                '\u0412\u0456\u0434\u043F\u0440\u0430\u0432\u0438\u0442\u0438'
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-search', __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 41
+                                    },
+                                    __self: this
+                                }),
+                                '\xA0\u041F\u043E\u0448\u0443\u043A'
                             )
                         )
                     )
@@ -66406,13 +66296,13 @@ var About = function (_React$Component) {
         }
     }]);
 
-    return About;
+    return Participant;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(function (store) {
     return store;
-})(About));
+})(Participant));
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=Contact.js.map
+//# sourceMappingURL=Participant.js.map

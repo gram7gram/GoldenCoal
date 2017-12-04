@@ -8,7 +8,11 @@ const Router = {
         about: '/about',
         register: '/register',
         contact: '/contact',
-        winner: '/winner',
+        winnerIndex: '/winners',
+        participantsIndex: '/participants',
+
+        participants: '/api/v1/participants',
+        winners: '/api/v1/winners',
 
         geocoder: 'https://maps.googleapis.com/maps/api/geocode/json',
         export: '/api/v1/export/participants'

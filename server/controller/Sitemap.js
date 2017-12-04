@@ -20,9 +20,12 @@ const controller = (env) => {
         res.sendFile(path.resolve('./public/contact.html'))
     })
 
-    env.server.get(Api.GET.winner, (req, res) => {
-        res.redirect(Api.GET.index)
-        // res.sendFile(path.resolve('./public/winner.html'))
+    env.server.get(Api.GET.winnerIndex, (req, res) => {
+        res.sendFile(path.resolve('./public/winner.html'))
+    })
+
+    env.server.get(Api.GET.participantsIndex, (req, res) => {
+        res.sendFile(path.resolve('./public/participant.html'))
     })
 }
 
