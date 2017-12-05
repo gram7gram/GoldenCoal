@@ -10,3 +10,6 @@ services:
     kernel.listener.slack_error:
         class: Gram\EventBundle\EventListener\SlackExceptionListener
         arguments: ['@service_container']
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException, priority: 5000 }
+            - { name: kernel.event_listener, event: kernel.response, method: onBadResponse, priority: 4000 }
