@@ -1,11 +1,32 @@
 version: '3'
 
 services:
-  db:
-    image: mongo:3.1
-    volumes:
-      - ./.persistance/monogdb-3.1:/data/db
+  gc-01:
+    container_name: golden-coal-01
+    build: ./env-config
     ports:
-      - 27017:27017
-    restart: always
-    command: mongod --auth
+      - '15200:80'
+    volumes:
+      - '.:/var/www/html'
+      - './env-config/apache/000-default.conf:/etc/apache2/sites-available/000-default.conf'
+      - './env-config/composer.phar:/usr/bin/composer'
+    depends_on:
+      - psql-master
+
+  psql-master:
+    container_name: psql-master
+    hostname: psql-master
+    image: postgres:9.6-alpine
+    ports:
+      - 5433:5432
+    volumes:
+      - ./env-config/postgres/9.6/master/init.sh:/docker-entrypoint-initdb.d/init.sh
+      - ./env-config/postgres/9.6/master/postgresql.conf:/etc/postgresql.conf
+      - ./env-config/postgres/9.6/master/pg_hba.conf:/etc/pg_hba.conf
+      - /tmp/postgres-9.6-master/data:/var/lib/postgresql/data
+      - /var/run/postgresql:/var/run/postgresql
+    environment:
+      PGDATA: /var/lib/postgresql/data
+      POSTGRES_DB: golden-coal
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345
