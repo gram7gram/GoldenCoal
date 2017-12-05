@@ -1,0 +1,15 @@
+{% extends 'email/base.html.twig' %}
+
+{% block title %}
+    <h3>Запитання по акції</h3>
+{% endblock %}
+
+{% block body %}
+    <p>Ім'я: {{ name }}</p>
+    <p>Email: {{ email }}</p>
+    <p>Питання</p>
+
+    <blockquote>
+        <pre>{{ content }}</pre>
+    </blockquote>
+{% endblock %}

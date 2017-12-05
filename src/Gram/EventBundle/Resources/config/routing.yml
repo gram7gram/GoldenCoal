@@ -18,6 +18,10 @@ api_v1_region:
     resource: routing/region.yml
     prefix: /api/v1
 
+api_v1_contact:
+    resource: routing/contact.yml
+    prefix: /api/v1
+
 index:
     path: /
     defaults:

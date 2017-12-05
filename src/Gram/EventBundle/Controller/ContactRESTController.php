@@ -28,13 +28,21 @@ class ContactRESTController extends Controller
     {
         $content = json_decode($request->getContent(), true);
 
-        $service = $this->get('event.contact_service');
+        if (!(isset($content['email']) && isset($content['name']) && isset($content['content']))) {
+            return new JsonResponse([
+                'messsage' => 'missing required parameters'
+            ], JsonResponse::HTTP_BAD_REQUEST);
+        }
+
+        $service = $this->get('event.contact_manager_service');
 
         try {
 
+            $content = $service->notifyManager($content['email'], $content['name'], $content['content']);
 
-
-            return new JsonResponse($items);
+            return new JsonResponse([
+                'items' => $content
+            ]);
         } catch (\Exception $e) {
             return new JsonResponse([
                 'message' => $e->getMessage()

@@ -8,6 +8,7 @@ use Gram\EventBundle\Entity\Participant;
 use Gram\EventBundle\Entity\ParticipantRepository;
 use Gram\EventBundle\Entity\Pharmacy;
 use Gram\EventBundle\Entity\PharmacyType;
+use Gram\EventBundle\Entity\Position;
 use Gram\EventBundle\Entity\Region;
 use JMS\Serializer\SerializationContext;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -28,6 +29,7 @@ class ParticipantService
     public function participate(Event $event, array $content)
     {
         $em = $this->container->get('doctrine')->getManager();
+        $contactService = $this->container->get('event.contact_manager_service');
 
         $participant = new Participant();
         $participant->setEvent($event);
@@ -37,6 +39,13 @@ class ParticipantService
         $participant->setEmail(isset($content['email']) ? $content['email'] : null);
         $participant->setLegalName(isset($content['legalName']) ? $content['legalName'] : null);
 
+        $match = $em->getRepository(Participant::class)->findOneBy([
+            'email' => $participant->getEmail()
+        ]);
+        if ($match) {
+            throw new \Exception('Email is already used', 422);
+        }
+
         if (isset($content['address'])) {
             $this->handleAddress($participant, $content['address']);
         }
@@ -45,10 +54,28 @@ class ParticipantService
             $this->handlePharmacy($participant, $content['pharmacy']);
         }
 
+        if (isset($content['position'])) {
+            $this->handlePosition($participant, $content['position']);
+        }
+
         $em->persist($participant);
         $em->flush();
 
+        $contactService->notifyManagerNewParticipant($event, $participant);
+
         return $participant;
+    }
+
+    private function handlePosition(Participant $participant, $content)
+    {
+        $em = $this->container->get('doctrine')->getManager();
+
+        $entity = $em->getRepository(Position::class)->find($content['id']);
+        if (!$entity) {
+            throw new \Exception('Position was not found', 404);
+        }
+
+        $participant->setPosition($entity);
     }
 
     private function handlePharmacy(Participant $participant, $content)

@@ -17,6 +17,9 @@
 {% block javascripts %}
     <script>
         var RegisterRouter = {
+            GET: {
+                index: '{{ path('index') }}'
+            },
             POST: {
                 participants: '{{ path('api_v1_participant_post', {'id': event.id}) }}'
             }

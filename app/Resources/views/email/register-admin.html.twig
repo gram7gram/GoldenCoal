@@ -1,0 +1,37 @@
+{% extends 'email/base.html.twig' %}
+
+{% block title %}
+    <h3>Нова заявка на участь в акції</h3>
+    <h4>{{ event.name }}</h4>
+{% endblock %}
+
+{% block body %}
+    <p>Імʼя: {{ participant.lastName ~ ' ' ~ participant.firstName }}</p>
+    <p>Email: {{ participant.email ? participant.email : '-' }}</p>
+    <p>Адреса:
+        {% if participant.address %}
+            {{ participant.address.region ? participant.address.region.name : '' }}
+            {{ participant.address.city ? ', ' ~ participant.address.city : '' }}
+            {{ participant.address.street ? ', ' ~ participant.address.street : '' }}
+        {% else %}
+            -
+        {% endif %}
+    </p>
+    <p>Аптека:
+        {% if participant.pharmacy %}
+            {{ participant.pharmacy.okpo ? participant.pharmacy.okpo ~ ' | ' : '' }}
+            {{ participant.pharmacy.type ? participant.pharmacy.type.name : '' }}
+            {{ participant.pharmacy.name ? ', ' ~ participant.pharmacy.name : '' }}
+            {{ participant.pharmacy.number ? ', ' ~ participant.pharmacy.number :'' }}
+        {% else %}
+            -
+        {% endif %}
+    </p>
+    <p>Назва ю.о.: {{ participant.legalName ? participant.legalName : '-' }}</p>
+    <p>Посада: {{ participant.position ? participant.position.name : '-' }}</p>
+
+    <br>
+    <br>
+    <p>Дата створення: {{ participant.createdAt|date('d.m.Y H:i:s') }}</p>
+    <p>ІД: #{{ participant.id }}</p>
+{% endblock %}

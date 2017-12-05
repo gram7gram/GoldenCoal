@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {FormGroup, FormControl,Row, Col} from 'react-bootstrap';
 import trans from '../../translator'
 import changeAction from '../../actions/Contact/Change'
-import SendAction from '../../actions/Contact/Send'
+import SendAction from '../../actions/Contact'
 import validator from 'email-validator'
 
 class About extends React.Component {
@@ -34,6 +34,7 @@ class About extends React.Component {
                 <div className="banner">
                     <h3>Лист було успішно надіслано</h3>
                     <h4>Очікуйте на відповідь</h4>
+                    <a href={ContactRouter.GET.index} className="btn btn-primary">На головну</a>
                 </div>
             </div>
         }

@@ -85,6 +85,15 @@ class Participant
     private $pharmacy;
 
     /**
+     * @var Position
+     *
+     * @ORM\ManyToOne(targetEntity="Gram\EventBundle\Entity\Position")
+     *
+     * @JMS\Groups({"basic"})
+     */
+    private $position;
+
+    /**
      * @var Address
      *
      * @ORM\ManyToOne(targetEntity="Gram\EventBundle\Entity\Address")
@@ -250,5 +259,21 @@ class Participant
     public function setEvent(Event $event): void
     {
         $this->event = $event;
+    }
+
+    /**
+     * @return Position
+     */
+    public function getPosition(): ?Position
+    {
+        return $this->position;
+    }
+
+    /**
+     * @param Position $position
+     */
+    public function setPosition(Position $position): void
+    {
+        $this->position = $position;
     }
 }

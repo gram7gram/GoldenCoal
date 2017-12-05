@@ -19,3 +19,7 @@ services:
   event.pharmacy_type_service:
       class: Gram\EventBundle\Service\PharmacyTypeService
       arguments: ['@service_container']
+
+  event.contact_manager_service:
+      class: Gram\EventBundle\Service\ContactService
+      arguments: ['@service_container']

@@ -247,6 +247,7 @@ class Register extends React.Component {
                             ? <div className="banner">
                                 <h3>Дякуємо за Ваш інтерес до акції</h3>
                                 <h4>ЗОЛОТИЙ СМАРТФОН ВІД БІЛОГО ВУГІЛЛЯ!</h4>
+                                <a href={RegisterRouter.GET.index} className="btn btn-primary">На головну</a>
                             </div>
                             : this.renderSteps()}
 

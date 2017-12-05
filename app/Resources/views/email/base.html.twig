@@ -216,7 +216,7 @@
                                     style="line-height:1.4;font-family: Helvetica, arial, sans-serif; font-size: 24px; color: #ffffff; padding: 15px 0;"
                                     st-content="heading" bgcolor="#d41b29" align="center">
 
-                                    <h3>Участь в акції "Золотий смартфон від Білого Вугілля"</h3>
+                                    {% block title %}{% endblock %}
 
                                 </td>
                             </tr>
@@ -251,12 +251,7 @@
                             <tr>
                                 <td style="padding: 0 10px;font-family: Helvetica, arial, sans-serif; font-size: 14px; color: #4f5458; text-align:left; line-height: 20px;">
 
-                                    <p>Дякуємо за Ваше звернення стосовно Акції!</p>
-
-                                    <p>Ваша заявка буде розглянута протягом 2 робочих днів, після чого Ви отримаєте відповідь
-                                        на електронну пошту, яка була визначена Вами при запиті.</p>
-
-                                    <h3>ВАЖЛИВО: Акція діє для обмеженого кола аптек.</h3>
+                                    {% block body %}{% endblock %}
                                 </td>
                             </tr>
                             <!-- Spacing -->

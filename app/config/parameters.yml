@@ -6,8 +6,10 @@ parameters:
     database_password: 12345
     database_driver: pdo_pgsql
     mailer_transport: smtp
-    mailer_host: null
-    mailer_user: null
-    mailer_password: null
+    mailer_host: mail.ukraine.com.ua
+    mailer_user: bestsorbent@xn--90acdg3ada5d5fscf.com
+    mailer_password: carbowhite2017
     secret: 12345
     spa_version: 1.0.0
+    managers:
+        - gram7gram@gmail.com

@@ -16,6 +16,15 @@
 
 {% block javascripts %}
     <script>
+        var ContactRouter = {
+            GET: {
+                index: '{{ path('index') }}'
+            },
+            POST: {
+                contacts: '{{ path('api_v1_contact_post') }}'
+            }
+        }
+
         var ContactResources = {
             tokens: {
                 contact: ''

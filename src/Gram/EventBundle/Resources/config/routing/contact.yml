@@ -1,0 +1,5 @@
+api_v1_contact_post:
+    path: /contacts
+    methods: POST
+    defaults:
+        _controller: GramEventBundle:ContactREST:post
