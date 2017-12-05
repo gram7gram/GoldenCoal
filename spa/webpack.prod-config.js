@@ -1,5 +1,4 @@
 var WebpackStripLoader = require('strip-loader');
-var path = require('path');
 var devConfig = require('./webpack.dev-config.js');
 var webpack = require('webpack');
 

@@ -64,6 +64,18 @@ const isRegistered = (prev = false, action) => {
     }
 }
 
+const isLoading = (prev = false, action) => {
+    switch (action.type) {
+        case Actions.PARTICIPATION_BEFORE:
+            return true
+        case Actions.PARTICIPATION_SUCCESS:
+        case Actions.PARTICIPATION_FAILURE:
+            return false
+        default:
+            return prev
+    }
+}
+
 const step = (prev = 1, action) => {
     switch (action.type) {
         case Actions.INCREMENT_STEP:
@@ -80,5 +92,6 @@ export default combineReducers({
     validator,
     changes,
     step,
-    isRegistered
+    isLoading,
+    isRegistered,
 })

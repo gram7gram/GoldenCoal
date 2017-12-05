@@ -231,7 +231,7 @@ class Register extends React.Component {
     }
 
     render() {
-        const {validator, step, isRegistered} = this.props.Participant
+        const {validator, step, isRegistered, isLoading} = this.props.Participant
         const canGoToNext = step < 3
         const canGoToPrev = step > 1
         const canShowSubmit = step === 3
@@ -242,9 +242,13 @@ class Register extends React.Component {
 
                 <div className="step-navigation">
                     <ul className="steps text-center">
-                        <li className={step === 1 ? "active" : null}>{trans('register_step_1')}</li>
-                        <li className={step === 2 ? "active" : null}>{trans('register_step_2')}</li>
-                        <li className={step === 3 ? "active" : null}>{trans('register_step_3')}</li>
+                        <li className={step === 1 ? "active" : null}>
+                            <span>{trans('register_step_1')}</span></li>
+                        <li className={step === 2 ? "active" : null}>
+                            <span>{trans('register_step_2')}</span></li>
+                        <li className={step === 3 ? "active" : null}>
+                            <span>{trans('register_step_3')}</span>
+                        </li>
                     </ul>
 
                     <div className="step-content page-container">
@@ -261,17 +265,28 @@ class Register extends React.Component {
                                 <Button bsStyle="primary"
                                         className="pull-right"
                                         onClick={this.submit}
-                                        disabled={!validator.canParticipate}>Відправити анкету</Button>
+                                        disabled={!validator.canParticipate || isLoading}>
+                                    {!isLoading
+                                        ? <i className="fa fa-check"/>
+                                        : <i className="fa fa-spin fa-circle-o-notch"/>}
+                                    &nbsp;Відправити анкету
+                                </Button>
                                 : null}
                             {canGoToPrev ?
                                 <Button bsStyle="primary"
                                         className="pull-left"
-                                        onClick={this.prevStep}>{'< Назад'}</Button>
+                                        onClick={this.prevStep}
+                                        disabled={isLoading}>
+                                    <i className="fa fa-arrow-left"/>&nbsp;Назад
+                                </Button>
                                 : null}
                             {canGoToNext ?
                                 <Button bsStyle="primary"
                                         className="pull-right"
-                                        onClick={this.nextStep}>{'Далі >'}</Button>
+                                        onClick={this.nextStep}
+                                        disabled={isLoading}>
+                                    Далі&nbsp;<i className="fa fa-arrow-right"/>
+                                </Button>
                                 : null}
                         </FormGroup> : null}
                     </div>
