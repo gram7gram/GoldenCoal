@@ -78,7 +78,7 @@ class Participant extends React.Component {
         return <Row>
             <Col xs={12}>
                 <Row>
-                    <Col xs={12} sm={10} smOffset={1} md={6} mdOffset={3} lg={6} lgOffset={3}>
+                    <Col xs={12}>
                         <FormGroup>
                             <InputGroup>
                                 <FormControl

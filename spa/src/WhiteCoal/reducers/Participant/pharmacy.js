@@ -5,7 +5,7 @@ const edrpou = (prev = null, action) => {
     switch (action.type) {
         case Actions.PARTICIPANT_CHANGED:
             if (action.payload.pharmacyEdrpou !== undefined)
-                return action.payload.pharmacyEdrpou
+                return action.payload.pharmacyEdrpou.replace(/[^\d]/g, '')
 
             return prev
         default:

@@ -7,26 +7,3 @@ body {
     -o-background-size: cover;
     background-size: cover;
 }
-
-
-.step-navigation .steps > li > span {
-    background-color: white;
-    padding: 2px 6px;
-}
-
-.step-navigation .steps li:before {
-    color: #333;
-    background: #acb8fb;
-}
-
-/*progressbar connectors*/
-.step-navigation .steps li:after {
-    background: #acb8fb;
-}
-
-/*marking active/completed steps green*/
-/*The number of the step and the connector before it = green*/
-.step-navigation .steps li.active:before, .steps li.active:after {
-    background: #3148ca;
-    color: white;
-}

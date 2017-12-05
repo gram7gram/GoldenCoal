@@ -1,6 +1,8 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}Учасники{% endblock %}
+{% block title %}Учасники акції: {{ event.name }}{% endblock %}
+
+{% set params = app.request.attributes.get('_route_params') %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -15,8 +17,19 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="offer-container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                            <div class="promo">
+                                <a href="{{ path('event_index', {'code': params.code}) }}">
+                                    <img src="{{ asset('img/promo-banner.png') }}" alt="Prize" class="img-responsive"/>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+                            <div id="participant-app"></div>
+                        </div>
+                    </div>
 
-                    <div id="participant-app"></div>
 
                     <br/>
                     <br/>
@@ -29,7 +42,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

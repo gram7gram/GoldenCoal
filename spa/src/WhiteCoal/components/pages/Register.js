@@ -100,8 +100,9 @@ class Register extends React.Component {
         const {model} = this.props.Participant
 
         return <FormGroup validationState={this.getValidationState(name)}>
+            <label>{trans('field_' + name)}</label>
             <FormControl
-                placeholder={trans('field_' + name)}
+                placeholder={trans('enter_placeholder')}
                 value={model[name] || ''}
                 onChange={this.change(name)}/>
         </FormGroup>
@@ -117,8 +118,9 @@ class Register extends React.Component {
                     {this.renderSimpleText('firstName')}
                     {this.renderSimpleText('lastName')}
                     <FormGroup validationState={this.getValidationState("email")}>
+                        <label>{trans('field_email')}</label>
                         <FormControl
-                            placeholder={trans('field_email')}
+                            placeholder={trans('enter_placeholder')}
                             value={model.email || ''}
                             onChange={this.change("email")}/>
                     </FormGroup>
@@ -128,40 +130,45 @@ class Register extends React.Component {
                     {this.renderErrors()}
                     {this.renderSimpleText('legalName')}
                     <FormGroup validationState={this.getValidationState("pharmacyEdrpou")}>
+                        <label>{trans('field_pharmacyEdrpou')}</label>
                         <FormControl
-                            placeholder={trans('field_pharmacyEdrpou')}
+                            placeholder={trans('enter_placeholder')}
                             value={model.pharmacy.edrpou || ''}
                             onChange={this.change("pharmacyEdrpou")}/>
                     </FormGroup>
                     <FormGroup validationState={this.getValidationState("pharmacyType")}>
+                        <label>{trans('field_pharmacyType')}</label>
                         <select
                             className={"form-control"}
                             value={model.pharmacy.type ? model.pharmacy.type.id : ''}
                             onChange={this.setPharmacyType}>
-                            <option value={''}>{trans('field_pharmacyType')}</option>
+                            <option value={''}>{trans('select_placeholder')}</option>
                             {this.props.Pharmacy.collection.map((item, key) =>
                                 <option key={key} value={item.id}>{item.name}</option>
                             )}
                         </select>
                     </FormGroup>
                     <FormGroup validationState={this.getValidationState("pharmacyName")}>
+                        <label>{trans('field_pharmacyName')}</label>
                         <FormControl
-                            placeholder={trans('field_pharmacyName')}
+                            placeholder={trans('enter_placeholder')}
                             value={model.pharmacy.name || ''}
                             onChange={this.change("pharmacyName")}/>
                     </FormGroup>
                     <FormGroup validationState={this.getValidationState("pharmacyNumber")}>
+                        <label>{trans('field_pharmacyNumber')}</label>
                         <FormControl
-                            placeholder={trans('field_pharmacyNumber')}
+                            placeholder={trans('enter_placeholder')}
                             value={model.pharmacy.number || ''}
                             onChange={this.change("pharmacyNumber")}/>
                     </FormGroup>
                     <FormGroup validationState={this.getValidationState("position")}>
+                        <label>{trans('field_position')}</label>
                         <select
                             className={"form-control"}
                             value={model.position ? model.position.id : ''}
                             onChange={this.setPosition}>
-                            <option value={''}>{trans('field_position')}</option>
+                            <option value={''}>{trans('select_placeholder')}</option>
                             {this.props.Position.collection.map((item, key) =>
                                 <option key={key} value={item.id}>{item.name}</option>
                             )}
@@ -173,11 +180,12 @@ class Register extends React.Component {
                     {this.renderErrors()}
 
                     <FormGroup validationState={this.getValidationState("region")}>
+                        <label>{trans('field_region')}</label>
                         <select
                             className={"form-control"}
                             value={model.address.region ? model.address.region.id : ''}
                             onChange={this.setRegion}>
-                            <option value={''}>{trans('field_region')}</option>
+                            <option value={''}>{trans('select_placeholder')}</option>
                             {this.props.Region.collection.map((item, key) =>
                                 <option key={key} value={item.id}>{item.name}</option>
                             )}
@@ -185,15 +193,17 @@ class Register extends React.Component {
                     </FormGroup>
 
                     <FormGroup validationState={this.getValidationState("city")}>
+                        <label>{trans('field_city')}</label>
                         <FormControl
-                            placeholder={trans('field_city')}
+                            placeholder={trans('enter_placeholder')}
                             value={model.address.city || ''}
                             onChange={this.change("city")}/>
                     </FormGroup>
 
                     <FormGroup validationState={this.getValidationState("street")}>
+                        <label>{trans('field_street')}</label>
                         <FormControl
-                            placeholder={trans('field_street')}
+                            placeholder={trans('enter_placeholder')}
                             value={model.address.street || ''}
                             onChange={this.change("street")}/>
                     </FormGroup>
@@ -240,56 +250,58 @@ class Register extends React.Component {
 
             <Col xs={12}>
 
-                <div className="step-navigation">
-                    <ul className="steps text-center">
-                        <li className={step === 1 ? "active" : null}>
-                            <span>{trans('register_step_1')}</span></li>
-                        <li className={step === 2 ? "active" : null}>
-                            <span>{trans('register_step_2')}</span></li>
-                        <li className={step === 3 ? "active" : null}>
-                            <span>{trans('register_step_3')}</span>
-                        </li>
-                    </ul>
+                <div className="page-container">
+                    <div className="step-navigation">
+                        <ul className="steps text-center">
+                            <li className={step === 1 ? "active" : null}>
+                                <span>{trans('register_step_1')}</span></li>
+                            <li className={step === 2 ? "active" : null}>
+                                <span>{trans('register_step_2')}</span></li>
+                            <li className={step === 3 ? "active" : null}>
+                                <span>{trans('register_step_3')}</span>
+                            </li>
+                        </ul>
 
-                    <div className="step-content page-container">
+                        <div className="step-content">
 
-                        {isRegistered
-                            ? <div className="banner">
-                                <h3>Дякуємо за Ваш інтерес до акції</h3>
-                                <h4>БІЛИЙ IPAD ВІД БІЛОГО ВУГІЛЛЯ!</h4>
-                                <a href={RegisterRouter.GET.index} className="btn btn-primary">На головну</a>
-                            </div>
-                            : this.renderSteps()}
+                            {isRegistered
+                                ? <div className="banner">
+                                    <h3>Дякуємо за Ваш інтерес до акції</h3>
+                                    <h4>БІЛИЙ IPAD ВІД БІЛОГО ВУГІЛЛЯ!</h4>
+                                    <a href={RegisterRouter.GET.index} className="btn btn-primary">На головну</a>
+                                </div>
+                                : this.renderSteps()}
 
-                        {!isRegistered ? <FormGroup className="action-container">
-                            {canShowSubmit ?
-                                <Button bsStyle="primary"
-                                        className="pull-right"
-                                        onClick={this.submit}
-                                        disabled={!validator.canParticipate || isLoading}>
-                                    {!isLoading
-                                        ? <i className="fa fa-check"/>
-                                        : <i className="fa fa-spin fa-circle-o-notch"/>}
-                                    &nbsp;Відправити анкету
-                                </Button>
-                                : null}
-                            {canGoToPrev ?
-                                <Button bsStyle="primary"
-                                        className="pull-left"
-                                        onClick={this.prevStep}
-                                        disabled={isLoading}>
-                                    <i className="fa fa-arrow-left"/>&nbsp;Назад
-                                </Button>
-                                : null}
-                            {canGoToNext ?
-                                <Button bsStyle="primary"
-                                        className="pull-right"
-                                        onClick={this.nextStep}
-                                        disabled={isLoading}>
-                                    Далі&nbsp;<i className="fa fa-arrow-right"/>
-                                </Button>
-                                : null}
-                        </FormGroup> : null}
+                            {!isRegistered ? <FormGroup className="action-container">
+                                {canShowSubmit ?
+                                    <Button bsStyle="primary"
+                                            className="pull-right"
+                                            onClick={this.submit}
+                                            disabled={!validator.canParticipate || isLoading}>
+                                        {!isLoading
+                                            ? <i className="fa fa-check"/>
+                                            : <i className="fa fa-spin fa-circle-o-notch"/>}
+                                        &nbsp;Відправити анкету
+                                    </Button>
+                                    : null}
+                                {canGoToPrev ?
+                                    <Button bsStyle="primary"
+                                            className="pull-left"
+                                            onClick={this.prevStep}
+                                            disabled={isLoading}>
+                                        <i className="fa fa-arrow-left"/>&nbsp;Назад
+                                    </Button>
+                                    : null}
+                                {canGoToNext ?
+                                    <Button bsStyle="primary"
+                                            className="pull-right"
+                                            onClick={this.nextStep}
+                                            disabled={isLoading}>
+                                        Далі&nbsp;<i className="fa fa-arrow-right"/>
+                                    </Button>
+                                    : null}
+                            </FormGroup> : null}
+                        </div>
                     </div>
                 </div>
 

@@ -15,8 +15,18 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="offer-container">
-
-                    <div id="participant-app"></div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                            <div class="promo">
+                                <a href="{{ path('event_index', {'code': params.code}) }}">
+                                    <img src="{{ asset('img/white-coal/promo-banner.jpg') }}" alt="Prize" class="img-responsive"/>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+                            <div id="participant-app"></div>
+                        </div>
+                    </div>
 
                     <br/>
                     <br/>

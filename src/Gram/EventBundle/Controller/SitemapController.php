@@ -72,11 +72,23 @@ class SitemapController extends Controller
 
     public function participantsAction($code)
     {
+        $em = $this->getDoctrine()->getManager();
+        $event = $em->getRepository(Event::class)->findOneBy([
+            'code' => $code
+        ]);
+        if (!$event) {
+            throw $this->createNotFoundException();
+        }
+
         switch ($code) {
             case Event::GOLDEN_COAL:
-                return $this->render('@GramEvent/Sitemap/golden-coal/participant.html.twig');
+                return $this->render('@GramEvent/Sitemap/golden-coal/participant.html.twig', [
+                    'event' => $event
+                ]);
             case Event::WHITE_COAL:
-                return $this->render('@GramEvent/Sitemap/white-coal/participant.html.twig');
+                return $this->render('@GramEvent/Sitemap/white-coal/participant.html.twig', [
+                    'event' => $event
+                ]);
             default:
                 throw $this->createNotFoundException();
         }
@@ -84,11 +96,23 @@ class SitemapController extends Controller
 
     public function aboutAction($code)
     {
+        $em = $this->getDoctrine()->getManager();
+        $event = $em->getRepository(Event::class)->findOneBy([
+            'code' => $code
+        ]);
+        if (!$event) {
+            throw $this->createNotFoundException();
+        }
+
         switch ($code) {
             case Event::GOLDEN_COAL:
-                return $this->render('@GramEvent/Sitemap/golden-coal/about.html.twig');
+                return $this->render('@GramEvent/Sitemap/golden-coal/about.html.twig', [
+                    'event' => $event
+                ]);
             case Event::WHITE_COAL:
-                return $this->render('@GramEvent/Sitemap/white-coal/about.html.twig');
+                return $this->render('@GramEvent/Sitemap/white-coal/about.html.twig', [
+                    'event' => $event
+                ]);
             default:
                 throw $this->createNotFoundException();
         }
@@ -96,11 +120,23 @@ class SitemapController extends Controller
 
     public function winnerAction($code)
     {
+        $em = $this->getDoctrine()->getManager();
+        $event = $em->getRepository(Event::class)->findOneBy([
+            'code' => $code
+        ]);
+        if (!$event) {
+            throw $this->createNotFoundException();
+        }
+
         switch ($code) {
             case Event::GOLDEN_COAL:
-                return $this->render('@GramEvent/Sitemap/golden-coal/winner.html.twig');
+                return $this->render('@GramEvent/Sitemap/golden-coal/winner.html.twig', [
+                    'event' => $event
+                ]);
             case Event::WHITE_COAL:
-                return $this->render('@GramEvent/Sitemap/white-coal/winner.html.twig');
+                return $this->render('@GramEvent/Sitemap/white-coal/winner.html.twig', [
+                    'event' => $event
+                ]);
             default:
                 throw $this->createNotFoundException();
         }

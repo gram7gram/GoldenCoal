@@ -2,6 +2,8 @@ export const LOCALE = 'ua'
 
 const translator = {
     ua: {
+        enter_placeholder: 'Введіть...',
+        select_placeholder: 'Виберіть...',
         contact_field_name: 'Ваше імʼя...',
         contact_field_email: 'Ваш email...',
         contact_field_content: 'Ваше питання...',
@@ -21,7 +23,7 @@ const translator = {
         field_pharmacyType: 'Тип установи',
         field_pharmacyName: 'Назва аптеки',
         field_pharmacyNumber: 'Номер аптеки',
-        field_pharmacyEdrpou: 'ЄДРПОУ/ІНН',
+        field_pharmacyEdrpou: 'ЄДРПОУ',
         field_position: 'Посада',
         field_region: 'Область',
         field_city: 'Назва населеного пункту',

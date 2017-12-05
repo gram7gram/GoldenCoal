@@ -1,6 +1,6 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}Золотий смартфон* від Білого Вугілля{% endblock %}
+{% block title %}{{ event.name }}{% endblock %}
 
 {% set params = app.request.attributes.get('_route_params') %}
 
@@ -23,9 +23,9 @@
                     {% if event.isExpired() %}
                         <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
                             <div class="form-group text-center" style="background: #fbd101;padding: 10px 0;">
-                                <h1 class="bold" style="color:white">АКЦІЯ ЗАВЕРШЕНА</h1>
-                                <h2 class="bold" style="color:white">Очікуйте на новини
-                                    <br>{{ event.resultDate|date('d M') }}</h2>
+                                <h1 class="bold uppercase">АКЦІЯ ЗАВЕРШЕНА</h1>
+                                <h2 class="bold">Очікуйте на новини
+                                    <br>12 грудня</h2>
                             </div>
                         </div>
                     {% endif %}
@@ -38,7 +38,7 @@
                             </div>
                             <div class="form-group">
                                 <a href="{{ path('winner_index', {'code': params.code}) }}"
-                                   class="btn btn-lg btn-block btn-primary uppercase">Переможці акції</a>
+                                   class="btn btn-lg btn-block btn-primary uppercase disabled">Переможці акції</a>
                             </div>
 
                         {% else %}
