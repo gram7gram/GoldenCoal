@@ -5,9 +5,7 @@ imports:
 
 parameters:
     locale: en
-    jms_serializer.camel_case_naming_strategy.class: Gram\UserBundle\Classes\AsIsNamingStrategy
     web_dir: '%kernel.project_dir%/web'
-    avatar_upload_dir: '%web_dir%/uploads'
 
 framework:
     secret: '%secret%'
@@ -32,24 +30,6 @@ framework:
     assets: ~
     php_errors:
         log: true
-
-fos_user:
-    db_driver: orm
-    firewall_name: spa_v1
-    use_username_form_type: false
-    user_class: Gram\UserBundle\Entity\User
-    registration:
-        confirmation:
-            enabled: false
-    from_email:
-        address: 'no-reply'
-        sender_name: 'no-reply'
-    resetting:
-        token_ttl: 86400
-        email:
-            from_email:
-                address: 'no-reply'
-                sender_name: 'no-reply'
 
 twig:
     debug: '%kernel.debug%'

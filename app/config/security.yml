@@ -1,18 +1,12 @@
 security:
 
+    providers:
+        in_memory:
+            memory: ~
+
     firewalls:
         entry:
             pattern: ^/$
-            anonymous: true
-
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        api_v1:
-            pattern: ^/api/v1/
-            anonymous: true
-
-    access_control:
-        - { path: ^/$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/v1, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    access_control: ~

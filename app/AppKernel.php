@@ -20,15 +20,9 @@ class AppKernel extends Kernel
 
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 
-            new FOS\UserBundle\FOSUserBundle(),
-
             new JMS\SerializerBundle\JMSSerializerBundle(),
 
-            new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
-
-            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
 
             new Gram\EventBundle\GramEventBundle(),
         ];
