@@ -1,11 +1,4 @@
 security:
-    encoders:
-        Gram\UserBundle\Entity\User:
-            id: gram.security_password_encoder
-
-    providers:
-        fos.user_provider:
-            id: fos_user.user_provider.username
 
     firewalls:
         entry:

@@ -2,7 +2,6 @@ module.exports = {
     entry: {
         RegisterGoldenCoal: ['babel-polyfill', './src/GoldenCoal/modules/Register'],
         RegisterWhiteCoal: ['babel-polyfill', './src/WhiteCoal'],
-        Register: ['babel-polyfill', './src/GoldenCoal/modules/Register'],
         Participant: ['babel-polyfill', './src/GoldenCoal/modules/Participant'],
         Contact: ['babel-polyfill', './src/GoldenCoal/modules/Contact'],
     },
