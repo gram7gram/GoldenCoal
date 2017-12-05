@@ -16,3 +16,4 @@ parameters:
     spa_version: 1.0.0
 
     participants_export_token: ~
+    slack_monitoring_token: ~
