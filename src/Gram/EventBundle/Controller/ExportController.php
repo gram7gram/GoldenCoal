@@ -34,7 +34,7 @@ class ExportController extends Controller
         $entities = $service->getEntities();
 
         if (count($entities) === 0) {
-            return new Response('There are no participants yet', Response::HTTP_NO_CONTENT);
+            return new Response('There are no participants yet', Response::HTTP_OK);
         }
 
         $file = fopen($tmpFile, 'w');
