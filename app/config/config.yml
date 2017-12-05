@@ -5,7 +5,6 @@ imports:
 
 parameters:
     locale: en
-    spa_version: '%spa_version%'
     web_dir: '%kernel.project_dir%/web'
 
 framework:
