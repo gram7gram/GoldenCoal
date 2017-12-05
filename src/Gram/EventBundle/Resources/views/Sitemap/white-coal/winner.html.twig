@@ -2,9 +2,11 @@
 
 {% block title %}Переможці{% endblock %}
 
+{% set params = app.request.attributes.get('_route_params') %}
+
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('themes/golden-coal/index.css') }}?v=1.0.14">
+    <link rel="stylesheet" href="{{ asset('themes/white-coal/index.css') }}?v=1.0.14">
 {% endblock %}
 
 {% block body %}
