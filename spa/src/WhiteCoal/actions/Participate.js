@@ -7,10 +7,18 @@ export default (model) => dispatch => {
 
     const data = Object.assign({}, model)
 
-    delete data.address.region.cid
-    delete data.address.region.type
-    delete data.pharmacy.type.cid
-    delete data.position.cid
+    data.address.region = {
+        id: data.address.region.id
+    }
+
+    data.pharmacy.type = {
+        id: data.pharmacy.type.id
+    }
+
+    data.position = {
+        id: data.position.id
+    }
+
     delete data.isConfirmed
 
     xhr && xhr.abort();

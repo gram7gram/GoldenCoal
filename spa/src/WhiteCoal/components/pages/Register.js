@@ -27,31 +27,31 @@ class Register extends React.Component {
     }
 
     setRegion(e) {
-        const option = e.target.value
+        const option = parseInt(e.target.value)
         let item = null
         if (option) {
             item = this.props.Region.collection
-                .find(item => item.cid === option)
+                .find(item => item.id === option)
         }
         this.props.dispatch(regionChanged(item))
     }
 
     setPosition(e) {
-        const option = e.target.value
+        const option = parseInt(e.target.value)
         let item = null
         if (option) {
             item = this.props.Position.collection
-                .find(item => item.cid === option)
+                .find(item => item.id === option)
         }
         this.props.dispatch(positionChanged(item))
     }
 
     setPharmacyType(e) {
-        const option = e.target.value
+        const option = parseInt(e.target.value)
         let item = null
         if (option) {
             item = this.props.Pharmacy.collection
-                .find(item => item.cid === option)
+                .find(item => item.id === option)
         }
         this.props.dispatch(pharmacyChanged(item))
     }
@@ -136,11 +136,11 @@ class Register extends React.Component {
                     <FormGroup validationState={this.getValidationState("pharmacyType")}>
                         <select
                             className={"form-control"}
-                            value={model.pharmacy.type ? model.pharmacy.type.cid : ''}
+                            value={model.pharmacy.type ? model.pharmacy.type.id : ''}
                             onChange={this.setPharmacyType}>
                             <option value={''}>{trans('field_pharmacyType')}</option>
                             {this.props.Pharmacy.collection.map((item, key) =>
-                                <option key={key} value={item.cid}>{item.name}</option>
+                                <option key={key} value={item.id}>{item.name}</option>
                             )}
                         </select>
                     </FormGroup>
@@ -159,11 +159,11 @@ class Register extends React.Component {
                     <FormGroup validationState={this.getValidationState("position")}>
                         <select
                             className={"form-control"}
-                            value={model.position ? model.position.cid : ''}
+                            value={model.position ? model.position.id : ''}
                             onChange={this.setPosition}>
                             <option value={''}>{trans('field_position')}</option>
                             {this.props.Position.collection.map((item, key) =>
-                                <option key={key} value={item.cid}>{item.name}</option>
+                                <option key={key} value={item.id}>{item.name}</option>
                             )}
                         </select>
                     </FormGroup>
@@ -175,11 +175,11 @@ class Register extends React.Component {
                     <FormGroup validationState={this.getValidationState("region")}>
                         <select
                             className={"form-control"}
-                            value={model.address.region ? model.address.region.cid : ''}
+                            value={model.address.region ? model.address.region.id : ''}
                             onChange={this.setRegion}>
                             <option value={''}>{trans('field_region')}</option>
                             {this.props.Region.collection.map((item, key) =>
-                                <option key={key} value={item.cid}>{item.name}</option>
+                                <option key={key} value={item.id}>{item.name}</option>
                             )}
                         </select>
                     </FormGroup>

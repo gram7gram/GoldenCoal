@@ -64774,23 +64774,7 @@ var translator = {
 });
 
 /***/ }),
-/* 721 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = cid;
-function cid() {
-    var length = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 5;
-
-    return Math.random().toString(36).replace(/[^a-z0-9]+/g, '').substr(0, length);
-}
-
-//Do not use "() => {}"
-String.prototype.replaceAll = function (search, replacement) {
-    return this.split(search).join(replacement);
-};
-
-/***/ }),
+/* 721 */,
 /* 722 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -64848,7 +64832,7 @@ String.prototype.replaceAll = function (search, replacement) {
     }
 
     if (ignoreChanges || changes.pharmacyType) {
-        if (!model.pharmacy.type || !model.pharmacy.type.cid) {
+        if (!model.pharmacy.type || !model.pharmacy.type.id) {
             ++validator.total;
             validator.field.pharmacyType = true;
             validator.messages.push(Object(__WEBPACK_IMPORTED_MODULE_0__translator__["a" /* default */])('validation_field_is_required').replace('__NAME__', Object(__WEBPACK_IMPORTED_MODULE_0__translator__["a" /* default */])('field_pharmacyType')));
@@ -64872,7 +64856,7 @@ String.prototype.replaceAll = function (search, replacement) {
     }
 
     if (ignoreChanges || changes.position) {
-        if (!model.position || !model.position.cid) {
+        if (!model.position || !model.position.id) {
             ++validator.total;
             validator.field.position = true;
             validator.messages.push(Object(__WEBPACK_IMPORTED_MODULE_0__translator__["a" /* default */])('validation_field_is_required').replace('__NAME__', Object(__WEBPACK_IMPORTED_MODULE_0__translator__["a" /* default */])('field_position')));
@@ -65124,9 +65108,13 @@ function validateAccepted() {
             switch (_context2.prev = _context2.next) {
                 case 0:
                     _context2.next = 2;
-                    return Object(__WEBPACK_IMPORTED_MODULE_2_redux_saga_effects__["c" /* put */])(Object(__WEBPACK_IMPORTED_MODULE_5__actions_Validate_Accepted__["a" /* default */])());
+                    return Object(__WEBPACK_IMPORTED_MODULE_2_redux_saga_effects__["a" /* call */])(__WEBPACK_IMPORTED_MODULE_1_redux_saga__["b" /* delay */], 300);
 
                 case 2:
+                    _context2.next = 4;
+                    return Object(__WEBPACK_IMPORTED_MODULE_2_redux_saga_effects__["c" /* put */])(Object(__WEBPACK_IMPORTED_MODULE_5__actions_Validate_Accepted__["a" /* default */])());
+
+                case 4:
                 case 'end':
                     return _context2.stop();
             }
@@ -65775,41 +65763,16 @@ var collection = function collection() {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils__ = __webpack_require__(721);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__actions__ = __webpack_require__(188);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__actions__ = __webpack_require__(188);
 
 
-
-
-var initial = [{
-    cid: Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* cid */])(),
-    name: 'Власник'
-}, {
-    cid: Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* cid */])(),
-    name: 'Директор'
-}, {
-    cid: Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* cid */])(),
-    name: 'Менеджер'
-}, {
-    cid: Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* cid */])(),
-    name: 'Завідуючий'
-}, {
-    cid: Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* cid */])(),
-    name: 'Провізор'
-}, {
-    cid: Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* cid */])(),
-    name: 'Фармацевт'
-}, {
-    cid: Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* cid */])(),
-    name: 'Інше'
-}];
 
 var collection = function collection() {
     var prev = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
     var action = arguments[1];
 
     switch (action.type) {
-        case __WEBPACK_IMPORTED_MODULE_2__actions__["i" /* FETCH_POSITION_SUCCESS */]:
+        case __WEBPACK_IMPORTED_MODULE_1__actions__["i" /* FETCH_POSITION_SUCCESS */]:
             return action.payload.items;
         default:
             return prev;
@@ -65911,11 +65874,11 @@ var Register = function (_React$Component) {
     _createClass(Register, [{
         key: 'setRegion',
         value: function setRegion(e) {
-            var option = e.target.value;
+            var option = parseInt(e.target.value);
             var item = null;
             if (option) {
                 item = this.props.Region.collection.find(function (item) {
-                    return item.cid === option;
+                    return item.id === option;
                 });
             }
             this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_9__actions_RegionChanged__["a" /* default */])(item));
@@ -65923,11 +65886,11 @@ var Register = function (_React$Component) {
     }, {
         key: 'setPosition',
         value: function setPosition(e) {
-            var option = e.target.value;
+            var option = parseInt(e.target.value);
             var item = null;
             if (option) {
                 item = this.props.Position.collection.find(function (item) {
-                    return item.cid === option;
+                    return item.id === option;
                 });
             }
             this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_7__actions_PositionChanged__["a" /* default */])(item));
@@ -65935,11 +65898,11 @@ var Register = function (_React$Component) {
     }, {
         key: 'setPharmacyType',
         value: function setPharmacyType(e) {
-            var option = e.target.value;
+            var option = parseInt(e.target.value);
             var item = null;
             if (option) {
                 item = this.props.Pharmacy.collection.find(function (item) {
-                    return item.cid === option;
+                    return item.id === option;
                 });
             }
             this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_8__actions_PharmacyChanged__["a" /* default */])(item));
@@ -66101,7 +66064,7 @@ var Register = function (_React$Component) {
                                 'select',
                                 {
                                     className: "form-control",
-                                    value: model.pharmacy.type ? model.pharmacy.type.cid : '',
+                                    value: model.pharmacy.type ? model.pharmacy.type.id : '',
                                     onChange: this.setPharmacyType, __source: {
                                         fileName: _jsxFileName,
                                         lineNumber: 137
@@ -66121,7 +66084,7 @@ var Register = function (_React$Component) {
                                 this.props.Pharmacy.collection.map(function (item, key) {
                                     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'option',
-                                        { key: key, value: item.cid, __source: {
+                                        { key: key, value: item.id, __source: {
                                                 fileName: _jsxFileName,
                                                 lineNumber: 143
                                             },
@@ -66180,7 +66143,7 @@ var Register = function (_React$Component) {
                                 'select',
                                 {
                                     className: "form-control",
-                                    value: model.position ? model.position.cid : '',
+                                    value: model.position ? model.position.id : '',
                                     onChange: this.setPosition, __source: {
                                         fileName: _jsxFileName,
                                         lineNumber: 160
@@ -66200,7 +66163,7 @@ var Register = function (_React$Component) {
                                 this.props.Position.collection.map(function (item, key) {
                                     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'option',
-                                        { key: key, value: item.cid, __source: {
+                                        { key: key, value: item.id, __source: {
                                                 fileName: _jsxFileName,
                                                 lineNumber: 166
                                             },
@@ -66234,7 +66197,7 @@ var Register = function (_React$Component) {
                                 'select',
                                 {
                                     className: "form-control",
-                                    value: model.address.region ? model.address.region.cid : '',
+                                    value: model.address.region ? model.address.region.id : '',
                                     onChange: this.setRegion, __source: {
                                         fileName: _jsxFileName,
                                         lineNumber: 176
@@ -66254,7 +66217,7 @@ var Register = function (_React$Component) {
                                 this.props.Region.collection.map(function (item, key) {
                                     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'option',
-                                        { key: key, value: item.cid, __source: {
+                                        { key: key, value: item.id, __source: {
                                                 fileName: _jsxFileName,
                                                 lineNumber: 182
                                             },
@@ -66616,10 +66579,18 @@ var xhr = void 0;
 
         var data = Object.assign({}, model);
 
-        delete data.address.region.cid;
-        delete data.address.region.type;
-        delete data.pharmacy.type.cid;
-        delete data.position.cid;
+        data.address.region = {
+            id: data.address.region.id
+        };
+
+        data.pharmacy.type = {
+            id: data.pharmacy.type.id
+        };
+
+        data.position = {
+            id: data.position.id
+        };
+
         delete data.isConfirmed;
 
         xhr && xhr.abort();

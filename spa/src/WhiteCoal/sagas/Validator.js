@@ -1,5 +1,5 @@
-import {takeEvery} from 'redux-saga'
-import {put, select} from 'redux-saga/effects'
+import {takeEvery, delay} from 'redux-saga'
+import {put, select, call} from 'redux-saga/effects'
 import * as Actions from '../actions'
 
 import validateAction from '../actions/Validate'
@@ -15,6 +15,8 @@ function* validateRequest() {
 }
 
 function* validateAccepted() {
+    yield call(delay, 300)
+
     yield put(validateAcceptedAction())
 }
 

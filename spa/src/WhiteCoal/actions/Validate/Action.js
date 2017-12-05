@@ -60,7 +60,7 @@ export default (model, changes, ignoreChanges = false) => {
     }
 
     if (ignoreChanges || changes.pharmacyType) {
-        if (!model.pharmacy.type || !model.pharmacy.type.cid) {
+        if (!model.pharmacy.type || !model.pharmacy.type.id) {
             ++validator.total
             validator.field.pharmacyType = true
             validator.messages.push(
@@ -93,7 +93,7 @@ export default (model, changes, ignoreChanges = false) => {
     }
 
     if (ignoreChanges || changes.position) {
-        if (!model.position || !model.position.cid) {
+        if (!model.position || !model.position.id) {
             ++validator.total
             validator.field.position = true
             validator.messages.push(
