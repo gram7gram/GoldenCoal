@@ -1,6 +1,6 @@
 <?php
 
-namespace Gram\EventBundle\EventListener;
+namespace Gram\EventBundle\Listener;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;

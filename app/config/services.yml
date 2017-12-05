@@ -8,7 +8,7 @@ services:
             - [ setAnnotationReader, [ '@annotation_reader' ] ]
 
     kernel.listener.slack_error:
-        class: Gram\EventBundle\EventListener\SlackExceptionListener
+        class: Gram\EventBundle\Listener\SlackExceptionListener
         arguments: ['@service_container']
         tags:
             - { name: kernel.event_listener, event: kernel.exception, method: onKernelException, priority: 5000 }
