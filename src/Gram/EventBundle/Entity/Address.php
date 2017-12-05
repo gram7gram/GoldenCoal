@@ -31,9 +31,9 @@ class Address
     private $createdAt;
 
     /**
-     * @var string
+     * @var Region
      *
-     * @ORM\Column(type="string", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Gram\EventBundle\Entity\Region")
      *
      * @JMS\Groups({"basic"})
      */
@@ -80,17 +80,17 @@ class Address
     }
 
     /**
-     * @return string
+     * @return Region
      */
-    public function getRegion(): ?string
+    public function getRegion(): ?Region
     {
         return $this->region;
     }
 
     /**
-     * @param string $region
+     * @param Region $region
      */
-    public function setRegion(string $region): void
+    public function setRegion(Region $region): void
     {
         $this->region = $region;
     }

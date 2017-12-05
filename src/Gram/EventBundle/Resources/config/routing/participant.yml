@@ -5,3 +5,11 @@ api_v1_participant_gets:
         _controller: GramEventBundle:ParticipantREST:gets
     requirements:
         id: \d+
+
+api_v1_participant_post:
+    path: /events/{id}/participants
+    methods: POST
+    defaults:
+        _controller: GramEventBundle:ParticipantREST:post
+    requirements:
+        id: \d+

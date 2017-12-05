@@ -135,7 +135,7 @@ class Participant
     /**
      * @param string $lastName
      */
-    public function setLastName(string $lastName)
+    public function setLastName(string $lastName = null)
     {
         $this->lastName = $lastName;
     }
@@ -151,7 +151,7 @@ class Participant
     /**
      * @param string $firstName
      */
-    public function setFirstName(string $firstName)
+    public function setFirstName(string $firstName = null)
     {
         $this->firstName = $firstName;
     }
@@ -167,7 +167,7 @@ class Participant
     /**
      * @param string $middleName
      */
-    public function setMiddleName(string $middleName)
+    public function setMiddleName(string $middleName = null)
     {
         $this->middleName = $middleName;
     }
@@ -199,7 +199,7 @@ class Participant
     /**
      * @param string $legalName
      */
-    public function setLegalName(string $legalName): void
+    public function setLegalName(string $legalName = null): void
     {
         $this->legalName = $legalName;
     }
@@ -215,7 +215,7 @@ class Participant
     /**
      * @param Pharmacy $pharmacy
      */
-    public function setPharmacy(Pharmacy $pharmacy): void
+    public function setPharmacy(Pharmacy $pharmacy = null): void
     {
         $this->pharmacy = $pharmacy;
     }
@@ -231,7 +231,7 @@ class Participant
     /**
      * @param Address $address
      */
-    public function setAddress(Address $address): void
+    public function setAddress(Address $address = null): void
     {
         $this->address = $address;
     }

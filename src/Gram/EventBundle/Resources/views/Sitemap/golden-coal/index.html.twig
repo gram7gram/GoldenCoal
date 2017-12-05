@@ -20,20 +20,34 @@
             </div>
             <div class="col-xs-12">
                 <div class="row">
+                    {% if event.isExpired() %}
+                        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+                            <div class="form-group text-center" style="background: #fbd101;padding: 10px 0;">
+                                <h1 class="bold" style="color:white">АКЦІЯ ЗАВЕРШЕНА</h1>
+                                <h2 class="bold" style="color:white">Очікуйте на новини
+                                    <br>{{ event.resultDate|date('d M') }}</h2>
+                            </div>
+                        </div>
+                    {% endif %}
                     <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
-                        <div class="form-group text-center" style="background: #fbd101;padding: 10px 0;">
-                            <h1 class="bold" style="color:white">АКЦІЯ ЗАВЕРШЕНА</h1>
-                            <h2 class="bold" style="color:white">Очікуйте на новини<br>12 грудня</h2>
 
-                        </div>
-                        <div class="form-group">
-                            <a href="{{ path('participant_index', {'code': params.code}) }}"
-                               class="btn btn-lg btn-block btn-primary uppercase">Перелік учасників</a>
-                        </div>
-                        <div class="form-group">
-                            <a href="{{ path('winner_index', {'code': params.code}) }}"
-                               class="btn btn-lg btn-block btn-primary uppercase">Переможці акції</a>
-                        </div>
+                        {% if event.isExpired() %}
+                            <div class="form-group">
+                                <a href="{{ path('participant_index', {'code': params.code}) }}"
+                                   class="btn btn-lg btn-block btn-primary uppercase">Перелік учасників</a>
+                            </div>
+                            <div class="form-group">
+                                <a href="{{ path('winner_index', {'code': params.code}) }}"
+                                   class="btn btn-lg btn-block btn-primary uppercase">Переможці акції</a>
+                            </div>
+
+                        {% else %}
+                            <div class="form-group">
+                                <a href="{{ path('register_index', {'code': params.code}) }}"
+                                   class="btn btn-lg btn-block btn-primary uppercase">Заповнити анкету</a>
+                            </div>
+                        {% endif %}
+
                         <div class="form-group">
                             <a href="{{ path('contact_index') }}"
                                class="btn btn-lg btn-block btn-primary uppercase">Задати питання</a>

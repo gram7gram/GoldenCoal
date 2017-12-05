@@ -1,0 +1,5 @@
+api_v1_position_gets:
+    path: /positions
+    methods: GET
+    defaults:
+        _controller: GramEventBundle:PositionREST:gets

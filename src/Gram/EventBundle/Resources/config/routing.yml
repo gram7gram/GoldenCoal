@@ -6,6 +6,18 @@ api_v1_winner:
     resource: routing/winner.yml
     prefix: /api/v1
 
+api_v1_position:
+    resource: routing/position.yml
+    prefix: /api/v1
+
+api_v1_pharmacy_type:
+    resource: routing/pharmacy_type.yml
+    prefix: /api/v1
+
+api_v1_region:
+    resource: routing/region.yml
+    prefix: /api/v1
+
 index:
     path: /
     defaults:

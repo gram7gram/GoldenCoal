@@ -51,6 +51,23 @@ class Event
      */
     private $code;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime", nullable=true)
+     *
+     * @JMS\Groups({"basic"})
+     */
+    private $endDate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime", nullable=true)
+     *
+     * @JMS\Groups({"basic"})
+     */
+    private $resultDate;
 
     public function __construct()
     {
@@ -103,5 +120,42 @@ class Event
     public function setCode(string $code): void
     {
         $this->code = $code;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getEndDate(): ?\DateTime
+    {
+        return $this->endDate;
+    }
+
+    /**
+     * @param \DateTime $endDate
+     */
+    public function setEndDate(\DateTime $endDate = null): void
+    {
+        $this->endDate = $endDate;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getResultDate(): ?\DateTime
+    {
+        return $this->resultDate;
+    }
+
+    /**
+     * @param \DateTime $resultDate
+     */
+    public function setResultDate(\DateTime $resultDate): void
+    {
+        $this->resultDate = $resultDate;
+    }
+
+    public function isExpired()
+    {
+        return !is_null($this->endDate) && $this->endDate <= new \DateTime();
     }
 }

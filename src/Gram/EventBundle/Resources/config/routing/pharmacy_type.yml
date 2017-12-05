@@ -1,0 +1,5 @@
+api_v1_pharmacy_type_gets:
+    path: /pharmacy_types
+    methods: GET
+    defaults:
+        _controller: GramEventBundle:PharmacyTypeREST:gets

@@ -1,0 +1,28 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Реєстрація{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('themes/golden-coal/index.css') }}?v=1.0.14">
+{% endblock %}
+
+{% block body %}
+    <noscript>
+        You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="register-golden-coal-app"></div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        var RegisterRouter = {
+            POST: {
+                participants: '{{ path('api_v1_participant_post', {'id': event.id}) }}'
+            }
+        }
+
+    </script>
+    <script src="{{ asset('dist/RegisterGoldenCoal.js') }}?v=1.0.0"></script>
+{% endblock %}
+

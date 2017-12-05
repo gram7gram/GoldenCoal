@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as JMS;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Gram\EventBundle\Entity\PositionRepository")
  * @ORM\Table(name="event_bundle_position")
  */
 class Position

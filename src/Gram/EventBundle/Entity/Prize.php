@@ -38,6 +38,16 @@ class Prize
      */
     private $name;
 
+    /**
+     * @var Event
+     *
+     * @ORM\ManyToOne(targetEntity="Gram\EventBundle\Entity\Event")
+     * @ORM\JoinColumn(nullable=false)
+     *
+     * @JMS\Groups({"basic"})
+     */
+    private $event;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
@@ -73,5 +83,21 @@ class Prize
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return Event
+     */
+    public function getEvent(): ?Event
+    {
+        return $this->event;
+    }
+
+    /**
+     * @param Event $event
+     */
+    public function setEvent(Event $event): void
+    {
+        $this->event = $event;
     }
 }

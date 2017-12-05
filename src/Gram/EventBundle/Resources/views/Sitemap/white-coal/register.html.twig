@@ -11,40 +11,23 @@
     <noscript>
         You need to enable JavaScript to run this app.
     </noscript>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="offer-container">
-
-                    <div id="register-white-coal-app"></div>
-
-                    <br/>
-                    <br/>
-
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="form-group text-center">
-                                <a href="{{ path('contact_index') }}"
-                                   class="btn btn-lg btn-primary uppercase">Задати питання</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="register-white-coal-app"></div>
 {% endblock %}
 
 {% block javascripts %}
     <script>
         var RegisterRouter = {
             GET: {
-
+                pharmacyTypes: '{{ path('api_v1_pharmacy_type_gets') }}',
+                positions: '{{ path('api_v1_position_gets') }}',
+                regions: '{{ path('api_v1_region_gets') }}',
+            },
+            POST: {
+                participants: '{{ path('api_v1_participant_post', {'id': event.id}) }}'
             }
         }
 
     </script>
-    <script src="{{ asset('dist/Participant.js') }}?v=1.0.0"></script>
+    <script src="{{ asset('dist/RegisterWhiteCoal.js') }}?v=1.0.0"></script>
 {% endblock %}
 

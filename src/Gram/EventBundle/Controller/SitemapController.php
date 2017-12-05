@@ -20,11 +20,23 @@ class SitemapController extends Controller
 
     public function eventAction($code)
     {
+        $em = $this->getDoctrine()->getManager();
+        $event = $em->getRepository(Event::class)->findOneBy([
+            'code' => $code
+        ]);
+        if (!$event) {
+            throw $this->createNotFoundException();
+        }
+
         switch ($code) {
             case Event::GOLDEN_COAL:
-                return $this->render('@GramEvent/Sitemap/golden-coal/index.html.twig');
+                return $this->render('@GramEvent/Sitemap/golden-coal/index.html.twig', [
+                    'event' => $event
+                ]);
             case Event::WHITE_COAL:
-                return $this->render('@GramEvent/Sitemap/white-coal/index.html.twig');
+                return $this->render('@GramEvent/Sitemap/white-coal/index.html.twig', [
+                    'event' => $event
+                ]);
             default:
                 throw $this->createNotFoundException();
         }
@@ -32,11 +44,27 @@ class SitemapController extends Controller
 
     public function registerAction($code)
     {
+        $em = $this->getDoctrine()->getManager();
+        $event = $em->getRepository(Event::class)->findOneBy([
+            'code' => $code
+        ]);
+        if (!$event) {
+            throw $this->createNotFoundException();
+        }
+
+        if ($event->isExpired()) {
+            return $this->render('@GramEvent/Sitemap/expired.html.twig');
+        }
+
         switch ($code) {
-//            case Event::GOLDEN_COAL:
-//                return $this->render('@GramEvent/Sitemap/golden-coal/register.html.twig');
+            case Event::GOLDEN_COAL:
+                return $this->render('@GramEvent/Sitemap/golden-coal/register.html.twig', [
+                    'event' => $event
+                ]);
             case Event::WHITE_COAL:
-                return $this->render('@GramEvent/Sitemap/white-coal/register.html.twig');
+                return $this->render('@GramEvent/Sitemap/white-coal/register.html.twig', [
+                    'event' => $event
+                ]);
             default:
                 throw $this->createNotFoundException();
         }

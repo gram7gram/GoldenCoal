@@ -2,6 +2,7 @@
 
 namespace Gram\EventBundle\Controller;
 
+use Gram\EventBundle\Entity\Event;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -49,6 +50,57 @@ class ParticipantRESTController extends Controller
                 'limit' => $limit,
                 'items' => $items
             ]);
+        } catch (\Exception $e) {
+            return new JsonResponse([
+                'message' => $e->getMessage()
+            ], $e->getCode() > 300 ? $e->getCode() : JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    /**
+     * @ApiDoc(
+     *      section="Participation",
+     *      description="Participate in event",
+     *      method="POST",
+     *      statusCodes={
+     *          201 = "",
+     *          404 = "",
+     *          403 = "",
+     *          500 = "",
+     *      }
+     * )
+     * @param Request $request
+     * @param $id
+     * @return JsonResponse
+     */
+    public function postAction(Request $request, $id)
+    {
+        $service = $this->get('event.participant_service');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $event = $em->getRepository(Event::class)->find($id);
+        if (!$event) {
+            return new JsonResponse([
+                'message' => 'Not found'
+            ], JsonResponse::HTTP_NOT_FOUND);
+        }
+
+        if ($event->isExpired()) {
+            return new JsonResponse([
+                'message' => 'Event has ended'
+            ], JsonResponse::HTTP_FORBIDDEN);
+        }
+
+        try {
+
+            $content = json_decode($request->getContent(), true);
+
+            $entity = $service->participate($event, $content);
+
+            $item = $service->serialize($entity);
+
+            return new JsonResponse($item, JsonResponse::HTTP_CREATED);
         } catch (\Exception $e) {
             return new JsonResponse([
                 'message' => $e->getMessage()

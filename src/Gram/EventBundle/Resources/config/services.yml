@@ -7,3 +7,15 @@ services:
   event.winner_service:
       class: Gram\EventBundle\Service\WinnerService
       arguments: ['@service_container']
+
+  event.region_service:
+      class: Gram\EventBundle\Service\RegionService
+      arguments: ['@service_container']
+
+  event.position_service:
+      class: Gram\EventBundle\Service\PositionService
+      arguments: ['@service_container']
+
+  event.pharmacy_type_service:
+      class: Gram\EventBundle\Service\PharmacyTypeService
+      arguments: ['@service_container']

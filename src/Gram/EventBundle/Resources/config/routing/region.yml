@@ -1,0 +1,5 @@
+api_v1_region_gets:
+    path: /regions
+    methods: GET
+    defaults:
+        _controller: GramEventBundle:RegionREST:gets
