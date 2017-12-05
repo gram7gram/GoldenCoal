@@ -26,4 +26,6 @@ RUN apt-get update \
     && docker-php-ext-configure pgsql --with-pgsql=/usr/local/pgsql \
     && docker-php-ext-install -j$(nproc) pgsql pdo_pgsql
 
+RUN a2enmod rewrite && service apache2 restart
+
 CMD apache2 -DFOREGROUND
