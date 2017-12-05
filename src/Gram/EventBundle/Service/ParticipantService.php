@@ -142,7 +142,7 @@ class ParticipantService
         return json_decode($content, true);
     }
 
-    public function getCount($filter)
+    public function getCount($filter = [])
     {
         $em = $this->container->get('doctrine')->getManager();
 
@@ -152,7 +152,7 @@ class ParticipantService
         return $repo->countByFilter($filter);
     }
 
-    public function getEntities($filter, $page, $limit)
+    public function getEntities($filter = [], $page = 0, $limit = 0)
     {
         $em = $this->container->get('doctrine')->getManager();
 

@@ -13,3 +13,10 @@ api_v1_participant_post:
         _controller: GramEventBundle:ParticipantREST:post
     requirements:
         id: \d+
+
+
+api_v1_export_participants_gets:
+    path: /export/participants
+    methods: GET
+    defaults:
+        _controller: GramEventBundle:Export:gets
