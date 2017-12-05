@@ -12,11 +12,13 @@
 {% block body %}
     <div class="container">
         <div class="row">
-            {#<div class="col-xs-12">#}
-            {#<div class="about-promo">#}
-            {#<img src="{{ asset('img/about-promo-phone@400.png') }}" alt="Prize" class="img-responsive"/>#}
-            {#</div>#}
-            {#</div>#}
+            <div class="col-xs-12">
+                <div class="about-promo">
+                    <a href="{{ path('event_index', {'code': params.code}) }}">
+                        <img src="{{ asset('img/white-coal/about-promo-1@400.png') }}" alt="Prize" class="img-responsive"/>
+                    </a>
+                </div>
+            </div>
 
             <div class="col-xs-12">
                 <div class="offer-container">
@@ -57,116 +59,128 @@
                                  class="img-responsive margin-auto">
                         </div>
                     </div>
+
+                    <br>
+                    <br>
+                    <br>
+
                     <div class="row">
-                        <div class="col-xs-12">
-                            <div class="offer">
-                                <div class="row">
-                                    <div class="col-xs-9 col-sm-9 col-md-10 col-lg-10">
-                                        <h3 class="offer-title">
-                                            <a href="http://omnifarma.kiev.ua/uk/products/bile-vugillya/"
-                                               target="_blank">БІЛЕ ВУГІЛЛЯ таб. 210 мг №10
-                                            </a>
-                                        </h3>
+                        <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="offer">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-9 col-md-10 col-lg-10">
+                                                <h3 class="offer-title">
+                                                    <a href="http://omnifarma.kiev.ua/uk/products/bile-vugillya/"
+                                                       target="_blank">БІЛЕ ВУГІЛЛЯ таб. 210 мг №10
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+                                                <div class="offer-reward">
+                                                    <img src="{{ asset('img/20б.png') }}" alt="" class="img-responsive">
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
-                                        <div class="offer-reward">
-                                            <img src="{{ asset('img/20б.png') }}" alt="" class="img-responsive">
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="offer">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-9 col-md-10 col-lg-10">
+                                                <h3 class="offer-title">
+                                                    <a href="http://omnifarma.kiev.ua/uk/products/bile-vugillya/"
+                                                       target="_blank">БІЛЕ ВУГІЛЛЯ таб. 210 мг №24
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+                                                <div class="offer-reward">
+                                                    <img src="{{ asset('img/40б.png') }}" alt="" class="img-responsive">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="offer">
-                                <div class="row">
-                                    <div class="col-xs-9 col-sm-9 col-md-10 col-lg-10">
-                                        <h3 class="offer-title">
-                                            <a href="http://omnifarma.kiev.ua/uk/products/bile-vugillya/"
-                                               target="_blank">БІЛЕ ВУГІЛЛЯ таб. 210 мг №24
-                                            </a>
-                                        </h3>
-                                    </div>
-                                    <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
-                                        <div class="offer-reward">
-                                            <img src="{{ asset('img/40б.png') }}" alt="" class="img-responsive">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="offer">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-9 col-md-10 col-lg-10">
+                                                <h3 class="offer-title">
+                                                    <a href="http://omnifarma.kiev.ua/uk/products/bile-vugillya/"
+                                                       target="_blank">БІЛЕ ВУГІЛЛЯ таб. 210 мг №100
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+                                                <div class="offer-reward">
+                                                    <img src="{{ asset('img/200б.png') }}" alt=""
+                                                         class="img-responsive">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="offer">
-                                <div class="row">
-                                    <div class="col-xs-9 col-sm-9 col-md-10 col-lg-10">
-                                        <h3 class="offer-title">
-                                            <a href="http://omnifarma.kiev.ua/uk/products/bile-vugillya/"
-                                               target="_blank">БІЛЕ ВУГІЛЛЯ таб. 210 мг №100
-                                            </a>
-                                        </h3>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="offer">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-9 col-md-10 col-lg-10">
+                                                <h3 class="offer-title">
+                                                    <a href="http://omnifarma.kiev.ua/uk/products/bile-vugillya-400/"
+                                                       target="_blank">БІЛЕ ВУГІЛЛЯ 400 порошок,<br>флакон 12 г
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+                                                <div class="offer-reward">
+                                                    <img src="{{ asset('img/35б.png') }}" alt="" class="img-responsive">
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
-                                        <div class="offer-reward">
-                                            <img src="{{ asset('img/200б.png') }}" alt="" class="img-responsive">
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="offer">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-9 col-md-10 col-lg-10">
+                                                <h3 class="offer-title">
+                                                    <a href="http://omnifarma.kiev.ua/uk/products/bile-vugillya-sashe/"
+                                                       target="_blank">БІЛЕ ВУГІЛЛЯ мікрогранульований<br>порошок, саше
+                                                        №16
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+                                                <div class="offer-reward">
+                                                    <img src="{{ asset('img/80б.png') }}" alt="" class="img-responsive">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="offer">
-                                <div class="row">
-                                    <div class="col-xs-9 col-sm-9 col-md-10 col-lg-10">
-                                        <h3 class="offer-title">
-                                            <a href="http://omnifarma.kiev.ua/uk/products/bile-vugillya-400/"
-                                               target="_blank">БІЛЕ ВУГІЛЛЯ 400 порошок, флакон 12 г
-                                            </a>
-                                        </h3>
-                                    </div>
-                                    <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
-                                        <div class="offer-reward">
-                                            <img src="{{ asset('img/35б.png') }}" alt="" class="img-responsive">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="offer">
-                                <div class="row">
-                                    <div class="col-xs-9 col-sm-9 col-md-10 col-lg-10">
-                                        <h3 class="offer-title">
-                                            <a href="http://omnifarma.kiev.ua/uk/products/bile-vugillya-sashe/"
-                                               target="_blank">БІЛЕ ВУГІЛЛЯ мікрогранульований порошок, саше №16
-                                            </a>
-                                        </h3>
-                                    </div>
-                                    <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
-                                        <div class="offer-reward">
-                                            <img src="{{ asset('img/80б.png') }}" alt="" class="img-responsive">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="offer">
-                                <div class="row">
-                                    <div class="col-xs-9 col-sm-9 col-md-10 col-lg-10">
-                                        <h3 class="offer-title">
-                                            <a href="http://omnifarma.kiev.ua/uk/products/bilij-vugillya-dobrogo-ranku/"
-                                               target="_blank">БІЛЕ ВУГІЛЛЯ ДОБРОГО РАНКУ таблетки швидкорозчинні №6
-                                            </a>
-                                        </h3>
-                                    </div>
-                                    <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
-                                        <div class="offer-reward">
-                                            <img src="{{ asset('img/60б.png') }}" alt="" class="img-responsive">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="offer">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-9 col-md-10 col-lg-10">
+                                                <h3 class="offer-title">
+                                                    <a href="http://omnifarma.kiev.ua/uk/products/bilij-vugillya-dobrogo-ranku/"
+                                                       target="_blank">БІЛЕ ВУГІЛЛЯ ДОБРОГО РАНКУ<br>таблетки
+                                                        швидкорозчинні №6
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+                                                <div class="offer-reward">
+                                                    <img src="{{ asset('img/60б.png') }}" alt="" class="img-responsive">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -232,7 +246,8 @@
                                         <iframe width="100%" height="320px"
                                                 style="background: #888888;"
                                                 src="https://www.youtube.com/embed/OPQfGl-9m_Y"
-                                                frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                                                frameborder="0" gesture="media" allow="encrypted-media"
+                                                allowfullscreen></iframe>
                                     </div>
                                     <div class="col-xs-12">
                                         <p>Білий колір передньої грані, сріблястий – для задньої кришки</p>
@@ -259,7 +274,7 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="offer">
-                                        <h3 class="offer-title">На учасників чекають ще 100 призів.</h3>
+                                        <h3 class="offer-title">На учасників чекають ще 110 призів.</h3>
                                     </div>
                                 </div>
 
@@ -360,7 +375,7 @@
                                                          class="img-responsive">
                                                 </div>
                                             </div>
-                                            <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
+                                            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
                                                 <div class="offer-reward">
                                                     <div class="offer-reward-title">10</div>
                                                     <div class="offer-reward-footer">штук</div>
@@ -382,7 +397,7 @@
                                                          class="img-responsive">
                                                 </div>
                                             </div>
-                                            <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
+                                            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
                                                 <div class="offer-reward">
                                                     <div class="offer-reward-title">10</div>
                                                     <div class="offer-reward-footer">штук</div>
@@ -406,7 +421,7 @@
                                                          class="img-responsive">
                                                 </div>
                                             </div>
-                                            <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
+                                            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
                                                 <div class="offer-reward">
                                                     <div class="offer-reward-title">10</div>
                                                     <div class="offer-reward-footer">штук</div>
@@ -423,12 +438,12 @@
                                             </div>
                                             <div class="col-xs-8">
                                                 <div class="offer-image">
-                                                    <img src="{{ asset('img/prize-card@400.png') }}"
+                                                    <img src="{{ asset('img/white-coal/prize-card@400.png') }}"
                                                          alt="Сертифікат подарунковий БОДОкард-100"
                                                          class="img-responsive">
                                                 </div>
                                             </div>
-                                            <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
+                                            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
                                                 <div class="offer-reward">
                                                     <div class="offer-reward-title">70</div>
                                                     <div class="offer-reward-footer">штук</div>
@@ -522,8 +537,8 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="form-group text-center">
-                                <a href="{{ path('contact_index') }}"
-                                   class="btn btn-lg btn-primary uppercase">Задати питання</a>
+                                <a href="{{ path('contact_index', {'code': params.code}) }}"
+                                   class="btn btn-lg btn-default uppercase">Задати питання</a>
                             </div>
                         </div>
                     </div>

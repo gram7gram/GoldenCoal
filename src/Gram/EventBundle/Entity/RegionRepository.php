@@ -32,7 +32,8 @@ class RegionRepository extends EntityRepository
                 ->setFirstResult($limit * ($page - 1));
         }
 
-        $qb->orderBy('region.id');
+        $qb->orderBy('region.type')
+            ->addOrderBy('region.name');
 
         return $qb->getQuery()->getResult();
     }

@@ -28,7 +28,7 @@ index:
         _controller: GramEventBundle:Sitemap:index
 
 contact_index:
-    path: /contact
+    path: /events/{code}/contact
     defaults:
         _controller: GramEventBundle:Sitemap:contact
 

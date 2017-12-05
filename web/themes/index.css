@@ -87,7 +87,10 @@ textarea {
 
 .offer .offer-title a{
     text-decoration: underline;
-    color: black
+    color: black;
+
+    position: relative;
+    top: 22px;
 }
 
 .offer .offer-reward {
@@ -97,6 +100,7 @@ textarea {
 
 .offer .offer-reward img {
     max-height:100px;
+    margin: 0 auto;
 }
 
 .offer .offer-image img {

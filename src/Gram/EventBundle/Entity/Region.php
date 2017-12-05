@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as JMS;
 
 /**
- * @ORM\Entity(repositoryClass="Gram\EventBundle\Entity\RegionRepository")
+ * @ORM\Entity(repositoryClass="Gram\EventBundle\Entity\RegionRepository", readOnly=true)
  * @ORM\Table(name="event_bundle_region")
  */
 class Region

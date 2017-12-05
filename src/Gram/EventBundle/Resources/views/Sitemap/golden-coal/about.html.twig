@@ -2,6 +2,8 @@
 
 {% block title %}Умови акції{% endblock %}
 
+{% set params = app.request.attributes.get('_route_params') %}
+
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('themes/golden-coal/index.css') }}?v=1.0.14">
@@ -12,7 +14,9 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="about-promo">
-                    <img src="/img/about-promo-phone@400.png" alt="Prize" class="img-responsive"/>
+                    <a href="{{ path('event_index', {'code': params.code}) }}">
+                        <img src="/img/about-promo-phone@400.png" alt="Prize" class="img-responsive"/>
+                    </a>
                 </div>
             </div>
 
@@ -425,7 +429,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="form-group text-center">
-                                <a href="{{ path('contact_index') }}"
+                                <a href="{{ path('contact_index', {'code': params.code}) }}"
                                    class="btn btn-lg btn-primary uppercase">Задати питання</a>
                             </div>
                         </div>

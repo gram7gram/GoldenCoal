@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as JMS;
 
 /**
- * @ORM\Entity(repositoryClass="Gram\EventBundle\Entity\PharmacyTypeRepository")
+ * @ORM\Entity(repositoryClass="Gram\EventBundle\Entity\PharmacyTypeRepository", readOnly=true)
  * @ORM\Table(name="event_bundle_pharmacy_type")
  */
 class PharmacyType {

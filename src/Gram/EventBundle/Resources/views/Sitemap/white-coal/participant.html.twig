@@ -19,7 +19,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
                             <div class="promo">
                                 <a href="{{ path('event_index', {'code': params.code}) }}">
-                                    <img src="{{ asset('img/white-coal/promo-banner.jpg') }}" alt="Prize" class="img-responsive"/>
+                                    <img src="{{ asset('img/white-coal/about-promo-1@400.png') }}" alt="Prize" class="img-responsive"/>
                                 </a>
                             </div>
                         </div>
@@ -34,8 +34,8 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="form-group text-center">
-                                <a href="{{ path('contact_index') }}"
-                                   class="btn btn-lg btn-primary uppercase">Задати питання</a>
+                                <a href="{{ path('contact_index', {'code': params.code}) }}"
+                                   class="btn btn-lg btn-default uppercase">Задати питання</a>
                             </div>
                         </div>
                     </div>

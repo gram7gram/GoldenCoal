@@ -13,9 +13,16 @@ class SitemapController extends Controller
         return $this->render('@GramEvent/Sitemap/index.html.twig');
     }
 
-    public function contactAction()
+    public function contactAction($code)
     {
-        return $this->render('@GramEvent/Sitemap/contact.html.twig');
+        switch ($code) {
+            case Event::GOLDEN_COAL:
+                return $this->render('@GramEvent/Sitemap/golden-coal/contact.html.twig');
+            case Event::WHITE_COAL:
+                return $this->render('@GramEvent/Sitemap/white-coal/contact.html.twig');
+            default:
+                throw $this->createNotFoundException();
+        }
     }
 
     public function eventAction($code)
