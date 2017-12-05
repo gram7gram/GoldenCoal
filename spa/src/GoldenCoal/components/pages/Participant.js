@@ -19,7 +19,7 @@ class Participant extends React.Component {
     }
 
     changeSearch(e) {
-        const val = e.target.value ? e.target.value.replace(/^[^0-9]$/i, '') : null;
+        const val = e.target.value ? e.target.value.replace(/[^\d]/g, '') : null;
 
         this.props.dispatch({
             type: Action.PARTICIPANT_SEARCH_CHANGED,
