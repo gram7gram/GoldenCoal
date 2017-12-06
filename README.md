@@ -1,21 +1,16 @@
 # GoldenCoal
+
 ReactJS frontend with Symfony3 backend
 
 ## Basic environment
 
-Install docker, docker-compose
+Install [docker, docker-compose](https://gist.github.com/gram7gram/7bae478fd98f06192a3f46f1ff45bf89)
 
-[https://gist.github.com/gram7gram/7bae478fd98f06192a3f46f1ff45bf89]
-
-Install NVM
-
-[https://github.com/creationix/nvm]
+Install [NVM](https://github.com/creationix/nvm)
 
 Install node
 
 `$ nvm install 8`
-
-`$ nvm use 8`
 
 ## Running application
 
@@ -35,7 +30,7 @@ Install node
 
 8. In project directory run `$ docker-compose exec gc-01 php bin/console --env=prod doctrine:migrations:migrate -n`
 
-9. Open [http://localhost:15200:/app_dev.php] in browser
+9. Open (http://localhost:15200/app_dev.php) in browser
 
 ## Building Frontend
 
