@@ -30,7 +30,7 @@ Install node
 
 8. In project directory run `$ docker-compose exec gc-01 php bin/console --env=prod doctrine:migrations:migrate -n`
 
-9. Open (http://localhost:15200/app_dev.php) in browser
+9. Open http://localhost:15200/app_dev.php in browser
 
 ## Building Frontend
 
