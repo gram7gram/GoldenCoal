@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="utf-8"/>
+    <title>У доступі відмовлено</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css">
+    <link href="{{ asset('bootstrap/dist/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet"/>
+    <link href="{{ asset('dist/error.min.css') }}" type="text/css" rel="stylesheet"/>
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body class="page-404-full-page">
+<div class="row">
+    <div class="col-md-12 page-404">
+        <div class="number">
+            <img src="{{ asset('img/lock@128.png') }}" alt="403">
+        </div>
+        <div class="details" style="position: relative;top: 50px;">
+            <h3>У доступі відмовлено</h3>
+            <p>Код помилки: 403</p>
+            <p>У Вас недостатньо прав для перегляду сторінки.
+                <br>Будь-ласка, поверніться на
+            </p>
+            <div class="text-center">
+                <a href="{{ url('index') }}" class="btn btn-success btn-lg"> Головну сторінку </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

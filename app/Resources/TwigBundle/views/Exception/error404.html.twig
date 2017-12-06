@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="utf-8"/>
+    <title>Сторінка не знайдена</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="MobileOptimized" content="320">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css">
+    <link href="{{ asset('bootstrap/dist/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet"/>
+    <link href="{{ asset('dist/error.min.css') }}" type="text/css" rel="stylesheet"/>   
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
+
+</head>
+<body class="page-404-full-page">
+<div class="row">
+    <div class="col-md-12 page-404">
+        <div class="number">
+            <img src="{{ asset('img/not-found-cloud@128.png') }}" alt="404">
+        </div>
+        <div class="details" style="position: relative;top: 50px;">
+            <h3>Сторінка не знайдена</h3>
+            <p>Код помилки: 404</p>
+            <p>Перевірте адресу сторінки на наявність помилок
+                <br>або поверніться на
+            </p>
+            <div class="text-center">
+                <a href="{{ url('index') }}" class="btn btn-success btn-lg"> Головну сторінку </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
