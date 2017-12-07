@@ -7,10 +7,12 @@ import participateAction from '../../actions/Participate'
 import IncrementStep from '../../actions/IncrementStep'
 import DecrementStep from '../../actions/DecrementStep'
 import positionChanged from '../../actions/PositionChanged'
-import pharmacyChanged from '../../actions/PharmacyChanged'
 import regionChanged from '../../actions/RegionChanged'
 
 import trans from '../../translator'
+
+const STEPS = 2
+const stepStyle = {width: (100 / STEPS) + '%'}
 
 class Register extends React.Component {
 
@@ -19,7 +21,6 @@ class Register extends React.Component {
         this.submit = this.submit.bind(this)
         this.nextStep = this.nextStep.bind(this)
         this.prevStep = this.prevStep.bind(this)
-        this.setPharmacyType = this.setPharmacyType.bind(this)
         this.setPosition = this.setPosition.bind(this)
         this.setRegion = this.setRegion.bind(this)
         this.getValidationState = this.getValidationState.bind(this)
@@ -44,16 +45,6 @@ class Register extends React.Component {
                 .find(item => item.id === option)
         }
         this.props.dispatch(positionChanged(item))
-    }
-
-    setPharmacyType(e) {
-        const option = parseInt(e.target.value)
-        let item = null
-        if (option) {
-            item = this.props.Pharmacy.collection
-                .find(item => item.id === option)
-        }
-        this.props.dispatch(pharmacyChanged(item))
     }
 
     submit() {
@@ -136,31 +127,12 @@ class Register extends React.Component {
                             value={model.pharmacy.edrpou || ''}
                             onChange={this.change("pharmacyEdrpou")}/>
                     </FormGroup>
-                    <FormGroup validationState={this.getValidationState("pharmacyType")}>
-                        <label>{trans('field_pharmacyType')}</label>
-                        <select
-                            className={"form-control"}
-                            value={model.pharmacy.type ? model.pharmacy.type.id : ''}
-                            onChange={this.setPharmacyType}>
-                            <option value={''}>{trans('select_placeholder')}</option>
-                            {this.props.Pharmacy.collection.map((item, key) =>
-                                <option key={key} value={item.id}>{item.name}</option>
-                            )}
-                        </select>
-                    </FormGroup>
                     <FormGroup validationState={this.getValidationState("pharmacyName")}>
-                        <label>{trans('field_pharmacyName')}</label>
+                        <label>{trans('field_pharmacyNameNumber')}</label>
                         <FormControl
                             placeholder={trans('enter_placeholder')}
                             value={model.pharmacy.name || ''}
                             onChange={this.change("pharmacyName")}/>
-                    </FormGroup>
-                    <FormGroup validationState={this.getValidationState("pharmacyNumber")}>
-                        <label>{trans('field_pharmacyNumber')}</label>
-                        <FormControl
-                            placeholder={trans('enter_placeholder')}
-                            value={model.pharmacy.number || ''}
-                            onChange={this.change("pharmacyNumber")}/>
                     </FormGroup>
                     <FormGroup validationState={this.getValidationState("position")}>
                         <label>{trans('field_position')}</label>
@@ -174,10 +146,6 @@ class Register extends React.Component {
                             )}
                         </select>
                     </FormGroup>
-                </div>
-            case 3:
-                return <div className="step active">
-                    {this.renderErrors()}
 
                     <FormGroup validationState={this.getValidationState("region")}>
                         <label>{trans('field_region')}</label>
@@ -199,23 +167,11 @@ class Register extends React.Component {
                             value={model.address.city || ''}
                             onChange={this.change("city")}/>
                     </FormGroup>
-
-                    <FormGroup validationState={this.getValidationState("street")}>
-                        <label>{trans('field_street')}</label>
-                        <FormControl
-                            placeholder={trans('enter_placeholder')}
-                            value={model.address.street || ''}
-                            onChange={this.change("street")}/>
-                    </FormGroup>
                     <FormGroup>
                         <label>
                             <input type="checkbox"
                                    onChange={this.confirm}
-                                   checked={model.isConfirmed}/>&nbsp;Заповнюючи цю анкету, я даю свою згоду на збір,
-                            реєстрацію, зберігання, адаптацію,
-                            зміну, оновлення моїх персональних даних (з використанням інформаційних систем і без
-                            них) без обмежень такої обробки. Дана згода на збір і обробку моїх персональних даних,
-                            поширюється на всі дані, зазначені мною в цій анкеті.
+                                   checked={model.isConfirmed}/>&nbsp;{trans('participation_legal_notice')}
                         </label>
                     </FormGroup>
                 </div>
@@ -242,9 +198,9 @@ class Register extends React.Component {
 
     render() {
         const {validator, step, isRegistered, isLoading} = this.props.Participant
-        const canGoToNext = step < 3
+        const canGoToNext = step < STEPS
         const canGoToPrev = step > 1
-        const canShowSubmit = step === 3
+        const canShowSubmit = step === STEPS
 
         return <Row>
 
@@ -252,15 +208,14 @@ class Register extends React.Component {
 
                 <div className="page-container">
                     <div className="step-navigation">
-                        <ul className="steps text-center">
-                            <li className={step === 1 ? "active" : null}>
-                                <span>{trans('register_step_1')}</span></li>
-                            <li className={step === 2 ? "active" : null}>
-                                <span>{trans('register_step_2')}</span></li>
-                            <li className={step === 3 ? "active" : null}>
-                                <span>{trans('register_step_3')}</span>
-                            </li>
-                        </ul>
+
+                        {!isRegistered ?
+                            <ul className="steps text-center">
+                                <li className={step === 1 ? "active" : null} style={stepStyle}>
+                                    <span>{trans('register_step_1')}</span></li>
+                                <li className={step === 2 ? "active" : null} style={stepStyle}>
+                                    <span>{trans('register_step_2')}</span></li>
+                            </ul> : null}
 
                         <div className="step-content">
 

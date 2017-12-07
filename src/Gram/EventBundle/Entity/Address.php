@@ -42,7 +42,7 @@ class Address
     /**
      * @var string
      *
-     * @ORM\Column(type="string", nullable=false)
+     * @ORM\Column(type="string", nullable=true)
      *
      * @JMS\Groups({"basic"})
      */
@@ -51,7 +51,7 @@ class Address
     /**
      * @var string
      *
-     * @ORM\Column(type="string", nullable=false)
+     * @ORM\Column(type="string", nullable=true)
      *
      * @JMS\Groups({"basic"})
      */
@@ -90,7 +90,7 @@ class Address
     /**
      * @param Region $region
      */
-    public function setRegion(Region $region): void
+    public function setRegion(Region $region = null)
     {
         $this->region = $region;
     }
@@ -106,7 +106,7 @@ class Address
     /**
      * @param string $city
      */
-    public function setCity(string $city): void
+    public function setCity(string $city = null)
     {
         $this->city = $city;
     }
@@ -122,7 +122,7 @@ class Address
     /**
      * @param string $street
      */
-    public function setStreet(string $street): void
+    public function setStreet(string $street = null)
     {
         $this->street = $street;
     }

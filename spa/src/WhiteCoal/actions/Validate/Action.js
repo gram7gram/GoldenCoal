@@ -59,7 +59,7 @@ export default (model, changes, ignoreChanges = false) => {
         }
     }
 
-    if (ignoreChanges || changes.pharmacyType) {
+    /*if (ignoreChanges || changes.pharmacyType) {
         if (!model.pharmacy.type || !model.pharmacy.type.id) {
             ++validator.total
             validator.field.pharmacyType = true
@@ -68,7 +68,7 @@ export default (model, changes, ignoreChanges = false) => {
                     .replace('__NAME__', trans('field_pharmacyType'))
             )
         }
-    }
+    }*/
 
     if (ignoreChanges || changes.pharmacyName) {
         if (!model.pharmacy.name) {
@@ -81,7 +81,7 @@ export default (model, changes, ignoreChanges = false) => {
         }
     }
 
-    if (ignoreChanges || changes.pharmacyNumber) {
+    /*if (ignoreChanges || changes.pharmacyNumber) {
         if (!model.pharmacy.number) {
             ++validator.total
             validator.field.pharmacyNumber = true
@@ -90,7 +90,7 @@ export default (model, changes, ignoreChanges = false) => {
                     .replace('__NAME__', trans('field_pharmacyNumber'))
             )
         }
-    }
+    }*/
 
     if (ignoreChanges || changes.position) {
         if (!model.position || !model.position.id) {
@@ -139,7 +139,7 @@ export default (model, changes, ignoreChanges = false) => {
 
     }
 
-    if (ignoreChanges || changes.street) {
+    /*if (ignoreChanges || changes.street) {
         if (!model.address.street) {
             ++validator.total
             validator.field.street = true
@@ -148,7 +148,7 @@ export default (model, changes, ignoreChanges = false) => {
                     .replace('__NAME__', trans('field_address'))
             )
         }
-    }
+    }*/
 
     if (ignoreChanges) {
         if (!model.isConfirmed) {

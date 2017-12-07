@@ -32,7 +32,7 @@ class Pharmacy {
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=16, nullable=false, unique=true)
+     * @ORM\Column(type="string", length=16, nullable=true, unique=true)
      *
      * @JMS\Groups({"basic"})
      */
@@ -41,7 +41,7 @@ class Pharmacy {
     /**
      * @var string
      *
-     * @ORM\Column(type="text", nullable=false)
+     * @ORM\Column(type="text", nullable=true)
      *
      * @JMS\Groups({"basic"})
      */
@@ -50,7 +50,7 @@ class Pharmacy {
     /**
      * @var string
      *
-     * @ORM\Column(type="text", nullable=false)
+     * @ORM\Column(type="text", nullable=true)
      *
      * @JMS\Groups({"basic"})
      */
@@ -60,6 +60,7 @@ class Pharmacy {
      * @var PharmacyType
      *
      * @ORM\ManyToOne(targetEntity="Gram\EventBundle\Entity\PharmacyType")
+     * @ORM\JoinColumn(nullable=true)
      *
      * @JMS\Groups({"basic"})
      */
@@ -97,7 +98,7 @@ class Pharmacy {
     /**
      * @param string $okpo
      */
-    public function setOkpo(string $okpo): void
+    public function setOkpo(string $okpo = null)
     {
         $this->okpo = $okpo;
     }
@@ -113,7 +114,7 @@ class Pharmacy {
     /**
      * @param string $name
      */
-    public function setName(string $name): void
+    public function setName(string $name = null)
     {
         $this->name = $name;
     }
@@ -129,7 +130,7 @@ class Pharmacy {
     /**
      * @param string $number
      */
-    public function setNumber(string $number): void
+    public function setNumber(string $number = null)
     {
         $this->number = $number;
     }
@@ -145,7 +146,7 @@ class Pharmacy {
     /**
      * @param PharmacyType $type
      */
-    public function setType(PharmacyType $type): void
+    public function setType(PharmacyType $type = null)
     {
         $this->type = $type;
     }

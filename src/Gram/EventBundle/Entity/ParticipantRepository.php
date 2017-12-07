@@ -20,7 +20,7 @@ class ParticipantRepository extends EntityRepository
             ->join('p.address', 'address')
             ->join('p.pharmacy', 'pharmacy')
             ->join('p.event', 'event')
-            ->join('pharmacy.type', 'pharmacyType');
+            ->leftJoin('pharmacy.type', 'pharmacyType');
 
         if (isset($filter['okpo'])) {
             $qb->andWhere($e->eq('pharmacy.okpo', ':okpo'))

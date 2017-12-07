@@ -92,7 +92,7 @@ class ParticipantRESTController extends Controller
             ], JsonResponse::HTTP_FORBIDDEN);
         }
 
-//        try {
+        try {
 
             $content = json_decode($request->getContent(), true);
 
@@ -101,10 +101,10 @@ class ParticipantRESTController extends Controller
             $item = $service->serialize($entity);
 
             return new JsonResponse($item, JsonResponse::HTTP_CREATED);
-//        } catch (\Exception $e) {
-//            return new JsonResponse([
-//                'message' => $e->getMessage()
-//            ], $e->getCode() > 300 ? $e->getCode() : JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
-//        }
+        } catch (\Exception $e) {
+            return new JsonResponse([
+                'message' => $e->getMessage()
+            ], $e->getCode() > 300 ? $e->getCode() : JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+        }
     }
 }

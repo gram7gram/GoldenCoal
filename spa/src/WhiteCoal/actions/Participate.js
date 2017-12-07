@@ -5,21 +5,7 @@ import * as Action from "../actions";
 let xhr
 export default (model) => dispatch => {
 
-    const data = Object.assign({}, model)
-
-    data.address.region = {
-        id: data.address.region.id
-    }
-
-    data.pharmacy.type = {
-        id: data.pharmacy.type.id
-    }
-
-    data.position = {
-        id: data.position.id
-    }
-
-    delete data.isConfirmed
+    const data = removeExtraFields(model)
 
     xhr && xhr.abort();
     xhr = $.ajax({
@@ -48,4 +34,34 @@ export default (model) => dispatch => {
             })
         }
     })
+}
+
+const removeExtraFields = model => {
+    const data = Object.assign({}, model)
+
+    if (data.address) {
+        if (data.addressregion) {
+            data.address.region = {
+                id: data.address.region.id
+            }
+        }
+    }
+
+    if (data.pharmacy) {
+        if (data.pharmacy.type) {
+            data.pharmacy.type = {
+                id: data.pharmacy.type.id
+            }
+        }
+    }
+
+    if (data.position) {
+        data.position = {
+            id: data.position.id
+        }
+    }
+
+    delete data.isConfirmed
+
+    return data
 }
