@@ -34,6 +34,7 @@ class SlackExceptionListener
             "*Code:* %s\n*Content*: %s\n*File*: %s\n*Line*: %s\n*ip*: %s\n*Path*: %s\n*Trace*: %s",
         ];
 
+        $status = intval($exception->getCode());
         $content = $exception->getMessage();
         $traceLine = '';
 
@@ -47,7 +48,7 @@ class SlackExceptionListener
 
         $message = sprintf(
             $messageTemplates[mt_rand(0, count($messageTemplates) - 1)],
-            $exception->getCode(),
+            $status,
             $content,
             $exception->getFile(),
             $exception->getLine(),
@@ -56,7 +57,7 @@ class SlackExceptionListener
             $traceLine
         );
 
-        $this->notify($message);
+        $this->notify($message, $status);
     }
 
     public function onBadResponse(FilterResponseEvent $event)
@@ -65,7 +66,7 @@ class SlackExceptionListener
 
         $response = $event->getResponse();
         $request = $event->getRequest();
-        $status = $response->getStatusCode();
+        $status = intval($response->getStatusCode());
 
         $messageTemplates = [
             "*Code:* %s\n*Content*: %s\n*Method*: %s\n*GET query*: %s\n*POST query*: %s\n*Body*: %s\n*ip*: %s\n*Path*: %s",
@@ -78,7 +79,7 @@ class SlackExceptionListener
 
         $message = sprintf(
             $messageTemplates[mt_rand(0, count($messageTemplates) - 1)],
-            $response->getStatusCode(),
+            $status,
             $content,
             $request->getMethod(),
             json_encode($request->query->all()),
@@ -87,6 +88,14 @@ class SlackExceptionListener
             $request->getClientIp(),
             $request->getPathInfo()
         );
+
+        $this->notify($message, $status);
+    }
+
+    private function notify($message, $status = null)
+    {
+        $accessTokens = $this->container->getParameter('slack_monitoring_token');
+        if (!$accessTokens) return;
 
         if ($status === 404) {
             $channel = 'golden-coal-404';
@@ -97,14 +106,6 @@ class SlackExceptionListener
         } else {
             $channel = null;
         }
-
-        $this->notify($message, $channel);
-    }
-
-    private function notify($message, $channel = null)
-    {
-        $accessTokens = $this->container->getParameter('slack_monitoring_token');
-        if (!$accessTokens) return;
 
         if ($channel && isset($accessTokens[$channel])) {
             $accessToken = $accessTokens[$channel]['token'];
