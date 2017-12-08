@@ -68,6 +68,8 @@ class SlackExceptionListener
         $request = $event->getRequest();
         $status = intval($response->getStatusCode());
 
+        if ($status < 300) return;
+
         $messageTemplates = [
             "*Bad response*\n*Path*: `%s`\n*Code:* `%s`\n*Content*: %s\n*Method*: `%s`\n*GET query*: %s\n*POST query*: %s\n*Body*: %s\n*ip*: %s\n",
         ];
