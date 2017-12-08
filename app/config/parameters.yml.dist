@@ -16,4 +16,14 @@ parameters:
     spa_version: 1.0.0
 
     participants_export_token: ~
-    slack_monitoring_token: ~
+
+    slack_monitoring_token:
+        default: golden-coal
+        golden-coal:
+            token: ~
+        golden-coal-400:
+            token: ~
+        golden-coal-4xx:
+            token: ~
+        golden-coal-500:
+            token: ~

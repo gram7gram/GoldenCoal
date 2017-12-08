@@ -30,25 +30,11 @@ class SlackExceptionListener
         $exception = $event->getException();
         if ($exception instanceof AuthenticationCredentialsNotFoundException) return;
 
-        $accessToken = $this->container->getParameter('slack_monitoring_token');
-        if (!$accessToken) return;
-
         $messageTemplates = [
-            "%s \n *With code:* %s \n *File:* %s \n *Line:* %s \n *ip:* %s \n *Path:* %s  \n *Trace:* __trace__",
+            "*Code:* %s\n*Content*: %s\n*File*: %s\n*Line*: %s\n*ip*: %s\n*Path*: %s\n*Trace*: %s",
         ];
 
         $content = $exception->getMessage();
-
-        $message = sprintf(
-            $messageTemplates[mt_rand(0, count($messageTemplates) - 1)],
-            $content,
-            $exception->getCode(),
-            $exception->getFile(),
-            $exception->getLine(),
-            $this->container->get('request_stack')->getCurrentRequest()->getClientIp(),
-            $event->getRequest()->getPathInfo()
-        );
-
         $traceLine = '';
 
         $traces = $exception->getTrace();
@@ -59,7 +45,76 @@ class SlackExceptionListener
             }
         }
 
-        $message = str_replace('__trace__', $traceLine, $message);
+        $message = sprintf(
+            $messageTemplates[mt_rand(0, count($messageTemplates) - 1)],
+            $exception->getCode(),
+            $content,
+            $exception->getFile(),
+            $exception->getLine(),
+            $event->getRequest()->getClientIp(),
+            $event->getRequest()->getPathInfo(),
+            $traceLine
+        );
+
+        $this->notify($message);
+    }
+
+    public function onBadResponse(FilterResponseEvent $event)
+    {
+        if (!$this->isProd()) return;
+
+        $response = $event->getResponse();
+        $request = $event->getRequest();
+        $status = $response->getStatusCode();
+
+        $messageTemplates = [
+            "*Code:* %s\n*Content*: %s\n*Method*: %s\n*GET query*: %s\n*POST query*: %s\n*Body*: %s\n*ip*: %s\n*Path*: %s",
+        ];
+
+        $content = $response->headers->get('Content-Type', $response->getContent());
+        if (strpos($content, 'text/html') !== false) {
+            $content = '<html>...</html>';
+        }
+
+        $message = sprintf(
+            $messageTemplates[mt_rand(0, count($messageTemplates) - 1)],
+            $response->getStatusCode(),
+            $content,
+            $request->getMethod(),
+            json_encode($request->query->all()),
+            json_encode($request->request->all()),
+            $request->getContent(),
+            $request->getClientIp(),
+            $request->getPathInfo()
+        );
+
+        if ($status === 400) {
+            $channel = 'golden-coal-404';
+        } elseif ($status === 500) {
+            $channel = 'golden-coal-500';
+        } elseif ($status >= 400 && $status < 500) {
+            $channel = 'golden-coal-4xx';
+        } else {
+            $channel = null;
+        }
+
+        $this->notify($message, $channel);
+    }
+
+    private function notify($message, $channel = null)
+    {
+        $accessTokens = $this->container->getParameter('slack_monitoring_token');
+        if (!$accessTokens) return;
+
+        if ($channel && isset($accessTokens[$channel])) {
+            $accessToken = $accessTokens[$channel]['token'];
+        } else {
+            $defaultChannel = $accessTokens['default'];
+            $accessToken = $accessTokens[$defaultChannel]['token'];
+        }
+
+        if (!$accessToken) return;
+
         $message = str_replace('\'', '`', $message);
         $message = str_replace('"', '`', $message);
 
@@ -75,56 +130,5 @@ class SlackExceptionListener
         curl_exec($ch);
 
         curl_close($ch);
-    }
-
-    public function onBadResponse(FilterResponseEvent $event)
-    {
-        if (!$this->isProd()) return;
-
-        $accessToken = $this->container->getParameter('slack_monitoring_token');
-        if (!$accessToken) return;
-
-        $response = $event->getResponse();
-        $request = $event->getRequest();
-
-        $badStatusCodes = [400, 403, 404, 500, 501];
-
-        if (in_array($response->getStatusCode(), $badStatusCodes)) {
-
-            $messageTemplates = [
-                "Content: %s \n  *With code:*  %s \n Request method: %s \n Request query: %s  \n *ip:* %s \n *Path:* %s  ",
-            ];
-
-            $content = $response->headers->get('Content-Type', $response->getContent());
-            if (strpos($content, 'text/html') !== false) {
-                $content = '<html>...</html>';
-            }
-
-            $message = sprintf(
-                $messageTemplates[mt_rand(0, count($messageTemplates) - 1)],
-                $content,
-                $response->getStatusCode(),
-                $request->getMethod(),
-                json_encode($request->query->all()),
-                $this->container->get('request_stack')->getCurrentRequest()->getClientIp(),
-                $event->getRequest()->getPathInfo()
-            );
-
-            $message = str_replace('\'', '`', $message);
-            $message = str_replace('"', '`', $message);
-
-            $ch = curl_init('https://hooks.slack.com/services/' . $accessToken);
-
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, array(
-                'payload' => '{"text": "' . $message . '"}'
-            ));
-            curl_setopt($ch, CURLOPT_HEADER, 0);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-            curl_exec($ch);
-
-            curl_close($ch);
-        }
     }
 }
