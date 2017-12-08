@@ -31,7 +31,7 @@ class SlackExceptionListener
         if ($exception instanceof AuthenticationCredentialsNotFoundException) return;
 
         $messageTemplates = [
-            "*Code:* %s\n*Content*: %s\n*File*: %s\n*Line*: %s\n*ip*: %s\n*Path*: %s\n*Trace*: %s",
+            "*Exception*\n*Code:* %s\n*Content*: %s\n*File*: %s\n*Line*: %s\n*ip*: %s\n*Path*: %s\n*Trace*: %s",
         ];
 
         $status = intval($exception->getCode());
@@ -69,7 +69,7 @@ class SlackExceptionListener
         $status = intval($response->getStatusCode());
 
         $messageTemplates = [
-            "*Code:* %s\n*Content*: %s\n*Method*: %s\n*GET query*: %s\n*POST query*: %s\n*Body*: %s\n*ip*: %s\n*Path*: %s",
+            "*Bad response*\n*Code:* %s\n*Content*: %s\n*Method*: %s\n*GET query*: %s\n*POST query*: %s\n*Body*: %s\n*ip*: %s\n*Path*: %s",
         ];
 
         $content = $response->headers->get('Content-Type', $response->getContent());
