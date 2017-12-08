@@ -88,7 +88,7 @@ class SlackExceptionListener
             $request->getPathInfo()
         );
 
-        if ($status === 400) {
+        if ($status === 404) {
             $channel = 'golden-coal-404';
         } elseif ($status === 500) {
             $channel = 'golden-coal-500';
