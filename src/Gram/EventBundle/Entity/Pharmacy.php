@@ -6,8 +6,10 @@ use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as JMS;
 
 /**
- * @ORM\Entity()
- * @ORM\Table(name="event_bundle_pharmacy")
+ * @ORM\Entity(repositoryClass="Gram\EventBundle\Entity\PharmacyRepository")
+ * @ORM\Table(name="event_bundle_pharmacy", uniqueConstraints={
+ *     @ORM\UniqueConstraint(name="uniq_event_bundle_pharmacy", columns={"address_id", "name"})
+ * })
  */
 class Pharmacy {
 
@@ -28,6 +30,15 @@ class Pharmacy {
      * @ORM\Column(type="datetime", nullable=false)
      */
     private $createdAt;
+
+    /**
+     * @var Address
+     *
+     * @ORM\ManyToOne(targetEntity="Gram\EventBundle\Entity\Address")
+     *
+     * @JMS\Groups({"basic"})
+     */
+    private $address;
 
     /**
      * @var int
@@ -175,5 +186,21 @@ class Pharmacy {
     public function setEventCodesAmount(int $eventCodesAmount = null)
     {
         $this->eventCodesAmount = $eventCodesAmount;
+    }
+
+    /**
+     * @return Address
+     */
+    public function getAddress(): ?Address
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param Address $address
+     */
+    public function setAddress(Address $address = null)
+    {
+        $this->address = $address;
     }
 }

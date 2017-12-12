@@ -22,6 +22,10 @@ api_v1_contact:
     resource: routing/contact.yml
     prefix: /api/v1
 
+api_v1_pharmacy:
+    resource: routing/pharmacy.yml
+    prefix: /api/v1
+
 index:
     path: /
     defaults:

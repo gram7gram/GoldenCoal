@@ -26,7 +26,7 @@
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
-                            <div id="participant-app"></div>
+                            <div id="pharmacy-participant-app"></div>
                         </div>
                     </div>
 
@@ -54,11 +54,12 @@
     <script>
         var ParticipationRouter = {
             GET: {
-                participants: '{{ path('api_v1_participant_gets', {'id': 2}) }}'
+                participants: '{{ path('api_v1_participant_gets', {'id': 2}) }}',
+                pharmacies: '{{ path('api_v1_pharmacy_gets') }}',
             }
         }
 
     </script>
-    <script src="{{ asset('dist/Participant.js') }}?v={{ spa_version }}"></script>
+    <script src="{{ asset('dist/PharmacyParticipant.js') }}?v={{ spa_version }}"></script>
 {% endblock %}
 

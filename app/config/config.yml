@@ -4,6 +4,7 @@ imports:
     - { resource: services.yml }
 
 parameters:
+    jms_serializer.camel_case_naming_strategy.class: Gram\EventBundle\Service\AsIsNamingStrategy
     locale: en
     web_dir: '%kernel.project_dir%/web'
 

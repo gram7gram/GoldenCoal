@@ -2,7 +2,7 @@ import {delay} from 'redux-saga'
 import {put, select, takeEvery, call} from 'redux-saga/effects'
 import * as Actions from '../actions'
 
-import fetchItems from '../actions/FetchParticipants'
+import fetchItems from '../actions/FetchPharmacy'
 
 
 function* debounceRequest() {

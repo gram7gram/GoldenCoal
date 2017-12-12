@@ -9,6 +9,12 @@ class RegionRepository extends EntityRepository
     private function createFilterQuery($filter)
     {
         $qb = $this->createQueryBuilder('region');
+        $e = $qb->expr();
+
+        if (isset($filter['search']) && $filter['search']) {
+            $qb->andWhere($e->like($e->upper('region.name'), ':search'))
+                ->setParameter('search', '%' . mb_strtoupper($filter['search'], 'utf8') . '%');
+        }
 
         return $qb;
     }

@@ -7,7 +7,9 @@ use JMS\Serializer\Annotation as JMS;
 
 /**
  * @ORM\Entity()
- * @ORM\Table(name="event_bundle_address")
+ * @ORM\Table(name="event_bundle_address", uniqueConstraints={
+ *     @ORM\UniqueConstraint(name="uniq_event_bundle_address", columns={"region_id", "city", "street"})
+ * })
  */
 class Address
 {

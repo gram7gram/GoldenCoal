@@ -23,3 +23,7 @@ services:
   event.contact_manager_service:
       class: Gram\EventBundle\Service\ContactService
       arguments: ['@service_container']
+
+  event.pharmacy_service:
+      class: Gram\EventBundle\Service\PharmacyService
+      arguments: ['@service_container']
