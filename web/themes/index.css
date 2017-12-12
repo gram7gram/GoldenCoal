@@ -15,6 +15,10 @@
     margin: 0 auto
 }
 
+.nowrap {
+    white-space: nowrap;
+}
+
 .no-padding {
     padding: 0 !important;
 }

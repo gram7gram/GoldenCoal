@@ -53,7 +53,11 @@ class PharmacyRepository extends EntityRepository
                 ->setFirstResult($limit * ($page - 1));
         }
 
-        $qb->orderBy('p.id');
+        $qb
+            ->orderBy('region.name')
+            ->addOrderBy('p.name')
+            ->addOrderBy('address.city')
+            ->addOrderBy('address.street');
 
         return $qb->getQuery()->getResult();
     }

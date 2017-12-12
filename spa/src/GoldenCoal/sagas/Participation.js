@@ -16,7 +16,7 @@ function* debounceRequest() {
 function* doAction() {
     const store = yield select()
 
-    yield put(fetchItems(store.Participation.okpo))
+    yield put(fetchItems(store.Participation.search))
 }
 
 export default function* sagas() {

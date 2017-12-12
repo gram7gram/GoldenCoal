@@ -48,17 +48,15 @@ class Participant extends React.Component {
                 <table className="table table-condensed table-hover">
                     <thead>
                     <tr>
-                        <td>{trans('participation_edrpou')}</td>
-                        <td>{trans('participation_region')}</td>
-                        <td>{trans('participation_name')}</td>
-                        <td>{trans('participation_city')}</td>
-                        <td>{trans('participation_address')}</td>
-                        <td>{trans('participation_event_codes')}</td>
+                        <th>{trans('participation_region')}</th>
+                        <th>{trans('participation_name')}</th>
+                        <th>{trans('participation_city')}</th>
+                        <th>{trans('participation_address')}</th>
+                        <th>{trans('participation_event_codes')}</th>
                     </tr>
                     </thead>
                     <tbody>
                     {collection.map(item => <tr key={item.id}>
-                        <td>{item.pharmacy.okpo}</td>
                         <td>{item.address.region}</td>
                         <td>{item.pharmacy.name + (item.pharmacy.number ? " (" + item.pharmacy.number + ")" : "")}</td>
                         <td>{item.address.city}</td>
@@ -75,7 +73,7 @@ class Participant extends React.Component {
     }
 
     render() {
-        const {okpo, isLoading} = this.props.Participation
+        const {search, isLoading} = this.props.Participation
 
         return <Row>
             <Col xs={12}>
@@ -85,12 +83,12 @@ class Participant extends React.Component {
                             <InputGroup>
                                 <FormControl
                                     placeholder={trans('participation_search_placeholder')}
-                                    value={okpo || ''}
+                                    value={search || ''}
                                     onChange={this.changeSearch}/>
                                 <span className="input-group-btn">
                                     <button className="btn btn-primary btn-lg"
                                             onClick={this.search}
-                                            disabled={isLoading || !okpo}>
+                                            disabled={isLoading || !search}>
                                         {isLoading
                                             ? <i className="fa fa-spin fa-circle-o-notch"/>
                                             : <i className="fa fa-search"/>}&nbsp;{trans('participation_search_btn')}

@@ -10,6 +10,20 @@ class Pharmacy extends React.Component {
         super()
         this.changeSearch = this.changeSearch.bind(this)
         this.search = this.search.bind(this)
+        this.setRegion = this.setRegion.bind(this)
+    }
+
+    setRegion(e) {
+        const option = parseInt(e.target.value)
+        let payload = null
+        if (option) {
+            payload = this.props.Region.collection
+                .find(item => item.id === option)
+        }
+        this.props.dispatch({
+            type: Action.PARTICIPATE_REGION_CHANGED,
+            payload
+        })
     }
 
     search() {
@@ -44,11 +58,14 @@ class Pharmacy extends React.Component {
         }
 
         return <Col xs={12}>
+            <div className="alert alert-warning">
+                <p><i className="fa fa-info-circle"/>&nbsp;{trans('participation_notice')}</p>
+                <p><i className="fa fa-info-circle"/>&nbsp;{trans('participation_notice_2')}</p>
+            </div>
             <div className="table-scrollable">
                 <table className="table table-condensed table-hover">
                     <thead>
                     <tr>
-                        <th>{trans('participation_region')}</th>
                         <th>{trans('participation_name')}</th>
                         <th>{trans('participation_city')}</th>
                         <th>{trans('participation_address')}</th>
@@ -57,38 +74,47 @@ class Pharmacy extends React.Component {
                     </thead>
                     <tbody>
                     {collection.map(item => <tr key={item.id}>
-                        <td>{item.address.region.name}</td>
-                        <td>{item.name + (item.number ? " (" + item.number + ")" : "")}</td>
-                        <td>{item.address.city}</td>
-                        <td>{item.address.street}</td>
-                        <td className="text-center">{item.eventCodesAmount}</td>
+                        <td className="nowrap">{item.name + (item.number ? " (" + item.number + ")" : "")}</td>
+                        <td className="nowrap">{item.address.city}</td>
+                        <td className="nowrap">{item.address.street}</td>
+                        <td className="nowrap text-center">
+                            <div className="badge">{item.eventCodesAmount}</div>
+                        </td>
                     </tr>)}
                     </tbody>
                 </table>
-            </div>
-            <div className="alert alert-warning">
-                <p><i className="fa fa-info-circle"/>&nbsp;{trans('participation_notice')}</p>
             </div>
         </Col>
     }
 
     render() {
-        const {okpo, isLoading} = this.props.Participation
+        const {search, isLoading, region} = this.props.Participation
 
         return <Row>
             <Col xs={12}>
                 <Row>
                     <Col xs={12}>
                         <FormGroup>
+                            <select
+                                className={"form-control"}
+                                value={region ? region.id : ''}
+                                onChange={this.setRegion}>
+                                <option value={''}>{trans('field_region')}</option>
+                                {this.props.Region.collection.map((item, key) =>
+                                    <option key={key} value={item.id}>{item.name}</option>
+                                )}
+                            </select>
+                        </FormGroup>
+                        <FormGroup>
                             <InputGroup>
                                 <FormControl
                                     placeholder={trans('participation_search_placeholder')}
-                                    value={okpo || ''}
+                                    value={search || ''}
                                     onChange={this.changeSearch}/>
                                 <span className="input-group-btn">
                                     <button className="btn btn-primary btn-lg"
                                             onClick={this.search}
-                                            disabled={isLoading || !okpo}>
+                                            disabled={isLoading || !(search && region)}>
                                         {isLoading
                                             ? <i className="fa fa-spin fa-circle-o-notch"/>
                                             : <i className="fa fa-search"/>}&nbsp;{trans('participation_search_btn')}

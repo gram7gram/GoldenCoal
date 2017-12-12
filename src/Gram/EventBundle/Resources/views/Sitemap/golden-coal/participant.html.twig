@@ -53,9 +53,14 @@
 
 {% block javascripts %}
     <script>
+        var RegisterRouter = {
+            GET: {
+                regions: '{{ path('api_v1_region_gets') }}',
+            }
+        }
         var ParticipationRouter = {
             GET: {
-                participants: '{{ path('api_v1_participant_gets', {'id': 2}) }}',
+                participants: '{{ path('api_v1_participant_gets', {'id': event.id}) }}',
                 pharmacies: '{{ path('api_v1_pharmacy_gets') }}',
             }
         }

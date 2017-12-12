@@ -20,7 +20,10 @@
     <script>
         var RegisterRouter = {
             GET: {
-                index: '{{ path('index') }}'
+                index: '{{ path('index') }}',
+                pharmacyTypes: '{{ path('api_v1_pharmacy_type_gets') }}',
+                positions: '{{ path('api_v1_position_gets') }}',
+                regions: '{{ path('api_v1_region_gets') }}',
             },
             POST: {
                 participants: '{{ path('api_v1_participant_post', {'id': event.id}) }}'

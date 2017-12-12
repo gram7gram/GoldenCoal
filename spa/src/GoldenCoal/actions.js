@@ -24,6 +24,7 @@ export const DECREMENT_STEP = prefix + 'DECREMENT_STEP';
 export const PHARMACY_CHANGED = prefix + 'PHARMACY_CHANGED';
 export const POSITION_CHANGED = prefix + 'POSITION_CHANGED';
 export const REGION_CHANGED = prefix + 'REGION_CHANGED';
+export const PARTICIPATE_REGION_CHANGED = prefix + 'PARTICIPATE_REGION_CHANGED';
 
 export const CONTACT_CHANGED = prefix + 'CONTACT_CHANGED';
 
