@@ -36,7 +36,6 @@ class ImportPharmacyCommand extends ContainerAwareCommand
         $em = $this->getContainer()->get('doctrine')->getManager();
 
         $regionRepo = $em->getRepository(Region::class);
-        $pharmacyRepo = $em->getRepository(Pharmacy::class);
         $addressyRepo = $em->getRepository(Address::class);
 
         $handle = fopen($file, 'r');
@@ -49,45 +48,29 @@ class ImportPharmacyCommand extends ContainerAwareCommand
 
         $count = 0;
         while (($row = fgetcsv($handle)) !== FALSE) {
-            $regionName = mb_strtoupper(trim($row[0]) . ' область', 'utf8');
+            ++$count;
+
+            $regionName = mb_strtolower(trim($row[0]) . ' область', 'utf8');
             $cityName = mb_strtoupper(trim($row[1]), 'utf8');
             $name = mb_strtoupper(trim($row[2]), 'utf8');
             $streetName = mb_strtoupper(trim($row[3]), 'utf8');
             $evenCodes = intval(trim($row[4]));
 
-            $regions = $regionRepo->findByFilter([
-                'search' => $regionName
-            ], 1, 1);
-            if (count($regions) !== 1) {
+            $region = $regionRepo->createQueryBuilder('r')
+                ->where('lower(r.name) = :search')
+                ->setParameter('search', $regionName)
+                ->getQuery()
+                ->getSingleResult();
+            if (!$region) {
                 throw new \Exception("Region was not found by name '$regionName'", 404);
             }
 
-            $region = $regions[0];
+            $address = new Address();
+            $address->setRegion($region);
+            $address->setCity($cityName);
+            $address->setStreet($streetName);
 
-            $address = $addressyRepo->findOneBy([
-                'region' =>$region,
-                'city' => $cityName,
-                'street' => $streetName,
-            ]);
-            if (!$address) {
-
-                $address = new Address();
-                $address->setRegion($region);
-                $address->setCity($cityName);
-                $address->setStreet($streetName);
-
-                $em->persist($address);
-            } else {
-                $dublicate = $pharmacyRepo->findOneBy([
-                    'address' => $address,
-                    'name' => $name,
-                ]);
-
-                if ($dublicate) {
-                    $output->writeln('[+] Found dublicate at #' . $count . ' => ' . $name);
-                    continue;
-                }
-            }
+            $em->persist($address);
 
             $pharmacy = new Pharmacy();
             $pharmacy->setAddress($address);
@@ -100,7 +83,7 @@ class ImportPharmacyCommand extends ContainerAwareCommand
 
             $em->clear();
 
-            $output->writeln('[+] ' . date('H:i:s') . ' ' . $this->memory() . ' #' . (++$count));
+            $output->writeln('[+] ' . date('H:i:s') . ' ' . $this->memory() . ' #' . $count);
         }
 
         fclose($handle);

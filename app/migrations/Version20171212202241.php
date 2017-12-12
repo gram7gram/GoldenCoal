@@ -12,7 +12,6 @@ class Version20171212202241 extends AbstractMigration
      */
     public function up(Schema $schema)
     {
-        $this->addSql('CREATE UNIQUE INDEX uniq_event_bundle_address ON event_bundle_address (region_id, city, street)');
         $this->addSql('CREATE UNIQUE INDEX uniq_event_bundle_pharmacy ON event_bundle_pharmacy (address_id, name)');
 
     }
