@@ -17,9 +17,7 @@
         }
 
         #offer-white-coal {
-            background-color: black;
-            background-image: url(/img/white-coal/background.jpg);
-            background-image: linear-gradient(transparent, transparent), url(/img/white-coal/background.svg);
+            background: url({{ asset('img/white-coal/background.jpg') }}) #0d2d52 no-repeat center center fixed !important;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -45,7 +43,7 @@
 
     <div class="container-fluid" style="height: 100%;">
         <div class="row" style="height: 100%;">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="height: 100%;">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 no-padding" style="height: 100%;">
                 <div id="offer-golden-coal" class="promo" style="height: 100%;">
                     <table class="wrapper">
                         <tr>
@@ -59,7 +57,7 @@
                     </table>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="height: 100%;">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 no-padding" style="height: 100%;">
                 <div id="offer-white-coal" class="promo" style="height: 100%;">
                     <table class="wrapper">
                         <tr>
