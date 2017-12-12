@@ -36,7 +36,6 @@ class ImportPharmacyCommand extends ContainerAwareCommand
         $em = $this->getContainer()->get('doctrine')->getManager();
 
         $regionRepo = $em->getRepository(Region::class);
-        $addressyRepo = $em->getRepository(Address::class);
 
         $handle = fopen($file, 'r');
 

@@ -20,6 +20,11 @@ class PharmacyRepository extends EntityRepository
             ->join('address.region', 'region')
             ->leftJoin('p.type', 'type');
 
+        if (isset($filter['region'])) {
+            $qb->andWhere($e->eq('region.id', ":region"))
+                ->setParameter('region', $filter['region']);
+        }
+
         if (isset($filter['search']) && $filter['search']) {
             $qb->andWhere($e->orX()
                 ->add($e->like($e->lower('p.okpo'), ':search'))
