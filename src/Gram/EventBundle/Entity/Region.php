@@ -12,6 +12,9 @@ use JMS\Serializer\Annotation as JMS;
 class Region
 {
 
+    const KIEV_CITY_ID = 27;
+    const KIEV_REGION_ID = 8;
+
     /**
      * @var int
      *

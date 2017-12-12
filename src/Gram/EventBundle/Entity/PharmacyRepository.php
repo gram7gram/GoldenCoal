@@ -21,8 +21,14 @@ class PharmacyRepository extends EntityRepository
             ->leftJoin('p.type', 'type');
 
         if (isset($filter['region'])) {
-            $qb->andWhere($e->eq('region.id', ":region"))
-                ->setParameter('region', $filter['region']['id']);
+            $selectedId = $filter['region']['id'];
+            $ids = [$selectedId];
+            if ($selectedId === Region::KIEV_CITY_ID) {
+                $ids[] = Region::KIEV_REGION_ID;
+            }
+
+            $qb->andWhere($e->in('region.id', ":region"))
+                ->setParameter('region', $ids);
         }
 
         if (isset($filter['search']) && $filter['search']) {
