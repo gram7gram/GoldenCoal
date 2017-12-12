@@ -22,7 +22,7 @@ class PharmacyRepository extends EntityRepository
 
         if (isset($filter['region'])) {
             $qb->andWhere($e->eq('region.id', ":region"))
-                ->setParameter('region', $filter['region']);
+                ->setParameter('region', $filter['region']['id']);
         }
 
         if (isset($filter['search']) && $filter['search']) {
