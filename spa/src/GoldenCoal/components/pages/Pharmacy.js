@@ -48,7 +48,6 @@ class Pharmacy extends React.Component {
                 <table className="table table-condensed table-hover">
                     <thead>
                     <tr>
-                        <th>{trans('participation_edrpou')}</th>
                         <th>{trans('participation_region')}</th>
                         <th>{trans('participation_name')}</th>
                         <th>{trans('participation_city')}</th>
@@ -58,7 +57,6 @@ class Pharmacy extends React.Component {
                     </thead>
                     <tbody>
                     {collection.map(item => <tr key={item.id}>
-                        <td>{item.okpo || '---'}</td>
                         <td>{item.address.region.name}</td>
                         <td>{item.name + (item.number ? " (" + item.number + ")" : "")}</td>
                         <td>{item.address.city}</td>
