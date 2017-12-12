@@ -30,6 +30,15 @@ class Pharmacy {
     private $createdAt;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(type="smallint", nullable=false)
+     *
+     * @JMS\Groups({"basic"})
+     */
+    private $eventCodesAmount;
+
+    /**
      * @var string
      *
      * @ORM\Column(type="string", length=16, nullable=true, unique=true)
@@ -69,6 +78,7 @@ class Pharmacy {
     public function __construct()
     {
         $this->createdAt = new \DateTime();
+        $this->eventCodesAmount = 0;
     }
 
     /**
@@ -149,5 +159,21 @@ class Pharmacy {
     public function setType(PharmacyType $type = null)
     {
         $this->type = $type;
+    }
+
+    /**
+     * @return int
+     */
+    public function getEventCodesAmount(): ?int
+    {
+        return $this->eventCodesAmount;
+    }
+
+    /**
+     * @param int $eventCodesAmount
+     */
+    public function setEventCodesAmount(int $eventCodesAmount = null)
+    {
+        $this->eventCodesAmount = $eventCodesAmount;
     }
 }

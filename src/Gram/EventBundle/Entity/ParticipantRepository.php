@@ -14,17 +14,25 @@ class ParticipantRepository extends EntityRepository
         $qb
             ->addSelect('address')
             ->addSelect('pharmacy')
+            ->addSelect('region')
             ->addSelect('pharmacyType')
             ->addSelect('event');
         $qb
-            ->join('p.address', 'address')
             ->join('p.pharmacy', 'pharmacy')
             ->join('p.event', 'event')
+            ->leftJoin('p.address', 'address')
+            ->leftJoin('address.region', 'region')
             ->leftJoin('pharmacy.type', 'pharmacyType');
 
-        if (isset($filter['okpo'])) {
-            $qb->andWhere($e->eq('pharmacy.okpo', ':okpo'))
-                ->setParameter('okpo', $filter['okpo']);
+        if (isset($filter['search']) && $filter['search']) {
+            $qb->andWhere($e->orX()
+                ->add($e->like($e->lower('pharmacy.okpo'), ':search'))
+                ->add($e->like($e->lower('pharmacy.name'), ':search'))
+                ->add($e->like($e->lower('pharmacy.number'), ':search'))
+                ->add($e->like($e->lower('region.name'), ':search'))
+                ->add($e->like($e->lower('address.city'), ':search'))
+                ->add($e->like($e->lower('address.street'), ':search'))
+            )->setParameter('search', '%' . mb_strtolower($filter['search'], 'utf8') . '%');
         }
 
         return $qb;

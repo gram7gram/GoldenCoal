@@ -19,7 +19,7 @@ class Participant extends React.Component {
     }
 
     changeSearch(e) {
-        const val = e.target.value ? e.target.value.replace(/[^\d]/g, '') : null;
+        const val = e.target.value;
 
         this.props.dispatch({
             type: Action.PARTICIPANT_SEARCH_CHANGED,
@@ -45,26 +45,28 @@ class Participant extends React.Component {
 
         return <Col xs={12}>
             <div className="table-scrollable">
-            <table className="table table-condensed table-hover">
-                <thead>
-                <tr>
-                    <td>{trans('participation_edrpou')}</td>
-                    <td>{trans('participation_region')}</td>
-                    <td>{trans('participation_name')}</td>
-                    <td>{trans('participation_city')}</td>
-                    <td>{trans('participation_address')}</td>
-                </tr>
-                </thead>
-                <tbody>
-                {collection.map(item => <tr key={item.id}>
-                    <td>{item.pharmacy.okpo}</td>
-                    <td>{item.address.region}</td>
-                    <td>{item.pharmacy.name + (item.pharmacy.number ? " (" + item.pharmacy.number + ")" : "")}</td>
-                    <td>{item.address.city}</td>
-                    <td>{item.address.street}</td>
-                </tr>)}
-                </tbody>
-            </table>
+                <table className="table table-condensed table-hover">
+                    <thead>
+                    <tr>
+                        <td>{trans('participation_edrpou')}</td>
+                        <td>{trans('participation_region')}</td>
+                        <td>{trans('participation_name')}</td>
+                        <td>{trans('participation_city')}</td>
+                        <td>{trans('participation_address')}</td>
+                        <td>{trans('participation_event_codes')}</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {collection.map(item => <tr key={item.id}>
+                        <td>{item.pharmacy.okpo}</td>
+                        <td>{item.address.region}</td>
+                        <td>{item.pharmacy.name + (item.pharmacy.number ? " (" + item.pharmacy.number + ")" : "")}</td>
+                        <td>{item.address.city}</td>
+                        <td>{item.address.street}</td>
+                        <td className="text-center">{item.eventCodesAmount}</td>
+                    </tr>)}
+                    </tbody>
+                </table>
             </div>
             <div className="alert alert-warning">
                 <p><i className="fa fa-info-circle"/>&nbsp;{trans('participation_notice')}</p>
