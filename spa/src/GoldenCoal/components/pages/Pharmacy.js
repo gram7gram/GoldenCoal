@@ -114,7 +114,7 @@ class Pharmacy extends React.Component {
                                 <span className="input-group-btn">
                                     <button className="btn btn-primary btn-lg"
                                             onClick={this.search}
-                                            disabled={isLoading || !(search && region)}>
+                                            disabled={isLoading || !region}>
                                         {isLoading
                                             ? <i className="fa fa-spin fa-circle-o-notch"/>
                                             : <i className="fa fa-search"/>}&nbsp;{trans('participation_search_btn')}
