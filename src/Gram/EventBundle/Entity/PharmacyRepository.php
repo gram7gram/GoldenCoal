@@ -21,7 +21,7 @@ class PharmacyRepository extends EntityRepository
             ->leftJoin('p.type', 'type');
 
         if (isset($filter['region'])) {
-            $selectedId = $filter['region']['id'];
+            $selectedId = intval($filter['region']['id']);
             $ids = [$selectedId];
             if ($selectedId === Region::KIEV_CITY_ID) {
                 $ids[] = Region::KIEV_REGION_ID;
