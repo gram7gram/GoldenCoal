@@ -24,16 +24,16 @@ class WinnerPharmacyRepository extends EntityRepository
             ->join('address.region', 'region')
             ->leftJoin('pharmacy.type', 'type');
 
-//        if (isset($filter['region'])) {
-//            $selectedId = intval($filter['region']['id']);
-//            $ids = [$selectedId];
-//            if ($selectedId === Region::KIEV_CITY_ID) {
-//                $ids[] = Region::KIEV_REGION_ID;
-//            }
-//
-//            $qb->andWhere($e->in('region.id', ":region"))
-//                ->setParameter('region', $ids);
-//        }
+        if (isset($filter['region'])) {
+            $selectedId = intval($filter['region']['id']);
+            $ids = [$selectedId];
+            if ($selectedId === Region::KIEV_CITY_ID) {
+                $ids[] = Region::KIEV_REGION_ID;
+            }
+
+            $qb->andWhere($e->in('region.id', ":region"))
+                ->setParameter('region', $ids);
+        }
 
         if (isset($filter['search']) && $filter['search']) {
             $qb->andWhere($e->orX()
