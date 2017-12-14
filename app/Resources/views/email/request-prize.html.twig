@@ -1,0 +1,26 @@
+{% extends 'email/base.html.twig' %}
+
+{% block title %}
+    <h3>Отримання призу</h3>
+{% endblock %}
+
+{% block body %}
+    <p>Акція: {{ event.name }}</p>
+    <p>Приз: {{ prize.name }}</p>
+
+    <br>
+
+    <p>Ім'я: {{ name }}</p>
+    <p>Email: {{ email }}</p>
+    <p>Аптека: #{{ pharmacy.id }}, {{ pharmacy.address.region.name }}, {{ pharmacy.name }}, {{ pharmacy.address.city }}, {{ pharmacy.address.street }}</p>
+
+    <br>
+
+    {% if content %}
+        <p>Коментар</p>
+        <blockquote>
+            <pre>{{ content }}</pre>
+        </blockquote>
+    {% endif %}
+
+{% endblock %}

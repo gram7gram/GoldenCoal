@@ -6,3 +6,11 @@ export function cid(length = 5) {
 String.prototype.replaceAll = function (search, replacement) {
     return this.split(search).join(replacement);
 }
+
+export function objectValues(obj) {
+    if (!obj) return [];
+
+    return Object.keys(obj).map(function (key) {
+        return obj[key];
+    });
+}

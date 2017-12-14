@@ -285,3 +285,11 @@ select {
         padding: 10px 20px;
     }
 }
+
+.auto-margin {
+    margin: 0 auto
+}
+
+.prize-image {
+    max-height: 250px;
+}

@@ -22,8 +22,16 @@ api_v1_contact:
     resource: routing/contact.yml
     prefix: /api/v1
 
+api_v1_winner_contact:
+    resource: routing/winner_contact.yml
+    prefix: /api/v1
+
 api_v1_pharmacy:
     resource: routing/pharmacy.yml
+    prefix: /api/v1
+
+api_v1_winner_pharmacy:
+    resource: routing/winner_pharmacy.yml
     prefix: /api/v1
 
 index:

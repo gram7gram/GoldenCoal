@@ -16,7 +16,7 @@ function* debounceRequest() {
 function* doAction() {
     const store = yield select()
 
-    yield put(fetchItems(store.Winner.search))
+    yield put(fetchItems(store.Winner.search, store.Winner.region))
 }
 
 export default function* sagas() {

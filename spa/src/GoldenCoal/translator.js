@@ -25,6 +25,7 @@ const translator = {
         field_region: 'Область',
         field_city: 'Назва населеного пункту',
         field_street: 'Повна робоча адреса (без назви населеного пункту)',
+        field_pharmacy: 'Виберіть аптеку...',
         participation_search_btn: 'Пошук',
         participation_event_codes: 'Кількість акційних кодів',
         participation_search_placeholder: 'Адреса або назва аптеки...',
@@ -37,6 +38,13 @@ const translator = {
         participation_loading: 'Завантаження...',
         participation_no_items_title: 'Учасників не знайдено',
         participation_no_items_footer: 'Спробуйте змінити пошуковий запит',
+        winner_no_items_title: 'Переможців не знайдено',
+        winner_no_items_footer: 'Спробуйте змінити пошуковий запит',
+        no_winner_for_prize_title: 'Переможець не знайдений',
+        request_prize_btn: 'Забрати приз',
+        winner_request_title: 'Ваша аптека присутня у переліку? Заберіть свій приз!',
+        winner_request_footer: 'Зв`яжіться з організатором акції для отпримання призу:',
+        winner_request_comment: 'Коментар...',
         participation_notice: 'Якщо Ваша аптека відсутня у Реєстрі, це означає, що за підсумками періоду Акції умови Акції не були виконані.',
         participation_notice_2: 'Увага! ' +
         '14 грудня 2017 р. під час жеребкування Призів ' +

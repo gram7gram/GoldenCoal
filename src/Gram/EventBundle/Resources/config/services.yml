@@ -27,3 +27,15 @@ services:
   event.pharmacy_service:
       class: Gram\EventBundle\Service\PharmacyService
       arguments: ['@service_container']
+
+  event.winner_pharmacy_service:
+      class: Gram\EventBundle\Service\WinnerPharmacyService
+      arguments: ['@service_container']
+
+  event.prize_service:
+      class: Gram\EventBundle\Service\PrizeService
+      arguments: ['@service_container']
+
+  event.event_service:
+      class: Gram\EventBundle\Service\EventService
+      arguments: ['@service_container']

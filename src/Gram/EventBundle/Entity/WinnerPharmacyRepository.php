@@ -4,43 +4,42 @@ namespace Gram\EventBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 
-class PharmacyRepository extends EntityRepository
+class WinnerPharmacyRepository extends EntityRepository
 {
     private function createFilterQuery($filter)
     {
-        $qb = $this->createQueryBuilder('p');
+        $qb = $this->createQueryBuilder('w');
         $e = $qb->expr();
 
         $qb
+            ->addSelect('pharmacy')
+            ->addSelect('prize')
             ->addSelect('address')
             ->addSelect('region')
             ->addSelect('type');
         $qb
-            ->join('p.address', 'address')
+            ->join('w.pharmacy', 'pharmacy')
+            ->join('w.prize', 'prize')
+            ->join('pharmacy.address', 'address')
             ->join('address.region', 'region')
-            ->leftJoin('p.type', 'type');
+            ->leftJoin('pharmacy.type', 'type');
 
-        if (isset($filter['id'])) {
-            $qb->andWhere($e->eq('p.id', ":id"))
-                ->setParameter('id', $filter['id']);
-        }
-
-        if (isset($filter['region'])) {
-            $selectedId = intval($filter['region']['id']);
-            $ids = [$selectedId];
-            if ($selectedId === Region::KIEV_CITY_ID) {
-                $ids[] = Region::KIEV_REGION_ID;
-            }
-
-            $qb->andWhere($e->in('region.id', ":region"))
-                ->setParameter('region', $ids);
-        }
+//        if (isset($filter['region'])) {
+//            $selectedId = intval($filter['region']['id']);
+//            $ids = [$selectedId];
+//            if ($selectedId === Region::KIEV_CITY_ID) {
+//                $ids[] = Region::KIEV_REGION_ID;
+//            }
+//
+//            $qb->andWhere($e->in('region.id', ":region"))
+//                ->setParameter('region', $ids);
+//        }
 
         if (isset($filter['search']) && $filter['search']) {
             $qb->andWhere($e->orX()
-                ->add($e->like($e->lower('p.okpo'), ':search'))
-                ->add($e->like($e->lower('p.name'), ':search'))
-                ->add($e->like($e->lower('p.number'), ':search'))
+                ->add($e->like($e->lower('pharmacy.okpo'), ':search'))
+                ->add($e->like($e->lower('pharmacy.name'), ':search'))
+                ->add($e->like($e->lower('pharmacy.number'), ':search'))
                 ->add($e->like($e->lower('region.name'), ':search'))
                 ->add($e->like($e->lower('address.city'), ':search'))
                 ->add($e->like($e->lower('address.street'), ':search'))
@@ -55,7 +54,7 @@ class PharmacyRepository extends EntityRepository
         $qb = $this->createFilterQuery($filter);
         $e = $qb->expr();
 
-        $qb->select($e->countDistinct('p.id'));
+        $qb->select($e->countDistinct('w.id'));
 
         return $qb->getQuery()->getSingleScalarResult();
     }
@@ -69,11 +68,7 @@ class PharmacyRepository extends EntityRepository
                 ->setFirstResult($limit * ($page - 1));
         }
 
-        $qb
-            ->orderBy('region.name')
-            ->addOrderBy('p.name')
-            ->addOrderBy('address.city')
-            ->addOrderBy('address.street');
+        $qb->orderBy('w.id');
 
         return $qb->getQuery()->getResult();
     }

@@ -1,0 +1,7 @@
+api_v1_winner_pharmacy_gets:
+    path: /events/{id}/winner_pharmacies
+    methods: GET
+    defaults:
+        _controller: GramEventBundle:WinnerPharmacyREST:gets
+    requirements:
+        id: \d+

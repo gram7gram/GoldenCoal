@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as JMS;
 
 /**
- * @ORM\Entity(readOnly=true)
+ * @ORM\Entity(repositoryClass="Gram\EventBundle\Entity\PrizeRepository", readOnly=true)
  * @ORM\Table(name="event_bundle_prize")
  */
 class Prize
@@ -21,6 +21,15 @@ class Prize
      * @JMS\Groups({"basic"})
      */
     private $id;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="smallint", nullable=false, options={"default":0})
+     *
+     * @JMS\Groups({"basic"})
+     */
+    private $importance;
 
     /**
      * @var \DateTime
@@ -39,18 +48,26 @@ class Prize
     private $name;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=false)
+     *
+     * @JMS\Groups({"basic"})
+     */
+    private $image;
+
+    /**
      * @var Event
      *
      * @ORM\ManyToOne(targetEntity="Gram\EventBundle\Entity\Event")
      * @ORM\JoinColumn(nullable=false)
-     *
-     * @JMS\Groups({"basic"})
      */
     private $event;
 
     public function __construct()
     {
         $this->createdAt = new \DateTime();
+        $this->importance = 0;
     }
 
     /**
@@ -100,4 +117,37 @@ class Prize
     {
         $this->event = $event;
     }
+
+    /**
+     * @return string
+     */
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string $image
+     */
+    public function setImage(string $image): void
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return int
+     */
+    public function getImportance(): ?int
+    {
+        return $this->importance;
+    }
+
+    /**
+     * @param int $importance
+     */
+    public function setImportance(int $importance): void
+    {
+        $this->importance = $importance;
+    }
+
 }

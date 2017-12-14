@@ -6,7 +6,7 @@ import changeAction from '../../actions/Contact/Change'
 import SendAction from '../../actions/Contact'
 import validator from 'email-validator'
 
-class About extends React.Component {
+class Contact extends React.Component {
 
 
     constructor() {
@@ -83,4 +83,4 @@ class About extends React.Component {
     }
 }
 
-export default connect(store => store)(About)
+export default connect(store => store)(Contact)
