@@ -43,7 +43,7 @@ const translator = {
         no_winner_for_prize_title: 'Переможець не знайдений',
         request_prize_btn: 'Забрати приз',
         winner_request_title: 'Ваша аптека присутня у переліку? Заберіть свій приз!',
-        winner_request_footer: 'Зв`яжіться з організатором акції для отпримання призу:',
+        winner_request_footer: 'Зв`яжіться з організатором акції для отримання призу:',
         winner_request_comment: 'Коментар...',
         participation_notice: 'Якщо Ваша аптека відсутня у Реєстрі, це означає, що за підсумками періоду Акції умови Акції не були виконані.',
         participation_notice_2: 'Увага! ' +
