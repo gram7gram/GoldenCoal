@@ -58,9 +58,9 @@ class ImportWinnerPharmacyCommand extends ContainerAwareCommand
         while (($row = fgetcsv($handle)) !== FALSE) {
             ++$count;
 
-            $regionName = mb_strtoupper(trim($row[0]), 'utf8');
-            $cityName = mb_strtoupper(trim($row[1]), 'utf8');
-            $name = mb_strtoupper(trim($row[2]), 'utf8');
+            $name = mb_strtoupper(trim($row[0]), 'utf8');
+            $regionName = mb_strtoupper(trim($row[1]), 'utf8');
+            $cityName = mb_strtoupper(trim($row[2]), 'utf8');
             $streetName = mb_strtoupper(trim($row[3]), 'utf8');
             $prizeId = intval(trim($row[4]));
 
