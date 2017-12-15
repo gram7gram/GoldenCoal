@@ -14,6 +14,12 @@ class Winner extends React.Component {
         this.setRegion = this.setRegion.bind(this)
     }
 
+    componentWillMount() {
+        this.props.dispatch({
+            type: Action.FETCH_WINNERS_REQUEST
+        })
+    }
+
     setRegion(e) {
         const option = parseInt(e.target.value)
         let payload = null
