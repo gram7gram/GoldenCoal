@@ -28,7 +28,7 @@ class Winner extends React.Component {
                 .find(item => item.id === option)
         }
         this.props.dispatch({
-            type: Action.PARTICIPATE_REGION_CHANGED,
+            type: Action.WINNER_REGION_CHANGED,
             payload
         })
     }
@@ -43,7 +43,7 @@ class Winner extends React.Component {
         const val = e.target.value;
 
         this.props.dispatch({
-            type: Action.PARTICIPANT_SEARCH_CHANGED,
+            type: Action.WINNER_SEARCH_CHANGED,
             payload: val
         })
     }
@@ -150,7 +150,7 @@ class Winner extends React.Component {
     }
 
     render() {
-        const {search, isLoading, region} = this.props.Participation
+        const {search, isLoading, region} = this.props.Winner
 
         return <Row>
             <Col xs={12}>
