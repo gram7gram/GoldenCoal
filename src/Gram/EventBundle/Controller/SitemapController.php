@@ -4,6 +4,7 @@ namespace Gram\EventBundle\Controller;
 
 use Gram\EventBundle\Entity\Event;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 class SitemapController extends Controller
 {
@@ -88,7 +89,7 @@ class SitemapController extends Controller
         }
 
         if (!$event->isExpired()) {
-            throw $this->createAccessDeniedException();
+            throw new AccessDeniedHttpException();
         }
 
         switch ($code) {
@@ -140,11 +141,11 @@ class SitemapController extends Controller
         }
 
         if (!$event->isExpired()) {
-            throw $this->createAccessDeniedException();
+            throw new AccessDeniedHttpException();
         }
 
         if (!$event->isResultDate()) {
-            throw $this->createAccessDeniedException();
+            throw new AccessDeniedHttpException();
         }
 
         switch ($code) {
