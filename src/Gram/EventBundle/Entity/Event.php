@@ -158,4 +158,9 @@ class Event
     {
         return !is_null($this->endDate) && $this->endDate <= new \DateTime();
     }
+
+    public function isResultDate()
+    {
+        return !is_null($this->resultDate) && $this->resultDate <= new \DateTime();
+    }
 }

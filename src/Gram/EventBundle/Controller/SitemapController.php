@@ -135,6 +135,10 @@ class SitemapController extends Controller
             throw $this->createNotFoundException();
         }
 
+        if (!$event->isResultDate()) {
+            throw $this->createAccessDeniedException();
+        }
+
         switch ($code) {
             case Event::GOLDEN_COAL:
                 return $this->render('@GramEvent/Sitemap/golden-coal/winner.html.twig', [
