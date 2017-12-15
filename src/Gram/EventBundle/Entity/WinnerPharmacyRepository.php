@@ -15,32 +15,19 @@ class WinnerPharmacyRepository extends EntityRepository
             ->addSelect('pharmacy')
             ->addSelect('prize')
             ->addSelect('address')
-            ->addSelect('region')
             ->addSelect('type');
         $qb
             ->join('w.pharmacy', 'pharmacy')
             ->join('w.prize', 'prize')
             ->join('pharmacy.address', 'address')
-            ->join('address.region', 'region')
             ->leftJoin('pharmacy.type', 'type');
-
-        if (isset($filter['region'])) {
-            $selectedId = intval($filter['region']['id']);
-            $ids = [$selectedId];
-            if ($selectedId === Region::KIEV_CITY_ID) {
-                $ids[] = Region::KIEV_REGION_ID;
-            }
-
-            $qb->andWhere($e->in('region.id', ":region"))
-                ->setParameter('region', $ids);
-        }
 
         if (isset($filter['search']) && $filter['search']) {
             $qb->andWhere($e->orX()
                 ->add($e->like($e->lower('pharmacy.okpo'), ':search'))
                 ->add($e->like($e->lower('pharmacy.name'), ':search'))
                 ->add($e->like($e->lower('pharmacy.number'), ':search'))
-                ->add($e->like($e->lower('region.name'), ':search'))
+                ->add($e->like($e->lower('address.regionName'), ':search'))
                 ->add($e->like($e->lower('address.city'), ':search'))
                 ->add($e->like($e->lower('address.street'), ':search'))
             )->setParameter('search', '%' . mb_strtolower($filter['search'], 'utf8') . '%');

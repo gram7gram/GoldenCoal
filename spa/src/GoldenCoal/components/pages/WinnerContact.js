@@ -89,7 +89,7 @@ class WinnerContact extends React.Component {
                         <option value={''}>{trans('field_pharmacy')}</option>
                         {this.props.WinnerContact.pharmacies.map((item, key) =>
                             <option key={key} value={item.id}>
-                                {item.address.region.name}, {item.name}, {item.address.city || ''}, {item.address.street || ''}
+                                {item.address.regionName}, {item.name}, {item.address.city || ''}, {item.address.street || ''}
                             </option>
                         )}
                     </select>

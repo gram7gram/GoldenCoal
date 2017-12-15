@@ -115,7 +115,7 @@ class Winner extends React.Component {
                                         </thead>
                                         <tbody>
                                         {winners.map(item => <tr key={item.id}>
-                                            <td>{item.pharmacy.address.region.name}</td>
+                                            <td>{item.pharmacy.address.regionName}</td>
                                             <td>{item.pharmacy.name + (item.pharmacy.number ? " (" + item.pharmacy.number + ")" : "")}</td>
                                             <td>{item.pharmacy.address.city}</td>
                                             <td>{item.pharmacy.address.street}</td>
@@ -149,7 +149,7 @@ class Winner extends React.Component {
         return <Row>
             <Col xs={12}>
                 <Row>
-                    <Col xs={12} sm={12} md={6} lg={6}>
+                    {/*<Col xs={12} sm={12} md={6} lg={6}>
                         <FormGroup>
                             <select
                                 className={"form-control"}
@@ -161,8 +161,8 @@ class Winner extends React.Component {
                                 )}
                             </select>
                         </FormGroup>
-                    </Col>
-                    <Col xs={12} sm={12} md={6} lg={6}>
+                    </Col>*/}
+                    <Col xs={12} sm={8} smOffset={2} md={6} mdOffset={3} lg={6} lgOffset={3}>
                         <FormGroup>
                             <InputGroup>
                                 <FormControl
@@ -172,7 +172,7 @@ class Winner extends React.Component {
                                 <span className="input-group-btn">
                                     <button className="btn btn-primary btn-lg"
                                             onClick={this.search}
-                                            disabled={isLoading || !region}>
+                                            disabled={isLoading}>
                                         {isLoading
                                             ? <i className="fa fa-spin fa-circle-o-notch"/>
                                             : <i className="fa fa-search"/>}&nbsp;{trans('participation_search_btn')}

@@ -17,7 +17,7 @@ class PharmacyRepository extends EntityRepository
             ->addSelect('type');
         $qb
             ->join('p.address', 'address')
-            ->join('address.region', 'region')
+            ->leftJoin('address.region', 'region')
             ->leftJoin('p.type', 'type');
 
         if (isset($filter['id'])) {

@@ -42,6 +42,15 @@ class Address
     /**
      * @var string
      *
+     * @ORM\Column(type="text", nullable=true)
+     *
+     * @JMS\Groups({"basic"})
+     */
+    private $regionName;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(type="string", nullable=true)
      *
      * @JMS\Groups({"basic"})
@@ -125,5 +134,21 @@ class Address
     public function setStreet(string $street = null)
     {
         $this->street = $street;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRegionName(): ?string
+    {
+        return $this->regionName;
+    }
+
+    /**
+     * @param string $regionName
+     */
+    public function setRegionName(string $regionName): void
+    {
+        $this->regionName = $regionName;
     }
 }
