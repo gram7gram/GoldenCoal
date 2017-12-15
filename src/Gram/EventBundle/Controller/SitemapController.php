@@ -87,6 +87,10 @@ class SitemapController extends Controller
             throw $this->createNotFoundException();
         }
 
+        if (!$event->isExpired()) {
+            throw $this->createAccessDeniedException();
+        }
+
         switch ($code) {
             case Event::GOLDEN_COAL:
                 return $this->render('@GramEvent/Sitemap/golden-coal/participant.html.twig', [
@@ -133,6 +137,10 @@ class SitemapController extends Controller
         ]);
         if (!$event) {
             throw $this->createNotFoundException();
+        }
+
+        if (!$event->isExpired()) {
+            throw $this->createAccessDeniedException();
         }
 
         if (!$event->isResultDate()) {
