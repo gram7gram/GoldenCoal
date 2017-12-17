@@ -69,7 +69,7 @@ class ExportController extends Controller
                 $entity->getLastName(),
                 $entity->getFirstName(),
                 $entity->getLegalName(),
-                $phar ? $phar->getName() : '-',
+                $entity->getPosition() ? $entity->getPosition()->getName() : '',
                 $phar && $phar->getOkpo() ? $phar->getOkpo() : '-',
                 $phar && $phar->getType() ? $phar->getType()->getName() : '-',
                 $phar && $phar->getName() ? $phar->getName() : '-',
