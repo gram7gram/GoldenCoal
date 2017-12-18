@@ -1,5 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
+label.required:after {
+    content: ' *';
+    color: red;
+}
+
 .table-scrollable {
     overflow: auto;
     width: 100%;

@@ -7,7 +7,7 @@ const firstName = (prev = null, action) => {
     switch (action.type) {
         case Actions.PARTICIPANT_CHANGED:
             if (action.payload.firstName !== undefined)
-                return action.payload.firstName
+                return action.payload.firstName.replace(/\d/g, '')
 
             return prev
         default:
@@ -19,7 +19,7 @@ const lastName = (prev = null, action) => {
     switch (action.type) {
         case Actions.PARTICIPANT_CHANGED:
             if (action.payload.lastName !== undefined)
-                return action.payload.lastName
+                return action.payload.lastName.replace(/\d/g, '')
 
             return prev
         default:
@@ -31,7 +31,7 @@ const email = (prev = null, action) => {
     switch (action.type) {
         case Actions.PARTICIPANT_CHANGED:
             if (action.payload.email !== undefined)
-                return action.payload.email
+                return action.payload.email.trim()
 
             return prev
         default:

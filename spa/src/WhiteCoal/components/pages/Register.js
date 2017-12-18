@@ -91,7 +91,7 @@ class Register extends React.Component {
         const {model} = this.props.Participant
 
         return <FormGroup validationState={this.getValidationState(name)}>
-            <label>{trans('field_' + name)}</label>
+            <label className="required">{trans('field_' + name)}</label>
             <FormControl
                 placeholder={trans('enter_placeholder')}
                 value={model[name] || ''}
@@ -108,34 +108,28 @@ class Register extends React.Component {
                     {this.renderErrors()}
                     {this.renderSimpleText('firstName')}
                     {this.renderSimpleText('lastName')}
-                    <FormGroup validationState={this.getValidationState("email")}>
-                        <label>{trans('field_email')}</label>
-                        <FormControl
-                            placeholder={trans('enter_placeholder')}
-                            value={model.email || ''}
-                            onChange={this.change("email")}/>
-                    </FormGroup>
+                    {this.renderSimpleText('email')}
                 </div>
             case 2:
                 return <div className="step active">
                     {this.renderErrors()}
                     {this.renderSimpleText('legalName')}
                     <FormGroup validationState={this.getValidationState("pharmacyEdrpou")}>
-                        <label>{trans('field_pharmacyEdrpou')}</label>
+                        <label className="required">{trans('field_pharmacyEdrpou')}</label>
                         <FormControl
                             placeholder={trans('enter_placeholder')}
                             value={model.pharmacy.edrpou || ''}
                             onChange={this.change("pharmacyEdrpou")}/>
                     </FormGroup>
                     <FormGroup validationState={this.getValidationState("pharmacyName")}>
-                        <label>{trans('field_pharmacyNameNumber')}</label>
+                        <label className="required">{trans('field_pharmacyNameNumber')}</label>
                         <FormControl
                             placeholder={trans('enter_placeholder')}
                             value={model.pharmacy.name || ''}
                             onChange={this.change("pharmacyName")}/>
                     </FormGroup>
                     <FormGroup validationState={this.getValidationState("position")}>
-                        <label>{trans('field_position')}</label>
+                        <label className="required">{trans('field_position')}</label>
                         <select
                             className={"form-control"}
                             value={model.position ? model.position.id : ''}
@@ -148,7 +142,7 @@ class Register extends React.Component {
                     </FormGroup>
 
                     <FormGroup validationState={this.getValidationState("region")}>
-                        <label>{trans('field_region')}</label>
+                        <label className="required">{trans('field_region')}</label>
                         <select
                             className={"form-control"}
                             value={model.address.region ? model.address.region.id : ''}
@@ -161,14 +155,22 @@ class Register extends React.Component {
                     </FormGroup>
 
                     <FormGroup validationState={this.getValidationState("city")}>
-                        <label>{trans('field_city')}</label>
+                        <label className="required">{trans('field_city')}</label>
                         <FormControl
                             placeholder={trans('enter_placeholder')}
                             value={model.address.city || ''}
                             onChange={this.change("city")}/>
                     </FormGroup>
+
+                    <FormGroup validationState={this.getValidationState("street")}>
+                        <label className="required">{trans('field_street')}</label>
+                        <FormControl
+                            placeholder={trans('enter_placeholder')}
+                            value={model.address.street || ''}
+                            onChange={this.change("street")}/>
+                    </FormGroup>
                     <FormGroup>
-                        <label>
+                        <label className="required">
                             <input type="checkbox"
                                    onChange={this.confirm}
                                    checked={model.isConfirmed}/>&nbsp;{trans('participation_legal_notice')}
