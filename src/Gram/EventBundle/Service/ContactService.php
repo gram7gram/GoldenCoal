@@ -4,8 +4,7 @@ namespace Gram\EventBundle\Service;
 
 use Gram\EventBundle\Entity\Event;
 use Gram\EventBundle\Entity\Participant;
-use Gram\EventBundle\Entity\Pharmacy;
-use Gram\EventBundle\Entity\Prize;
+use Gram\EventBundle\Entity\WinnerRequest;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class ContactService
@@ -21,29 +20,10 @@ class ContactService
         $this->container = $container;
     }
 
-    public function requestPrizeFromManager($content)
+    public function requestPrizeFromManager(WinnerRequest $winnerRequest)
     {
         $managers = $this->container->getParameter('managers');
         if (!$managers) return [];
-
-        $em = $this->container->get('doctrine')->getManager();
-
-        $prize = $em->getRepository(Prize::class)->findOneBy([
-            'id' => $content['prize']['id'],
-            'event' => $content['event']['id'],
-        ]);
-        if (!$prize) {
-            throw new \Exception('Prize was not found', 404);
-        }
-
-        $pharmacies = $em->getRepository(Pharmacy::class)->findByFilter([
-            'id' => $content['pharmacy']['id']
-        ], 1, 1);
-        if (count($pharmacies) !== 1) {
-            throw new \Exception('Pharmacy was not found', 404);
-        }
-
-        $pharmacy = $pharmacies[0];
 
         $result = [];
 
@@ -53,12 +33,7 @@ class ContactService
         $trans = $this->container->get('translator');
 
         $html = $twig->render(':email:request-prize.html.twig', [
-            'prize' => $prize,
-            'event' => $prize->getEvent(),
-            'pharmacy' => $pharmacy,
-            'email' => $content['email'],
-            'name' => $content['name'],
-            'content' => $content['content'],
+            'winnerRequest' => $winnerRequest,
         ]);
 
         $subject = $trans->trans('contact.email.new_message_subject', [], 'GramEventBundle');

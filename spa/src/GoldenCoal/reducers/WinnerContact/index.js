@@ -26,8 +26,20 @@ const pharmacies = (prev = [], action) => {
     switch (action.type) {
         case Actions.WINNER_ENABLE_CONTACT_FORM:
             return action.payload.pharmacies
-        case Actions.WINNER_CONTACT_FAILURE:
+        case Actions.WINNER_DISABLE_CONTACT_FORM:
             return []
+        default:
+            return prev
+    }
+}
+
+const isLoading = (prev = false, action) => {
+    switch (action.type) {
+        case Actions.WINNER_CONTACT_BEFORE:
+            return true
+        case Actions.WINNER_CONTACT_SUCCESS:
+        case Actions.WINNER_CONTACT_FAILURE:
+            return false
         default:
             return prev
     }
@@ -56,6 +68,7 @@ const isVisible = (prev = false, action) => {
 }
 
 export default combineReducers({
+    isLoading,
     isContacted,
     isVisible,
     pharmacies,

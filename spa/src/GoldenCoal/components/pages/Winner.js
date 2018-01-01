@@ -131,7 +131,7 @@ class Winner extends React.Component {
                                 </div>
                         }
                     </Col>
-                    {winners.length > 0 ? <Col xs={12}>
+                    <Col xs={12}>
                         <div className="banner">
                             <h3>{trans('winner_request_title')}</h3>
                             <h4>{trans('winner_request_footer')}</h4>
@@ -143,31 +143,18 @@ class Winner extends React.Component {
                                     {trans('request_prize_btn')}
                                 </button>}
                         </div>
-                    </Col> : null}
+                    </Col>
                 </Row>
             })}
         </Col>
     }
 
     render() {
-        const {search, isLoading, region} = this.props.Winner
+        const {search, isLoading} = this.props.Winner
 
         return <Row>
             <Col xs={12}>
                 <Row>
-                    {/*<Col xs={12} sm={12} md={6} lg={6}>
-                        <FormGroup>
-                            <select
-                                className={"form-control"}
-                                value={region ? region.id : ''}
-                                onChange={this.setRegion}>
-                                <option value={''}>{trans('field_region')}</option>
-                                {this.props.Region.collection.map((item, key) =>
-                                    <option key={key} value={item.id}>{item.name}</option>
-                                )}
-                            </select>
-                        </FormGroup>
-                    </Col>*/}
                     <Col xs={12} sm={8} smOffset={2} md={6} mdOffset={3} lg={6} lgOffset={3}>
                         <FormGroup>
                             <InputGroup>

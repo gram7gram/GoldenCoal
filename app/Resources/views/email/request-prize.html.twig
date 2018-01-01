@@ -1,25 +1,33 @@
 {% extends 'email/base.html.twig' %}
 
 {% block title %}
-    <h3>Отримання призу</h3>
+    <h3>#{{ winnerRequest.id }} Отримання призу</h3>
 {% endblock %}
 
 {% block body %}
-    <p>Акція: {{ event.name }}</p>
-    <p>Приз: {{ prize.name }}</p>
+    <p>Акція: {{ winnerRequest.event.name }}</p>
+    <p>Приз: {{ winnerRequest.prize.name }}</p>
 
     <br>
 
-    <p>Ім'я: {{ name }}</p>
-    <p>Email: {{ email }}</p>
-    <p>Аптека: #{{ pharmacy.id }}, {{ pharmacy.address.regionName }}, {{ pharmacy.name }}, {{ pharmacy.address.city }}, {{ pharmacy.address.street }}</p>
-
+    <p>Ім'я: {{ winnerRequest.lastName ~ ' ' ~ winnerRequest.firstName }}</p>
+    <p>Email: {{ winnerRequest.email }}</p>
+    <p>Аптека: #{{ winnerRequest.pharmacy.id }},
+        {{ winnerRequest.pharmacy.address.regionName }},
+        {{ winnerRequest.pharmacy.name }},
+        {{ winnerRequest.pharmacy.address.city }},
+        {{ winnerRequest.pharmacy.address.street }}</p>
     <br>
 
-    {% if content %}
+    <p>Телефон отримувача: {{ winnerRequest.phone }}</p>
+    <p>Нас. пункт доставки: {{ winnerRequest.city }}</p>
+    <p>Номер відділення: {{ winnerRequest.destination }}</p>
+    <br>
+
+    {% if winnerRequest.comment %}
         <p>Коментар</p>
         <blockquote>
-            <pre>{{ content }}</pre>
+            <pre>{{ winnerRequest.comment }}</pre>
         </blockquote>
     {% endif %}
 

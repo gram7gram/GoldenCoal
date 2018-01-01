@@ -37,11 +37,39 @@ const pharmacy = (prev = null, action) => {
     }
 }
 
-const name = (prev = null, action) => {
+const lastName = (prev = null, action) => {
     switch (action.type) {
         case Actions.WINNER_CONTACT_CHANGED:
-            if (action.payload.name !== undefined)
-                return action.payload.name
+            if (action.payload.lastName !== undefined)
+                return action.payload.lastName.replace(/[\d]/g, '')
+
+            return prev
+        case Actions.WINNER_DISABLE_CONTACT_FORM:
+            return null
+        default:
+            return prev
+    }
+}
+
+const firstName = (prev = null, action) => {
+    switch (action.type) {
+        case Actions.WINNER_CONTACT_CHANGED:
+            if (action.payload.firstName !== undefined)
+                return action.payload.firstName.replace(/[\d]/g, '')
+
+            return prev
+        case Actions.WINNER_DISABLE_CONTACT_FORM:
+            return null
+        default:
+            return prev
+    }
+}
+
+const phone = (prev = null, action) => {
+    switch (action.type) {
+        case Actions.WINNER_CONTACT_CHANGED:
+            if (action.payload.phone !== undefined)
+                return action.payload.phone.replace(/[^0-9\)\(\+\-\s]/ig, '')
 
             return prev
         case Actions.WINNER_DISABLE_CONTACT_FORM:
@@ -55,7 +83,7 @@ const email = (prev = null, action) => {
     switch (action.type) {
         case Actions.WINNER_CONTACT_CHANGED:
             if (action.payload.email !== undefined)
-                return action.payload.email
+                return action.payload.email.replace(/[\s]/g, '')
 
             return prev
         case Actions.WINNER_DISABLE_CONTACT_FORM:
@@ -65,11 +93,39 @@ const email = (prev = null, action) => {
     }
 }
 
-const content = (prev = null, action) => {
+const destination = (prev = null, action) => {
     switch (action.type) {
         case Actions.WINNER_CONTACT_CHANGED:
-            if (action.payload.content !== undefined)
-                return action.payload.content
+            if (action.payload.destination !== undefined)
+                return action.payload.destination
+
+            return prev
+        case Actions.WINNER_DISABLE_CONTACT_FORM:
+            return null
+        default:
+            return prev
+    }
+}
+
+const city = (prev = null, action) => {
+    switch (action.type) {
+        case Actions.WINNER_CONTACT_CHANGED:
+            if (action.payload.city !== undefined)
+                return action.payload.city
+
+            return prev
+        case Actions.WINNER_DISABLE_CONTACT_FORM:
+            return null
+        default:
+            return prev
+    }
+}
+
+const comment = (prev = null, action) => {
+    switch (action.type) {
+        case Actions.WINNER_CONTACT_CHANGED:
+            if (action.payload.comment !== undefined)
+                return action.payload.comment
 
             return prev
         case Actions.WINNER_DISABLE_CONTACT_FORM:
@@ -80,10 +136,14 @@ const content = (prev = null, action) => {
 }
 
 export default combineReducers({
-    pharmacy,
     event,
     prize,
-    name,
-    content,
-    email
+    pharmacy,
+    destination,
+    city,
+    lastName,
+    firstName,
+    comment,
+    email,
+    phone,
 })

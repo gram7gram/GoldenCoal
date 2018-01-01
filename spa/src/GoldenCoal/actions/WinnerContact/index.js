@@ -2,6 +2,24 @@ import $ from 'jquery'
 
 import * as Action from "../../actions";
 
+const removeExtraFields = model => {
+    const copy = {...model}
+
+    copy.event = {
+        id: copy.event.id
+    }
+
+    copy.prize = {
+        id: copy.prize.id
+    }
+
+    copy.pharmacy = {
+        id: copy.pharmacy.id
+    }
+
+    return copy
+}
+
 let xhr
 export default (model) => dispatch => {
 
@@ -10,7 +28,7 @@ export default (model) => dispatch => {
         method: 'POST',
         url: WinnerRouter.POST.contacts,
         contentType: 'application/json',
-        data: JSON.stringify(model),
+        data: JSON.stringify(removeExtraFields(model)),
         beforeSend: () => {
             dispatch({
                 type: Action.WINNER_CONTACT_BEFORE

@@ -28,25 +28,18 @@ class WinnerContactRESTController extends Controller
     {
         $content = json_decode($request->getContent(), true);
 
-        if (!(isset($content['email'])
-            && isset($content['event'])
-            && isset($content['prize'])
-            && isset($content['name'])
-            && isset($content['pharmacy']))) {
-            return new JsonResponse([
-                'messsage' => 'missing required parameters'
-            ], JsonResponse::HTTP_BAD_REQUEST);
-        }
-
         $service = $this->get('event.contact_manager_service');
+        $winnerService = $this->get('event.winner_request_service');
 
         try {
 
-            $content = $service->requestPrizeFromManager($content);
+            $winnerRequest = $winnerService->create($content);
 
-            return new JsonResponse([
-                'items' => $content
-            ]);
+            $content = $winnerService->serialize($winnerRequest);
+
+            $service->requestPrizeFromManager($winnerRequest);
+
+            return new JsonResponse($content, JsonResponse::HTTP_CREATED);
         } catch (\Exception $e) {
             return new JsonResponse([
                 'message' => $e->getMessage()

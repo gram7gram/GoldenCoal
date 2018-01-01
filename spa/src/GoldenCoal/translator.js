@@ -44,7 +44,15 @@ const translator = {
         request_prize_btn: 'Отримати приз',
         winner_request_title: 'Ваша аптека присутня у переліку? Отримати свій приз!',
         winner_request_footer: 'Зв`яжіться з організатором акції для отримання призу:',
-        winner_request_comment: 'Коментар...',
+        winner_request_comment: 'Коментар',
+        winner_request_email: 'Ваш email',
+        contact_field_phone: 'Телефон отримувача',
+        contact_field_destination: 'Номер Нової Пошти отримувача',
+        contact_field_city: 'Нас. пункт отримувача',
+        contact_field_lastName: 'Ваше прізвище',
+        contact_field_firstName: 'Ваше ім`я',
+        generic_text_placeholder: 'Введіть...',
+        generic_select_placeholder: 'Виберіть...',
         participation_notice: 'Якщо Ваша аптека відсутня у Реєстрі, це означає, що за підсумками періоду Акції умови Акції не були виконані.',
         participation_notice_2: 'Увага! ' +
         '14 грудня 2017 р. під час жеребкування Призів ' +

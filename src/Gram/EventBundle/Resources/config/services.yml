@@ -39,3 +39,7 @@ services:
   event.event_service:
       class: Gram\EventBundle\Service\EventService
       arguments: ['@service_container']
+
+  event.winner_request_service:
+      class: Gram\EventBundle\Service\WinnerRequestService
+      arguments: ['@service_container']
