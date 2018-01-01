@@ -17,6 +17,9 @@ parameters:
 
     participants_export_token: ~
 
+    spa_monitoring_token: ~
+    spa_monitoring_project: ~
+
     slack_monitoring_token:
         default: golden-coal
         golden-coal:

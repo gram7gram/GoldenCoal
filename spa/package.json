@@ -18,6 +18,8 @@
     "morgan": "^1.9.0",
     "nodemailer": "^4.2.0",
     "path": "^0.12.7",
+    "raven-for-redux": "^1.2.0",
+    "raven-js": "^3.21.0",
     "react": "^16.0.0",
     "react-bootstrap": "^0.31.3",
     "react-dom": "^16.0.0",

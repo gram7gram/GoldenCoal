@@ -9,16 +9,6 @@
 
         <title>{% block title %}{% endblock %}</title>
 
-        {#{% if app.environment == 'prod' %}#}
-        {#<!-- Google Tag Manager -->#}
-        {#<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':#}
-                    {#new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],#}
-                {#j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=#}
-                {#'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);#}
-            {#})(window,document,'script','dataLayer','GTM-5BK3LF5');</script>#}
-        {#<!-- End Google Tag Manager -->#}
-        {#{% endif %}#}
-
         <link rel="icon" type="image/jpg" href="{{ asset('favicon@16.jpg') }}" sizes="16x16"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
@@ -35,6 +25,15 @@
                 integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4"
                 crossorigin="anonymous"></script>
 
+        <script>
+            var __GC_SPA_PARAMETERS__ = {
+                version: '{{ spa_version }}',
+                monitoring: {
+                    token: '{{ spa_monitoring_token }}',
+                    project: '{{ spa_monitoring_project }}',
+                }
+            }
+        </script>
         {% block javascripts %}{% endblock %}
         <script src="{{ asset('dist/scroller.js') }}"></script>
     </body>

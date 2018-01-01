@@ -37,6 +37,8 @@ twig:
     strict_variables: '%kernel.debug%'
     globals:
         spa_version: '%spa_version%'
+        spa_monitoring_token: '%spa_monitoring_token%'
+        spa_monitoring_project: '%spa_monitoring_project%'
 
 doctrine:
     dbal:
