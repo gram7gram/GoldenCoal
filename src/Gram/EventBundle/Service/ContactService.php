@@ -4,6 +4,7 @@ namespace Gram\EventBundle\Service;
 
 use Gram\EventBundle\Entity\Event;
 use Gram\EventBundle\Entity\Participant;
+use Gram\EventBundle\Entity\WinnerRequest;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class ContactService
@@ -17,6 +18,43 @@ class ContactService
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
+    }
+
+    public function requestPrizeFromManager(WinnerRequest $winnerRequest)
+    {
+        $managers = $this->container->getParameter('managers');
+        if (!$managers) return [];
+
+        $result = [];
+
+        $sender = $this->container->getParameter('mailer_user');
+        $twig = $this->container->get('twig');
+        $mailer = $this->container->get('mailer');
+        $trans = $this->container->get('translator');
+
+        $html = $twig->render(':email:request-prize.html.twig', [
+            'winnerRequest' => $winnerRequest,
+        ]);
+
+        $subject = $trans->trans('contact.email.new_message_subject', [], 'GramEventBundle');
+
+        foreach ($managers as $manager) {
+            $message = \Swift_Message::newInstance();
+            $message
+                ->setFrom($sender)
+                ->setTo($manager)
+                ->setSubject($subject);
+
+            $message->setBody($html, 'text/html');
+
+            $status = $mailer->send($message);
+
+            $result[] = [
+                'status' => $status,
+            ];
+        }
+
+        return $result;
     }
 
     public function notifyManager($from, $name, $content)
@@ -52,7 +90,6 @@ class ContactService
 
             $result[] = [
                 'status' => $status,
-                'recipient' => $manager
             ];
         }
 

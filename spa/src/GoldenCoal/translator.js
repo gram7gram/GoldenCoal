@@ -25,6 +25,7 @@ const translator = {
         field_region: 'Область',
         field_city: 'Назва населеного пункту',
         field_street: 'Повна робоча адреса (без назви населеного пункту)',
+        field_pharmacy: 'Виберіть аптеку...',
         participation_search_btn: 'Пошук',
         participation_event_codes: 'Кількість акційних кодів',
         participation_search_placeholder: 'Адреса або назва аптеки...',
@@ -37,7 +38,27 @@ const translator = {
         participation_loading: 'Завантаження...',
         participation_no_items_title: 'Учасників не знайдено',
         participation_no_items_footer: 'Спробуйте змінити пошуковий запит',
-        participation_notice: 'Якщо Ваша аптека відсутня у Реєстрі, це означає, що за підсумками періоду Акції умови Акції не були виконані.'
+        winner_no_items_title: 'Переможців не знайдено',
+        winner_no_items_footer: 'Спробуйте змінити пошуковий запит',
+        no_winner_for_prize_title: 'Переможець не знайдений',
+        request_prize_btn: 'Отримати приз',
+        winner_request_title: 'Ваша аптека присутня у переліку? Отримати свій приз!',
+        winner_request_footer: 'Зв`яжіться з організатором акції для отримання призу:',
+        winner_request_comment: 'Коментар',
+        winner_request_email: 'Ваш email',
+        contact_field_phone: 'Телефон отримувача',
+        contact_field_destination: 'Номер Нової Пошти отримувача',
+        contact_field_city: 'Нас. пункт отримувача',
+        contact_field_lastName: 'Ваше прізвище',
+        contact_field_firstName: 'Ваше ім`я',
+        generic_text_placeholder: 'Введіть...',
+        generic_select_placeholder: 'Виберіть...',
+        participation_notice: 'Якщо Ваша аптека відсутня у Реєстрі, це означає, що за підсумками періоду Акції умови Акції не були виконані.',
+        participation_notice_2: 'Увага! ' +
+        '14 грудня 2017 р. під час жеребкування Призів ' +
+        'першим визначається аптека-власник головного приза Акції. ' +
+        'Після цього дані власника «Золотого Смартфону» виключаються ' +
+        'з подальшої участі в жеребкуванні Призів.',
     }
 }
 

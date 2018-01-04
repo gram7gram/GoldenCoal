@@ -16,10 +16,12 @@ class ParticipantRepository extends EntityRepository
             ->addSelect('pharmacy')
             ->addSelect('region')
             ->addSelect('pharmacyType')
+            ->addSelect('position')
             ->addSelect('event');
         $qb
             ->join('p.pharmacy', 'pharmacy')
             ->join('p.event', 'event')
+            ->leftJoin('p.position', 'position')
             ->leftJoin('p.address', 'address')
             ->leftJoin('address.region', 'region')
             ->leftJoin('pharmacy.type', 'pharmacyType');

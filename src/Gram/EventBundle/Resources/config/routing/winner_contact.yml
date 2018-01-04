@@ -1,0 +1,5 @@
+api_v1_winner_contact_post:
+    path: /winner_contacts
+    methods: POST
+    defaults:
+        _controller: GramEventBundle:WinnerContactREST:post

@@ -10,9 +10,18 @@ const collection = (prev = [], action) => {
     }
 }
 
-const okpo = (prev = null, action) => {
+const search = (prev = null, action) => {
     switch (action.type) {
         case Action.PARTICIPANT_SEARCH_CHANGED:
+            return action.payload
+        default:
+            return prev
+    }
+}
+
+const region = (prev = null, action) => {
+    switch (action.type) {
+        case Action.PARTICIPATE_REGION_CHANGED:
             return action.payload
         default:
             return prev
@@ -45,7 +54,8 @@ const isLoading = (prev = false, action) => {
 
 export default combineReducers({
     collection,
-    okpo,
+    search,
+    region,
     isLoading,
     isLoaded,
 })

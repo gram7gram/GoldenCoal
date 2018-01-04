@@ -4,6 +4,7 @@ namespace Gram\EventBundle\Controller;
 
 use Gram\EventBundle\Entity\Event;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 class SitemapController extends Controller
 {
@@ -87,6 +88,10 @@ class SitemapController extends Controller
             throw $this->createNotFoundException();
         }
 
+        if (!$event->isExpired()) {
+            throw new AccessDeniedHttpException();
+        }
+
         switch ($code) {
             case Event::GOLDEN_COAL:
                 return $this->render('@GramEvent/Sitemap/golden-coal/participant.html.twig', [
@@ -133,6 +138,14 @@ class SitemapController extends Controller
         ]);
         if (!$event) {
             throw $this->createNotFoundException();
+        }
+
+        if (!$event->isExpired()) {
+            throw new AccessDeniedHttpException();
+        }
+
+        if (!$event->isResultDate()) {
+            throw new AccessDeniedHttpException();
         }
 
         switch ($code) {

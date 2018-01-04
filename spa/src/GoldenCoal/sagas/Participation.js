@@ -2,7 +2,7 @@ import {delay} from 'redux-saga'
 import {put, select, takeEvery, call} from 'redux-saga/effects'
 import * as Actions from '../actions'
 
-import fetchItems from '../actions/FetchParticipants'
+import fetchItems from '../actions/FetchPharmacy'
 
 
 function* debounceRequest() {
@@ -16,7 +16,7 @@ function* debounceRequest() {
 function* doAction() {
     const store = yield select()
 
-    yield put(fetchItems(store.Participation.okpo))
+    yield put(fetchItems(store.Participation.search, store.Participation.region))
 }
 
 export default function* sagas() {

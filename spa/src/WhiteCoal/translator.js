@@ -12,6 +12,7 @@ const translator = {
         register_step_3: 'Розташування',
         validation_invalid_email: 'Електронна пошта не відповідає стандарту',
         validation_field_is_required: 'Поле "__NAME__" обовʼязкове',
+        validation_field_is_invalid: 'Поле "__NAME__" не відповідає стандарту',
         validation_generic_title: 'У формі присутні помилки. Будь ласка, перевірте дані.',
         field_lastName: 'Прізвище',
         field_firstName: 'Імʼя',

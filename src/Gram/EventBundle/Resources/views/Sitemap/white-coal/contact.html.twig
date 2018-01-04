@@ -18,6 +18,12 @@
 
 {% block javascripts %}
     <script>
+        var RegisterRouter = {
+            GET: {
+                regions: '{{ path('api_v1_region_gets') }}',
+            }
+        }
+
         var ContactRouter = {
             GET: {
                 index: '{{ path('index') }}'

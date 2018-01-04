@@ -1,4 +1,5 @@
 contact:
     email:
         new_message_subject: Нове повідомлення щодо акції
+        new_prize_request_subject: Отримання призу по акції
         new_participant_subject: Новий учасник акції "__EVENT__"

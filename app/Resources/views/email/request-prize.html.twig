@@ -1,0 +1,34 @@
+{% extends 'email/base.html.twig' %}
+
+{% block title %}
+    <h3>#{{ winnerRequest.id }} Отримання призу</h3>
+{% endblock %}
+
+{% block body %}
+    <p>Акція: {{ winnerRequest.event.name }}</p>
+    <p>Приз: {{ winnerRequest.prize.name }}</p>
+
+    <br>
+
+    <p>Ім'я: {{ winnerRequest.lastName ~ ' ' ~ winnerRequest.firstName }}</p>
+    <p>Email: {{ winnerRequest.email }}</p>
+    <p>Аптека: #{{ winnerRequest.pharmacy.id }},
+        {{ winnerRequest.pharmacy.address.regionName }},
+        {{ winnerRequest.pharmacy.name }},
+        {{ winnerRequest.pharmacy.address.city }},
+        {{ winnerRequest.pharmacy.address.street }}</p>
+    <br>
+
+    <p>Телефон отримувача: {{ winnerRequest.phone }}</p>
+    <p>Нас. пункт доставки: {{ winnerRequest.city }}</p>
+    <p>Номер відділення: {{ winnerRequest.destination }}</p>
+    <br>
+
+    {% if winnerRequest.comment %}
+        <p>Коментар</p>
+        <blockquote>
+            <pre>{{ winnerRequest.comment }}</pre>
+        </blockquote>
+    {% endif %}
+
+{% endblock %}
