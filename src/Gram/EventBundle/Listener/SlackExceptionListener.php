@@ -5,6 +5,9 @@ namespace Gram\EventBundle\Listener;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundException;
 
 class SlackExceptionListener
@@ -31,10 +34,20 @@ class SlackExceptionListener
         if ($exception instanceof AuthenticationCredentialsNotFoundException) return;
 
         $messageTemplates = [
-            "*Exception*\n*Path*: `%s`\n*Code:* `%s`\n*Content*: %s\n*File*: %s\n*Line*: %s\n*ip*: %s\n*Trace*: %s",
+            "*%s*\n*Path*: `%s`\n*Code:* `%s`\n*Content*: %s\n*File*: %s\n*Line*: %s\n*ip*: %s\n*Trace*: %s",
         ];
 
         $status = intval($exception->getCode());
+
+        if ($exception instanceof AccessDeniedException
+            || $exception instanceof AccessDeniedHttpException) {
+            $status = 403;
+        }
+
+        if ($exception instanceof NotFoundHttpException) {
+            $status = 404;
+        }
+
         $content = $exception->getMessage();
         $traceLine = '';
 
@@ -48,6 +61,7 @@ class SlackExceptionListener
 
         $message = sprintf(
             $messageTemplates[mt_rand(0, count($messageTemplates) - 1)],
+            get_class($exception),
             $event->getRequest()->getPathInfo(),
             $status,
             $content,
@@ -75,7 +89,8 @@ class SlackExceptionListener
         ];
 
         $content = $response->headers->get('Content-Type', $response->getContent());
-        if (strpos($content, 'text/html') !== false) {
+        if (strpos($content, 'text/html') !== false
+            || strpos($response->getContent(), '<html') !== -1) {
             $content = '<html>...</html>';
         }
 
@@ -97,16 +112,14 @@ class SlackExceptionListener
     private function notify($message, $status = null)
     {
         $accessTokens = $this->container->getParameter('slack_monitoring_token');
-        if (!$accessTokens) return;
+        if (!$accessTokens) return null;
 
         if ($status === 404) {
             $channel = 'golden-coal-404';
         } elseif ($status === 500) {
             $channel = 'golden-coal-500';
-        } elseif ($status >= 400 && $status < 500) {
-            $channel = 'golden-coal-4xx';
         } else {
-            $channel = null;
+            $channel = 'golden-coal-4xx';
         }
 
         if ($channel && isset($accessTokens[$channel])) {
@@ -116,22 +129,29 @@ class SlackExceptionListener
             $accessToken = $accessTokens[$defaultChannel]['token'];
         }
 
-        if (!$accessToken) return;
+        if (!$accessToken) return null;
 
-        $message = str_replace('\'', '`', $message);
-        $message = str_replace('"', '`', $message);
+        $data = json_encode([
+            'text' => $message
+        ]);
 
         $ch = curl_init('https://hooks.slack.com/services/' . $accessToken);
-
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, array(
-            'payload' => '{"text": "' . $message . '"}'
-        ));
-        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json',
+            'Content-Length: ' . strlen($data)
+        ]);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-        curl_exec($ch);
+        $content = curl_exec($ch);
+        $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
         curl_close($ch);
+
+        return [
+            'status' => $code,
+            'content' => $content,
+        ];
     }
 }
