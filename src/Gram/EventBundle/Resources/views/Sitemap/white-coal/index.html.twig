@@ -34,23 +34,14 @@
                         </div>
                     {% endif %}
                     <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
-                        {% if event.isExpired() %}
-                            <div class="form-group">
-                                <a href="{{ path('participant_index', {'code': params.code}) }}"
-                                   class="btn btn-lg btn-block btn-default uppercase">Перелік учасників</a>
-                            </div>
-                            <div class="form-group">
-                                <a href="{{ path('winner_index', {'code': params.code}) }}"
-                                   class="btn btn-lg btn-block btn-default uppercase{% if not event.isResultDate() %} disabled{% endif %}">Переможці акції</a>
-                            </div>
-                        {% else %}
-                            <div class="form-group">
-                                <a href="{{ path('register_index', {'code': params.code}) }}"
-                                   class="btn btn-lg btn-block btn-default uppercase">
-                                    Пройти реєстрацію
-                                </a>
-                            </div>
-                        {% endif %}
+                        <div class="form-group">
+                            <a href="{{ path('participant_index', {'code': params.code}) }}"
+                               class="btn btn-lg btn-block btn-default uppercase disabled">Перелік учасників</a>
+                        </div>
+                        <div class="form-group">
+                            <a href="{{ path('winner_index', {'code': params.code}) }}"
+                               class="btn btn-lg btn-block btn-default uppercase disabled">Переможці акції</a>
+                        </div>
                         <div class="form-group">
                             <a href="{{ path('about_index', {'code': params.code}) }}"
                                class="btn btn-lg btn-block btn-default uppercase">Правила акції</a>
