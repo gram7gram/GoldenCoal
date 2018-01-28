@@ -11,13 +11,25 @@ class SitemapController extends Controller
 
     public function indexAction()
     {
-        return $this->render('@GramEvent/Sitemap/index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $events = $em->getRepository(Event::class)->findAll();
+        $registry = [];
+        foreach ($events as $event) {
+            $registry[$event->getCode()] = $event;
+        }
+
+        return $this->render('@GramEvent/Sitemap/index.html.twig', [
+            'events' => $registry
+        ]);
     }
 
     public function contactAction($code)
     {
         switch ($code) {
             case Event::GOLDEN_COAL:
+
+                throw new AccessDeniedHttpException();
+
                 return $this->render('@GramEvent/Sitemap/golden-coal/contact.html.twig');
             case Event::WHITE_COAL:
                 return $this->render('@GramEvent/Sitemap/white-coal/contact.html.twig');
@@ -38,6 +50,9 @@ class SitemapController extends Controller
 
         switch ($code) {
             case Event::GOLDEN_COAL:
+
+                throw new AccessDeniedHttpException();
+
                 return $this->render('@GramEvent/Sitemap/golden-coal/index.html.twig', [
                     'event' => $event
                 ]);
@@ -83,6 +98,9 @@ class SitemapController extends Controller
 
     public function participantsAction($code)
     {
+
+        throw new AccessDeniedHttpException();
+
         $em = $this->getDoctrine()->getManager();
         $event = $em->getRepository(Event::class)->findOneBy([
             'code' => $code
@@ -93,13 +111,13 @@ class SitemapController extends Controller
 
         switch ($code) {
             case Event::GOLDEN_COAL:
+
+                throw new AccessDeniedHttpException();
+
                 return $this->render('@GramEvent/Sitemap/golden-coal/participant.html.twig', [
                     'event' => $event
                 ]);
             case Event::WHITE_COAL:
-
-                throw new AccessDeniedHttpException();
-
                 return $this->render('@GramEvent/Sitemap/white-coal/participant.html.twig', [
                     'event' => $event
                 ]);
@@ -120,6 +138,9 @@ class SitemapController extends Controller
 
         switch ($code) {
             case Event::GOLDEN_COAL:
+
+                throw new AccessDeniedHttpException();
+
                 return $this->render('@GramEvent/Sitemap/golden-coal/about.html.twig', [
                     'event' => $event
                 ]);
@@ -134,6 +155,9 @@ class SitemapController extends Controller
 
     public function winnerAction($code)
     {
+
+        throw new AccessDeniedHttpException();
+
         $em = $this->getDoctrine()->getManager();
         $event = $em->getRepository(Event::class)->findOneBy([
             'code' => $code
@@ -144,12 +168,13 @@ class SitemapController extends Controller
 
         switch ($code) {
             case Event::GOLDEN_COAL:
+
+                throw new AccessDeniedHttpException();
+
                 return $this->render('@GramEvent/Sitemap/golden-coal/winner.html.twig', [
                     'event' => $event
                 ]);
             case Event::WHITE_COAL:
-
-                throw new AccessDeniedHttpException();
 
                 return $this->render('@GramEvent/Sitemap/white-coal/winner.html.twig', [
                     'event' => $event
