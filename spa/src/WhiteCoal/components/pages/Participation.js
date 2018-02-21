@@ -4,7 +4,6 @@ import {Col, FormControl, FormGroup, InputGroup, Row} from 'react-bootstrap';
 import trans from '../../translator'
 import * as Action from "../../actions";
 import AccessControl from "../AccessControl";
-import FetchRegions from "../../actions/FetchRegions";
 
 class Participantion extends React.Component {
 
@@ -12,10 +11,6 @@ class Participantion extends React.Component {
         super()
         this.changeSearch = this.changeSearch.bind(this)
         this.search = this.search.bind(this)
-    }
-
-    componentWillMount() {
-        this.props.dispatch(FetchRegions())
     }
 
     search() {
