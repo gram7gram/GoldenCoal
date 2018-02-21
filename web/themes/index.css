@@ -51,6 +51,14 @@ label.required:after {
     margin-top:30px;
 }
 
+.banner h4 {
+    color: #676767;
+}
+
+.banner h5 {
+    color: #9b9b9b;
+}
+
 
 
 .map-container {

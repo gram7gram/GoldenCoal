@@ -43,3 +43,7 @@ services:
   event.winner_request_service:
       class: Gram\EventBundle\Service\WinnerRequestService
       arguments: ['@service_container']
+
+  event.pharmacy_participant_service:
+      class: Gram\EventBundle\Service\PharmacyParticipantService
+      arguments: ['@service_container']

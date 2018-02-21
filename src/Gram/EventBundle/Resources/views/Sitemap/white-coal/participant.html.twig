@@ -61,12 +61,14 @@
         }
         var ParticipationRouter = {
             GET: {
-                participants: '{{ path('api_v1_participant_gets', {'id': event.id}) }}',
+                pharmacyParticipants: '{{ path('api_v1_pharmacy_participants_gets', {
+                    'id': event.id
+                }) }}',
                 pharmacies: '{{ path('api_v1_pharmacy_gets') }}',
             }
         }
 
     </script>
-    <script src="{{ asset('dist/PharmacyParticipant.js') }}?v={{ spa_version }}"></script>
+    <script src="{{ asset('dist/WhiteCoalPharmacyParticipation.js') }}?v={{ spa_version }}"></script>
 {% endblock %}
 

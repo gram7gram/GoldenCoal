@@ -10,6 +10,9 @@ import positionChanged from '../../actions/PositionChanged'
 import regionChanged from '../../actions/RegionChanged'
 
 import trans from '../../translator'
+import FetchPositions from "../../actions/FetchPositions";
+import FetchRegions from "../../actions/FetchRegions";
+import FetchPharmacyTypes from "../../actions/FetchPharmacyTypes";
 
 const STEPS = 2
 const stepStyle = {width: (100 / STEPS) + '%'}
@@ -25,6 +28,12 @@ class Register extends React.Component {
         this.setRegion = this.setRegion.bind(this)
         this.getValidationState = this.getValidationState.bind(this)
         this.confirm = this.confirm.bind(this)
+    }
+
+    componentWillMount() {
+        this.props.dispatch(FetchPharmacyTypes())
+        this.props.dispatch(FetchRegions())
+        this.props.dispatch(FetchPositions())
     }
 
     setRegion(e) {

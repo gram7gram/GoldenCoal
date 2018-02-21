@@ -4,6 +4,7 @@ module.exports = {
         RegisterWhiteCoal: ['babel-polyfill', './src/WhiteCoal'],
         Participant: ['babel-polyfill', './src/GoldenCoal/modules/Participant'],
         PharmacyParticipant: ['babel-polyfill', './src/GoldenCoal/modules/Pharmacy'],
+        WhiteCoalPharmacyParticipation: ['babel-polyfill', './src/WhiteCoal/modules/Participation'],
         PharmacyWinner: ['babel-polyfill', './src/GoldenCoal/modules/Winner'],
         Contact: ['babel-polyfill', './src/GoldenCoal/modules/Contact'],
     },

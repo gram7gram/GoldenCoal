@@ -4,6 +4,7 @@ namespace Gram\EventBundle\Controller;
 
 use Gram\EventBundle\Entity\Event;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 class SitemapController extends Controller
@@ -96,10 +97,14 @@ class SitemapController extends Controller
         }
     }
 
-    public function participantsAction($code)
+    public function participantsAction(Request $request, $code)
     {
+        $token = $request->query->get('access_token');
+        $targetToken = $this->getParameter('participants_access_token');
 
-        throw new AccessDeniedHttpException();
+        if ($token !== $targetToken) {
+            throw new AccessDeniedHttpException();
+        }
 
         $em = $this->getDoctrine()->getManager();
         $event = $em->getRepository(Event::class)->findOneBy([

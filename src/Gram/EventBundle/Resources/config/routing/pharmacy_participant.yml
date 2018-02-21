@@ -1,0 +1,7 @@
+api_v1_pharmacy_participants_gets:
+    path: /events/{id}/pharmacy_participants
+    methods: [GET]
+    defaults:
+        _controller: GramEventBundle:PharmacyParticipantREST:gets
+    requirements:
+        id: \d+

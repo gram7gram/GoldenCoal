@@ -3,28 +3,32 @@
 namespace Gram\EventBundle\Command;
 
 use Gram\EventBundle\Entity\Address;
+use Gram\EventBundle\Entity\Event;
 use Gram\EventBundle\Entity\Pharmacy;
+use Gram\EventBundle\Entity\PharmacyParticipant;
 use Gram\EventBundle\Entity\Region;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ImportPharmacyCommand extends ContainerAwareCommand
+class ImportPharmacyParticipantsCommand extends ContainerAwareCommand
 {
     use Memory;
 
-    const NAME = 'gram:pharmacy:import';
+    const NAME = 'gram:pharmacy-participant:import';
 
     protected function configure()
     {
         $this->setName(self::NAME)
+            ->addOption('code', null, InputOption::VALUE_REQUIRED, 'Event code')
             ->addOption('file', null, InputOption::VALUE_REQUIRED, 'Path to csv file');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $file = $input->getOption('file');
+        $code = $input->getOption('code');
 
         if (!$file) {
             $output->writeln('[-] Missing --file');
@@ -36,6 +40,7 @@ class ImportPharmacyCommand extends ContainerAwareCommand
         $em = $this->getContainer()->get('doctrine')->getManager();
 
         $regionRepo = $em->getRepository(Region::class);
+        $eventRepo = $em->getRepository(Event::class);
 
         $handle = fopen($file, 'r');
 
@@ -47,6 +52,15 @@ class ImportPharmacyCommand extends ContainerAwareCommand
 
         $count = 0;
         while (($row = fgetcsv($handle)) !== FALSE) {
+
+            /** @var Event $event */
+            $event = $eventRepo->findOneBy([
+                'code' => $code
+            ]);
+            if (!$event) {
+                throw new \Exception("Event was not found", 404);
+            }
+
             ++$count;
 
             $regionName = mb_strtolower(trim($row[0]) . ' область', 'utf8');
@@ -77,6 +91,12 @@ class ImportPharmacyCommand extends ContainerAwareCommand
             $pharmacy->setEventCodesAmount($evenCodes);
 
             $em->persist($pharmacy);
+
+            $participant = new PharmacyParticipant();
+            $participant->setPharmacy($pharmacy);
+            $participant->setEvent($event);
+
+            $em->persist($participant);
 
             $em->flush();
 

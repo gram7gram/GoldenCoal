@@ -17,6 +17,7 @@ parameters:
     spa_version: 1.0.0
 
     participants_export_token: ~
+    participants_access_token: ~
 
     spa_monitoring_token: ~
     spa_monitoring_project: ~

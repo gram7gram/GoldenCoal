@@ -2,6 +2,11 @@ export const LOCALE = 'ua'
 
 const translator = {
     ua: {
+        participation_access_title: 'Скільки діоксиду кремнію міститься у кожній таблетці сорбента БІЛЕ ВУГІЛЛЯ?',
+        participation_access_footer1: 'Для отримання доступу до пошуку',
+        participation_access_footer2: 'дайте відповідь на питання та натисніть "Відповісти"',
+        participation_access_submit: 'Відповісти',
+        participation_event_codes: 'Кількість акційних кодів',
         enter_placeholder: 'Введіть...',
         select_placeholder: 'Виберіть...',
         contact_field_name: 'Ваше імʼя...',
