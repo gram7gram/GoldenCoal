@@ -38,15 +38,6 @@ class PharmacyParticipantRepository extends EntityRepository
             $selectedId = intval($filter['region']['id']);
             $ids = [$selectedId];
 
-            switch($selectedId) {
-                case Region::KIEV_CITY_ID:
-                    $ids[] = Region::KIEV_REGION_ID;
-                    break;
-                case Region::KIEV_REGION_ID:
-                    $ids[] = Region::KIEV_CITY_ID;
-                    break;
-            }
-
             $qb->andWhere($e->in('region.id', ":region"))
                 ->setParameter('region', $ids);
         }

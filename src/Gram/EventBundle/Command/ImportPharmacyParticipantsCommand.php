@@ -63,7 +63,11 @@ class ImportPharmacyParticipantsCommand extends ContainerAwareCommand
 
             ++$count;
 
-            $regionName = mb_strtolower(trim($row[0]) . ' область', 'utf8');
+            $regionName = mb_strtolower(trim($row[0]), 'utf8');
+            if ($regionName !== 'м. київ') {
+                $regionName .= ' область';
+            }
+
             $cityName = mb_strtoupper(trim($row[1]), 'utf8');
             $streetName = mb_strtoupper(trim($row[2]), 'utf8');
             $name = mb_strtoupper(trim($row[3]), 'utf8');
