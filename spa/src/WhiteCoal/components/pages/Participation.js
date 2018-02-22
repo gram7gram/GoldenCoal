@@ -124,7 +124,7 @@ class Participantion extends React.Component {
                         <FormGroup>
                             <InputGroup>
                                 <FormControl
-                                    placeholder={trans('participation_search_placeholder')}
+                                    placeholder={trans('participation_input_search_placeholder')}
                                     value={search || ''}
                                     onChange={this.changeSearch}/>
                                 <span className="input-group-btn">
