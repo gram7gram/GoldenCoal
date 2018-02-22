@@ -104,23 +104,29 @@ class Participantion extends React.Component {
 
         // if (!isCodeValid) return <AccessControl/>
 
-        const isValid = region && region.id
+        const isValid = search || (region && region.id)
 
         return <Row>
             <Col xs={12}>
                 <Row>
                     <Col xs={12}>
                         <FormGroup>
+                            <select
+                                className={"form-control"}
+                                value={region ? region.id : ''}
+                                onChange={this.setRegion}>
+                                <option value={''}>{trans('participation_search_placeholder')}</option>
+                                {this.props.Region.collection.map((item, key) =>
+                                    <option key={key} value={item.id}>{item.name}</option>
+                                )}
+                            </select>
+                        </FormGroup>
+                        <FormGroup>
                             <InputGroup>
-                                <select
-                                    className={"form-control"}
-                                    value={region ? region.id : ''}
-                                    onChange={this.setRegion}>
-                                    <option value={''}>{trans('participation_search_placeholder')}</option>
-                                    {this.props.Region.collection.map((item, key) =>
-                                        <option key={key} value={item.id}>{item.name}</option>
-                                    )}
-                                </select>
+                                <FormControl
+                                    placeholder={trans('participation_search_placeholder')}
+                                    value={search || ''}
+                                    onChange={this.changeSearch}/>
                                 <span className="input-group-btn">
                                     <button className="btn btn-primary btn-lg"
                                             onClick={this.search}
