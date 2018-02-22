@@ -72,8 +72,9 @@ class ImportPharmacyParticipantsCommand extends ContainerAwareCommand
             $region = $regionRepo->createQueryBuilder('r')
                 ->where('lower(r.name) = :search')
                 ->setParameter('search', $regionName)
+                ->setMaxResults(1)
                 ->getQuery()
-                ->getSingleResult();
+                ->getOneOrNullResult();
             if (!$region) {
                 throw new \Exception("Region was not found by name '$regionName'", 404);
             }
