@@ -3,14 +3,33 @@ import {connect} from 'react-redux';
 import {Col, FormControl, FormGroup, InputGroup, Row} from 'react-bootstrap';
 import trans from '../../translator'
 import * as Action from "../../actions";
-import AccessControl from "../AccessControl";
+// import AccessControl from "../AccessControl";
+import FetchRegions from "../../actions/FetchRegions";
 
 class Participantion extends React.Component {
 
     constructor() {
         super()
+        this.setRegion = this.setRegion.bind(this)
         this.changeSearch = this.changeSearch.bind(this)
         this.search = this.search.bind(this)
+    }
+
+    componentWillMount() {
+        this.props.dispatch(FetchRegions())
+    }
+
+    setRegion(e) {
+        const option = parseInt(e.target.value)
+        let payload = null
+        if (option) {
+            payload = this.props.Region.collection
+                .find(item => item.id === option)
+        }
+        this.props.dispatch({
+            type: Action.PARTICIPATE_REGION_CHANGED,
+            payload
+        })
     }
 
     search() {
@@ -29,7 +48,7 @@ class Participantion extends React.Component {
     }
 
     renderContent() {
-        const {collection, isLoaded, isLoading} = this.props.Participation
+        const {collection, isLoaded, isLoading, isFirstSearch} = this.props.Participation
 
         if (isLoading) {
             return <div className="banner">
@@ -38,6 +57,13 @@ class Participantion extends React.Component {
         }
 
         if (isLoaded && collection.length === 0) {
+
+            if (isFirstSearch) {
+                return <div className="banner">
+                    <h3>{trans('participation_first_search_title')}</h3>
+                </div>
+            }
+
             return <div className="banner">
                 <h3>{trans('participation_no_items_title')}</h3>
                 <h4>{trans('participation_no_items_footer')}</h4>
@@ -74,9 +100,11 @@ class Participantion extends React.Component {
     }
 
     render() {
-        const {search, isLoading, isCodeValid} = this.props.Participation
+        const {search, isLoading, isCodeValid, region} = this.props.Participation
 
-        if (!isCodeValid) return <AccessControl/>
+        // if (!isCodeValid) return <AccessControl/>
+
+        const isValid = region && region.id
 
         return <Row>
             <Col xs={12}>
@@ -84,14 +112,19 @@ class Participantion extends React.Component {
                     <Col xs={12}>
                         <FormGroup>
                             <InputGroup>
-                                <FormControl
-                                    placeholder={trans('participation_search_placeholder')}
-                                    value={search || ''}
-                                    onChange={this.changeSearch}/>
+                                <select
+                                    className={"form-control"}
+                                    value={region ? region.id : ''}
+                                    onChange={this.setRegion}>
+                                    <option value={''}>{trans('participation_search_placeholder')}</option>
+                                    {this.props.Region.collection.map((item, key) =>
+                                        <option key={key} value={item.id}>{item.name}</option>
+                                    )}
+                                </select>
                                 <span className="input-group-btn">
                                     <button className="btn btn-primary btn-lg"
                                             onClick={this.search}
-                                            disabled={isLoading || !search}>
+                                            disabled={isLoading || !isValid}>
                                         {isLoading
                                             ? <i className="fa fa-spin fa-circle-o-notch"/>
                                             : <i className="fa fa-search"/>}&nbsp;{trans('participation_search_btn')}

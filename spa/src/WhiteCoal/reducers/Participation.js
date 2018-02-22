@@ -10,6 +10,15 @@ const collection = (prev = [], action) => {
     }
 }
 
+const isFirstSearch = (prev = true, action) => {
+    switch (action.type) {
+        case Action.FETCH_PARTICIPANTS_BEFORE:
+            return false
+        default:
+            return prev
+    }
+}
+
 const isCodeValid = (prev = false, action) => {
     switch (action.type) {
         case Action.PARTICIPATION_ACCESS_GRANTED:
@@ -75,6 +84,7 @@ const isLoading = (prev = false, action) => {
 }
 
 export default combineReducers({
+    isFirstSearch,
     isCodeValid,
     code,
     collection,
