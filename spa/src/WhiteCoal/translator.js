@@ -53,7 +53,25 @@ const translator = {
         'реєстрацію, зберігання, адаптацію, ' +
         'зміну, оновлення моїх персональних даних (з використанням інформаційних систем і без ' +
         'них) без обмежень такої обробки. Дана згода на збір і обробку моїх персональних даних, ' +
-        'поширюється на всі дані, зазначені мною в цій анкеті.'
+        'поширюється на всі дані, зазначені мною в цій анкеті.',
+        winner_no_items_title: 'Переможців не знайдено',
+        winner_no_items_footer: 'Спробуйте змінити пошуковий запит',
+        no_winner_for_prize_title: 'Переможець не знайдений',
+        field_pharmacy: 'Виберіть аптеку...',
+        request_prize_btn: 'Отримати приз',
+        winner_request_title: 'Ваша аптека присутня у переліку? Отримати свій приз!',
+        winner_request_footer: 'Зв`яжіться з організатором акції для отримання призу:',
+        winner_request_comment: 'Коментар',
+        winner_request_email: 'Ваш email',
+        contact_field_phone: 'Телефон отримувача',
+        contact_field_destination: 'Номер Нової Пошти отримувача',
+        contact_field_city: 'Нас. пункт отримувача',
+        contact_field_lastName: 'Ваше прізвище',
+        contact_field_firstName: 'Ваше ім`я',
+        generic_text_placeholder: 'Введіть...',
+        generic_select_placeholder: 'Виберіть...',
+
+
     }
 }
 

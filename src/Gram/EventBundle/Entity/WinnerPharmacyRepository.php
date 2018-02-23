@@ -15,12 +15,21 @@ class WinnerPharmacyRepository extends EntityRepository
             ->addSelect('pharmacy')
             ->addSelect('prize')
             ->addSelect('address')
+            ->addSelect('region')
             ->addSelect('type');
         $qb
             ->join('w.pharmacy', 'pharmacy')
             ->join('w.prize', 'prize')
             ->join('pharmacy.address', 'address')
+            ->join('address.region', 'region')
             ->leftJoin('pharmacy.type', 'type');
+
+        if (isset($filter['region'])) {
+            $selectedId = intval($filter['region']['id']);
+
+            $qb->andWhere($e->eq('region.id', ":region"))
+                ->setParameter('region', $selectedId);
+        }
 
         if (isset($filter['search']) && $filter['search']) {
             $qb->andWhere($e->orX()

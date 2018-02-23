@@ -20,15 +20,14 @@
             </div>
             <div class="col-xs-12">
                 <div class="row">
-                    {% if event.isExpired() %}
-                        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
-                            <div class="form-group text-center" style="color:white; background: #0d2d52;padding: 10px 0;">
-                                <h1 class="bold uppercase">Увага!</h1>
-                                <h2 class="bold">23 лютого 2018 р.<br>відбудеться розіграш Призів</h2>
-                                <h2 class="bold">серед учасників, які увійшли до Реєстру</h2>
-                            </div>
+                    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+                        <div class="form-group text-center" style="color:white; background: #0d2d52;padding: 10px 0;">
+                            <h1 class="bold uppercase">Увага!</h1>
+                            <h2 class="bold">23 лютого 2018 р.<br>відбувся розіграш Призів</h2>
+                            <h2 class="bold">серед учасників, які увійшли до Реєстру.</h2>
+                            <h3>Призи визначені серед зареєстрованих аптек, які набрали більше ніж 1000 Акційних балів, шляхом незалежного електронного жеребкування..</h3>
                         </div>
-                    {% endif %}
+                    </div>
                     <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
                         <div class="form-group">
                             <a href="{{ path('participant_index', {'code': params.code}) }}"
@@ -37,7 +36,8 @@
                         </div>
                         <div class="form-group">
                             <a href="{{ path('winner_index', {'code': params.code}) }}"
-                               class="btn btn-lg btn-block btn-default uppercase disabled">Переможці акції</a>
+                               class="btn btn-lg btn-block btn-default uppercase">
+                                <i class="fa fa-star fa-spin" style="color: #c1b331;"></i>&nbsp;Переможці акції</a>
                         </div>
                         <div class="form-group">
                             <a href="{{ path('about_index', {'code': params.code}) }}"

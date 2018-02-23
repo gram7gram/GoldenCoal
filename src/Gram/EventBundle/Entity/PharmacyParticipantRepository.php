@@ -36,10 +36,9 @@ class PharmacyParticipantRepository extends EntityRepository
 
         if (isset($filter['region'])) {
             $selectedId = intval($filter['region']['id']);
-            $ids = [$selectedId];
 
-            $qb->andWhere($e->in('region.id', ":region"))
-                ->setParameter('region', $ids);
+            $qb->andWhere($e->eq('region.id', ":region"))
+                ->setParameter('region', $selectedId);
         }
 
         if (isset($filter['search']) && $filter['search']) {

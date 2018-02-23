@@ -153,8 +153,6 @@ class SitemapController extends Controller
     public function winnerAction($code)
     {
 
-        throw new AccessDeniedHttpException();
-
         $em = $this->getDoctrine()->getManager();
         $event = $em->getRepository(Event::class)->findOneBy([
             'code' => $code
